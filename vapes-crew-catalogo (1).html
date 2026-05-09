@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAPES CREW — Catálogo Oficial</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark:       #060608;
+      --bg-card:       #0C0C10;
+      --bg-card-hover: #101016;
+      --text-main:     #FFFFFF;
+      --text-muted:    #7A7A8A;
+      --text-dim:      #3A3A4A;
+
+      --cyan:          #00FFFF;
+      --electric-blue: #7DF9FF;
+      --turquoise:     #38E0D0;
+      --navy:          #0000ED;
+      --neon-green:    #38FF14;
+
+      --glow-cyan:     rgba(0,255,255,0.18);
+      --glow-green:    rgba(56,255,20,0.14);
+      --glow-blue:     rgba(0,0,237,0.3);
+
+      --border:        rgba(255,255,255,0.06);
+      --border-bright: rgba(0,255,255,0.25);
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius-card: 20px;
+      --radius-btn:  10px;
+      --transition:  0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      padding-bottom: 120px;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── AMBIENT GLOWS ── */
+    .ambient { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .ambient-1 { width:700px;height:500px;top:-200px;left:50%;transform:translateX(-50%);background:radial-gradient(ellipse,var(--glow-cyan) 0%,transparent 70%);animation:pulseA 8s ease-in-out infinite alternate; }
+    .ambient-2 { width:400px;height:400px;bottom:10%;right:-100px;background:radial-gradient(ellipse,var(--glow-green) 0%,transparent 70%);animation:pulseB 10s ease-in-out infinite alternate; }
+    .ambient-3 { width:300px;height:300px;top:40%;left:-80px;background:radial-gradient(ellipse,var(--glow-blue) 0%,transparent 70%);animation:pulseB 12s ease-in-out infinite alternate-reverse; }
+    @keyframes pulseA { from{opacity:.5;transform:translateX(-50%) scale(1)} to{opacity:1;transform:translateX(-50%) scale(1.15)} }
+    @keyframes pulseB { from{opacity:.4;transform:scale(1)} to{opacity:.9;transform:scale(1.2)} }
+
+    /* ── HEADER ── */
+    header { position:relative;z-index:10;padding:50px 20px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px; }
+    .brand-logo { height:130px;width:auto;filter:drop-shadow(0 0 24px var(--glow-cyan)) drop-shadow(0 0 60px rgba(0,255,255,.12));transition:filter var(--transition);animation:logoFloat 6s ease-in-out infinite; }
+    .brand-logo:hover { filter:drop-shadow(0 0 36px var(--cyan)) drop-shadow(0 0 80px var(--glow-cyan)); }
+    @keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .brand-tagline { font-family:var(--font-display);font-size:.85rem;letter-spacing:8px;color:var(--text-muted);text-transform:uppercase; }
+    .header-divider { width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),var(--neon-green),transparent);border-radius:999px; }
+
+    /* ── STATS BAR ── */
+    .stats-bar { position:relative;z-index:10;max-width:700px;margin:0 auto 40px;padding:0 20px;display:flex;justify-content:center;gap:40px; }
+    .stat { text-align:center; }
+    .stat-value { font-family:var(--font-display);font-size:1.6rem;letter-spacing:2px;background:linear-gradient(135deg,var(--cyan),var(--neon-green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .stat-label { font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-top:2px; }
+
+    /* ── CONTROL PANEL ── */
+    .control-panel { position:relative;z-index:10;max-width:1200px;margin:0 auto 36px;padding:0 20px;display:flex;flex-direction:column;gap:16px; }
+    .search-wrapper { position:relative; }
+    .search-icon { position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:1rem;pointer-events:none; }
+    .search-bar { width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:16px 20px 16px 48px;color:var(--text-main);font-size:.95rem;font-family:var(--font-body);outline:none;transition:var(--transition); }
+    .search-bar::placeholder { color:var(--text-muted); }
+    .search-bar:focus { border-color:var(--border-bright);background:var(--bg-card-hover);box-shadow:0 0 0 4px rgba(0,255,255,.06),inset 0 0 20px rgba(0,255,255,.03); }
+
+    .filter-group { display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none; }
+    .filter-group::-webkit-scrollbar { display:none; }
+    .filter-btn { background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);padding:9px 20px;border-radius:999px;font-size:.72rem;font-weight:600;font-family:var(--font-body);cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:1.5px;transition:var(--transition);position:relative;overflow:hidden; }
+    .filter-btn::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan),var(--neon-green));opacity:0;transition:var(--transition); }
+    .filter-btn span { position:relative;z-index:1; }
+    .filter-btn.active,.filter-btn:hover { border-color:transparent;color:var(--bg-dark); }
+    .filter-btn.active::before,.filter-btn:hover::before { opacity:1; }
+
+    /* ── CATALOG GRID ── */
+    .catalog-grid { position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px; }
+
+    /* ── SKELETON LOADING ── */
+    .skeleton-card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden; }
+    .skeleton-img { width:100%;padding-top:100%;background:linear-gradient(90deg,#0f0f14 25%,#181820 50%,#0f0f14 75%);background-size:200% 100%;animation:shimmer 1.6s infinite; }
+    .skeleton-body { padding:20px;display:flex;flex-direction:column;gap:10px; }
+    .skeleton-line { height:12px;border-radius:6px;background:linear-gradient(90deg,#0f0f14 25%,#181820 50%,#0f0f14 75%);background-size:200% 100%;animation:shimmer 1.6s infinite; }
+    .skeleton-line.short  { width:40%; }
+    .skeleton-line.medium { width:65%; }
+    .skeleton-line.tall   { height:18px;width:80%; }
+    .skeleton-footer { display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border); }
+    .skeleton-price { height:22px;width:30%;border-radius:6px;background:linear-gradient(90deg,#0f0f14 25%,#181820 50%,#0f0f14 75%);background-size:200% 100%;animation:shimmer 1.6s infinite; }
+    .skeleton-btn   { height:36px;width:80px;border-radius:var(--radius-btn);background:linear-gradient(90deg,#0f0f14 25%,#181820 50%,#0f0f14 75%);background-size:200% 100%;animation:shimmer 1.6s infinite; }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    /* ── PRODUCT CARD ── */
+    .product-card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:var(--transition);position:relative;animation:cardIn .45s ease both; }
+    .product-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--turquoise),var(--neon-green));opacity:0;transition:var(--transition);z-index:2; }
+    .product-card:hover { transform:translateY(-6px);border-color:rgba(0,255,255,.18);background:var(--bg-card-hover);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(0,255,255,.06); }
+    .product-card:hover::before { opacity:1; }
+    .product-card.agotado { opacity:.5; }
+    .product-card.agotado .product-image { filter:grayscale(80%); }
+    .product-card.agotado:hover { transform:none; }
+
+    /* ── BADGES ── */
+    .badge-wrap { position:absolute;top:12px;left:12px;z-index:5;display:flex;flex-direction:column;gap:5px; }
+    .badge { display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:999px;font-size:.6rem;font-weight:700;font-family:var(--font-body);text-transform:uppercase;letter-spacing:1.2px;white-space:nowrap;animation:badgePop .4s cubic-bezier(.175,.885,.32,1.275) both; }
+    @keyframes badgePop { from{opacity:0;transform:scale(.6)} to{opacity:1;transform:scale(1)} }
+    .badge-ultimas { background:linear-gradient(135deg,#FF4444,#CC0000);color:#fff;box-shadow:0 2px 12px rgba(255,0,0,.45);animation:badgePop .4s cubic-bezier(.175,.885,.32,1.275) both,urgencyPulse 2s ease-in-out infinite; }
+    .badge-agotado { background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--text-muted); }
+    @keyframes urgencyPulse { 0%,100%{box-shadow:0 2px 12px rgba(255,0,0,.4)} 50%{box-shadow:0 2px 24px rgba(255,0,0,.75)} }
+
+    /* ── STOCK INDICATOR ── */
+    .stock-indicator { display:flex;align-items:center;gap:8px;margin-bottom:14px; }
+    .stock-bar-wrap { flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden; }
+    .stock-bar-fill { height:100%;border-radius:999px;transition:width .6s ease; }
+    .stock-label { font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;white-space:nowrap; }
+    .stock-ok  .stock-bar-fill { background:linear-gradient(90deg,var(--turquoise),var(--neon-green)); }
+    .stock-ok  .stock-label    { color:var(--neon-green); }
+    .stock-low .stock-bar-fill { background:linear-gradient(90deg,#FF8C00,#FFD700);animation:barPulse 1.5s ease-in-out infinite; }
+    .stock-low .stock-label    { color:#FFD700; }
+    .stock-out .stock-bar-fill { background:rgba(255,255,255,.12);width:100%!important; }
+    .stock-out .stock-label    { color:var(--text-muted); }
+    @keyframes barPulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ── PRODUCT IMAGE ── */
+    .product-image-wrapper { position:relative;width:100%;padding-top:100%;background:linear-gradient(145deg,#09090d,#0d0d14);overflow:hidden; }
+    .product-image-wrapper::after { content:'';position:absolute;inset:0;background:radial-gradient(circle at center,var(--glow-cyan) 0%,transparent 65%);opacity:0;transition:var(--transition); }
+    .product-card:hover .product-image-wrapper::after { opacity:1; }
+    .product-image { position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;padding:22px;transition:transform .5s cubic-bezier(.25,.8,.25,1);z-index:1; }
+    .product-card:hover .product-image { transform:scale(1.06); }
+
+    /* ── PRODUCT INFO ── */
+    .product-info { padding:20px;display:flex;flex-direction:column;flex-grow:1; }
+    .product-tag { display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:8px; }
+    .product-tag::before { content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--neon-green);box-shadow:0 0 6px var(--neon-green); }
+    .product-title { font-family:var(--font-display);font-size:1.5rem;letter-spacing:1px;line-height:1.1;margin-bottom:5px; }
+    .product-flavor { font-size:.85rem;color:var(--text-muted);margin-bottom:4px;font-weight:400; }
+
+    .product-footer { margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border); }
+    .product-price { font-family:var(--font-display);font-size:1.45rem;letter-spacing:1px;background:linear-gradient(135deg,var(--cyan),var(--electric-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .product-price.out { background:none;-webkit-text-fill-color:var(--text-muted);color:var(--text-muted); }
+
+    .order-btn { position:relative;overflow:hidden;background:linear-gradient(135deg,var(--cyan),var(--turquoise));color:var(--bg-dark);border:none;padding:11px 20px;border-radius:var(--radius-btn);font-size:.72rem;font-weight:700;font-family:var(--font-body);text-decoration:none;text-transform:uppercase;letter-spacing:1.5px;transition:var(--transition);white-space:nowrap;cursor:pointer; }
+    .order-btn::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--neon-green),var(--turquoise));opacity:0;transition:var(--transition); }
+    .order-btn span { position:relative;z-index:1; }
+    .order-btn:hover { transform:scale(1.05);box-shadow:0 4px 20px rgba(56,255,20,.35); }
+    .order-btn:hover::before { opacity:1; }
+    .order-btn.disabled { background:rgba(255,255,255,.06);color:var(--text-muted);pointer-events:none;cursor:default; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position:fixed;bottom:28px;right:24px;z-index:1000;
+      display:flex;align-items:center;gap:10px;
+      background:linear-gradient(135deg,#25D366,#128C7E);
+      color:#fff;border-radius:999px;padding:14px 22px;
+      font-size:.82rem;font-weight:700;font-family:var(--font-body);
+      text-decoration:none;text-transform:uppercase;letter-spacing:1px;
+      box-shadow:0 8px 32px rgba(37,211,102,.4),0 2px 8px rgba(0,0,0,.4);
+      transition:var(--transition);
+      animation:waAppear .6s cubic-bezier(.175,.885,.32,1.275) .8s both;
+    }
+    .wa-float:hover { transform:scale(1.06) translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,.6); }
+    .wa-float svg { width:20px;height:20px;flex-shrink:0; }
+    .wa-float::after { content:'';position:absolute;inset:-4px;border-radius:999px;border:2px solid rgba(37,211,102,.4);animation:waRing 2.2s ease-out infinite; }
+    @keyframes waAppear { from{opacity:0;transform:scale(.5) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+    @keyframes waRing   { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(1.35);opacity:0} }
+
+    /* ── TOAST ── */
+    .toast { position:fixed;bottom:100px;right:24px;z-index:2000;background:var(--bg-card);border:1px solid var(--border-bright);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:.82rem;font-weight:600;box-shadow:0 8px 32px rgba(0,0,0,.5),0 0 20px rgba(0,255,255,.08);transform:translateX(130%);transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;max-width:260px; }
+    .toast.show { transform:translateX(0); }
+    .toast-icon { font-size:1.1rem;flex-shrink:0; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state { grid-column:1/-1;text-align:center;padding:80px 20px; }
+    .empty-state-icon { font-size:3rem;margin-bottom:16px;display:block;opacity:.3; }
+    .empty-state p { color:var(--text-muted);font-size:.9rem; }
+
+    /* ── FOOTER ── */
+    footer { position:relative;z-index:10;text-align:center;padding:40px 20px 20px; }
+    .footer-line { width:100%;max-width:300px;height:1px;background:linear-gradient(90deg,transparent,var(--border-bright),transparent);margin:0 auto 20px; }
+    .footer-text { font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--text-dim); }
+
+    @keyframes cardIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:600px){
+      .brand-logo{height:100px}
+      .brand-tagline{letter-spacing:4px;font-size:.7rem}
+      .stats-bar{gap:24px}
+      .stat-value{font-size:1.3rem}
+      .catalog-grid{grid-template-columns:repeat(2,1fr);gap:12px;padding:0 12px}
+      .product-info{padding:14px}
+      .product-title{font-size:1.15rem}
+      .product-footer{flex-direction:column;gap:10px;align-items:flex-start}
+      .order-btn{width:100%;text-align:center}
+      .control-panel{padding:0 12px}
+      .wa-float-label{display:none}
+      .wa-float{padding:16px}
+    }
+    @media(max-width:380px){ .catalog-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+  <div class="ambient ambient-3"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toast-icon">✓</span>
+    <span id="toast-msg">Mensaje</span>
+  </div>
+
+  <header>
+    <img src="https://i.postimg.cc/BbcgfDwS/Whats-App-Image-2026-04-06-at-8-12-59-PM-removebg-preview.png" alt="Vapes Crew" class="brand-logo">
+    <div class="header-divider"></div>
+    <div class="brand-tagline">Catálogo Oficial · Mendoza</div>
+  </header>
+
+  <div class="stats-bar" id="stats-bar" style="display:none;">
+    <div class="stat"><div class="stat-value" id="stat-total">—</div><div class="stat-label">Productos</div></div>
+    <div class="stat"><div class="stat-value" id="stat-brands">—</div><div class="stat-label">Marcas</div></div>
+    <div class="stat"><div class="stat-value" id="stat-showing">—</div><div class="stat-label">Mostrando</div></div>
+  </div>
+
+  <div class="control-panel">
+    <div class="search-wrapper">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search-input" class="search-bar" placeholder="Buscar sabor o marca...">
+    </div>
+    <div class="filter-group" id="filter-group">
+      <button class="filter-btn active" onclick="filterCategory('TODOS', this)"><span>Todos</span></button>
+    </div>
+  </div>
+
+  <main class="catalog-grid" id="catalog-grid">
+    <!-- Skeleton cards mientras carga -->
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-footer"><div class="skeleton-price"></div><div class="skeleton-btn"></div></div></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-footer"><div class="skeleton-price"></div><div class="skeleton-btn"></div></div></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-footer"><div class="skeleton-price"></div><div class="skeleton-btn"></div></div></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-footer"><div class="skeleton-price"></div><div class="skeleton-btn"></div></div></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-footer"><div class="skeleton-price"></div><div class="skeleton-btn"></div></div></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-footer"><div class="skeleton-price"></div><div class="skeleton-btn"></div></div></div></div>
+  </main>
+
+  <footer>
+    <div class="footer-line"></div>
+    <div class="footer-text">Vapes Crew · Premium Vapes · Mendoza</div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a id="wa-float" class="wa-float" href="https://wa.me/5492612152270" target="_blank" aria-label="Consultar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="wa-float-label">Consultar</span>
+  </a>
+
+  <script>
+    const WHATSAPP  = "5492612152270";
+    const URL_DB    = "https://script.google.com/macros/s/AKfycbzmmihoFNC5jmDRcIjZS-KdRd6rrBWmwGji15v0eYzXDwA9efR7pIuY09TEe1Xy2YDMfA/exec";
+
+    // ── Umbrales de stock ──────────────────────────────────────────
+    const STOCK_OUT = 0;  // agotado
+    const STOCK_LOW = 3;  // últimas unidades (1–3)
+    // 4+ = disponible normal
+
+    let productos   = [];
+    let marcaFiltro = "TODOS";
+
+    // ── Toast ──────────────────────────────────────────────────────
+    let toastTimer;
+    function showToast(msg, icon) {
+      icon = icon || '✓';
+      var t  = document.getElementById('toast');
+      document.getElementById('toast-icon').textContent = icon;
+      document.getElementById('toast-msg').textContent  = msg;
+      t.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3000);
+    }
+
+    // ── Badge HTML ─────────────────────────────────────────────────
+    function getBadge(stock) {
+      var s = parseInt(stock, 10);
+      if (isNaN(s))       return '';
+      if (s <= STOCK_OUT) return '<span class="badge badge-agotado">⊘ Agotado</span>';
+      if (s <= STOCK_LOW) return '<span class="badge badge-ultimas">🔥 Últimas ' + s + '</span>';
+      return '';
+    }
+
+    // ── Stock indicator ────────────────────────────────────────────
+    function getStockIndicator(stock) {
+      var s   = parseInt(stock, 10);
+      var max = 20;
+      if (isNaN(s)) return '';
+      var stateClass, label, pct;
+      if (s <= STOCK_OUT) {
+        stateClass = 'stock-out'; label = 'Sin stock'; pct = 100;
+      } else if (s <= STOCK_LOW) {
+        stateClass = 'stock-low';
+        label = s + ' unidad' + (s === 1 ? '' : 'es');
+        pct   = Math.max((s / max) * 100, 8);
+      } else {
+        stateClass = 'stock-ok'; label = 'Disponible';
+        pct = Math.min((s / max) * 100, 100);
+      }
+      return '<div class="stock-indicator ' + stateClass + '">' +
+               '<div class="stock-bar-wrap"><div class="stock-bar-fill" style="width:' + pct + '%"></div></div>' +
+               '<span class="stock-label">' + label + '</span>' +
+             '</div>';
+    }
+
+    // ── WhatsApp link inteligente ──────────────────────────────────
+    function buildWALink(p) {
+      var msg = encodeURIComponent(
+        '¡Hola! 👋 Vi el catálogo de Vapes Crew y quiero pedir:\n\n' +
+        '🛒 *Producto:* ' + p.producto + '\n' +
+        '🍓 *Sabor:* '    + p.sabor    + '\n' +
+        '💰 *Precio:* '   + p.precio   + '\n\n' +
+        '¿Tienen stock disponible?'
+      );
+      return 'https://wa.me/' + WHATSAPP + '?text=' + msg;
+    }
+
+    // ── Cargar datos ───────────────────────────────────────────────
+    async function cargar() {
+      try {
+        var res = await fetch(URL_DB);
+        productos = await res.json();
+
+        var statsBar = document.getElementById('stats-bar');
+        statsBar.style.display = 'flex';
+        document.getElementById('stat-total').textContent  = productos.length;
+        var marcas = [...new Set(productos.map(function(p){ return p.producto; }).filter(Boolean))];
+        document.getElementById('stat-brands').textContent = marcas.length;
+
+        renderFilters();
+        render();
+      } catch(e) {
+        document.getElementById('catalog-grid').innerHTML =
+          '<div class="empty-state"><span class="empty-state-icon">⚠</span><p>Error al conectar con el stock.<br>Intentá de nuevo en unos segundos.</p></div>';
+      }
+    }
+
+    // ── Filtros ────────────────────────────────────────────────────
+    function renderFilters() {
+      var container = document.getElementById('filter-group');
+      var marcas    = [...new Set(productos.map(function(p){ return p.producto; }))];
+      marcas.forEach(function(m) {
+        if (m) container.innerHTML += '<button class="filter-btn" onclick="filterCategory(\'' + m + '\', this)"><span>' + m + '</span></button>';
+      });
+    }
+
+    function filterCategory(m, btn) {
+      marcaFiltro = m;
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      render();
+    }
+
+    // ── Render cards ───────────────────────────────────────────────
+    function render() {
+      var grid  = document.getElementById('catalog-grid');
+      var query = document.getElementById('search-input').value.toLowerCase();
+
+      var filtrados = productos.filter(function(p) {
+        var matchMarca  = (marcaFiltro === 'TODOS' || p.producto === marcaFiltro);
+        var matchSearch = (
+          (p.producto || '').toLowerCase().includes(query) ||
+          (p.sabor    || '').toLowerCase().includes(query)
+        );
+        return matchMarca && matchSearch;
+      });
+
+      var showingStat = document.getElementById('stat-showing');
+      if (showingStat) showingStat.textContent = filtrados.length;
+
+      if (filtrados.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><span class="empty-state-icon">◎</span><p>No se encontraron productos.<br>Probá con otro término.</p></div>';
+        return;
+      }
+
+      grid.innerHTML = filtrados.map(function(p, i) {
+        var stock     = parseInt(p.stock, 10);
+        var agotado   = !isNaN(stock) && stock <= STOCK_OUT;
+        var cardClass = agotado ? 'product-card agotado' : 'product-card';
+        var priceClass= agotado ? 'product-price out' : 'product-price';
+        var btnHTML   = agotado
+          ? '<span class="order-btn disabled"><span>Sin stock</span></span>'
+          : '<a href="' + buildWALink(p) + '" target="_blank" class="order-btn" onclick="showToast(\'Abriendo WhatsApp...\',\'💬\')"><span>Pedir 💬</span></a>';
+
+        return '<div class="' + cardClass + '" style="animation-delay:' + Math.min(i * 0.05, 0.5) + 's">' +
+                 '<div class="badge-wrap">' + getBadge(p.stock) + '</div>' +
+                 '<div class="product-image-wrapper">' +
+                   '<img src="' + p.imagen_url + '" class="product-image" loading="lazy" onerror="this.style.opacity=0.15" alt="' + p.producto + ' ' + p.sabor + '">' +
+                 '</div>' +
+                 '<div class="product-info">' +
+                   '<span class="product-tag">' + (p.categoria || 'Vaporizador') + '</span>' +
+                   '<h3 class="product-title">' + p.producto + '</h3>' +
+                   '<p class="product-flavor">' + p.sabor + '</p>' +
+                   getStockIndicator(p.stock) +
+                   '<div class="product-footer">' +
+                     '<span class="' + priceClass + '">' + p.precio + '</span>' +
+                     btnHTML +
+                   '</div>' +
+                 '</div>' +
+               '</div>';
+      }).join('');
+    }
+
+    // ── WhatsApp float — mensaje genérico ──────────────────────────
+    function initWAFloat() {
+      var msg = encodeURIComponent('¡Hola! 👋 Vi el catálogo de Vapes Crew y quiero consultar sobre los productos disponibles.');
+      document.getElementById('wa-float').href = 'https://wa.me/' + WHATSAPP + '?text=' + msg;
+    }
+
+    document.getElementById('search-input').addEventListener('input', render);
+    document.addEventListener('DOMContentLoaded', function(){ initWAFloat(); cargar(); });
+  </script>
+</body>
+</html>
