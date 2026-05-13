@@ -172,6 +172,18 @@
     .filter-btn.active,.filter-btn:hover{border-color:transparent;color:var(--bg-dark)}
     .filter-btn.active::before,.filter-btn:hover::before{opacity:1}
 
+    /* ── STOCK TOGGLE ── */
+    .stock-toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:13px 18px;transition:var(--transition)}
+    .stock-toggle-row:hover{border-color:var(--border-bright)}
+    .stock-toggle-label{display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;color:var(--text-main);cursor:pointer;user-select:none}
+    .stock-toggle-label span{font-size:.72rem;color:var(--text-muted);font-weight:400}
+    .toggle-switch{position:relative;width:44px;height:24px;flex-shrink:0;cursor:pointer}
+    .toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+    .toggle-track{position:absolute;inset:0;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid var(--border);transition:var(--transition)}
+    .toggle-switch input:checked ~ .toggle-track{background:linear-gradient(135deg,var(--cyan),var(--neon-green));border-color:transparent;box-shadow:0 0 12px rgba(0,255,255,.3)}
+    .toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.3s cubic-bezier(.25,.8,.25,1);box-shadow:0 2px 6px rgba(0,0,0,.4)}
+    .toggle-switch input:checked ~ .toggle-thumb{transform:translateX(20px)}
+
     /* ── FAVORITES PANEL ── */
     .fav-panel{position:relative;z-index:10;max-width:1200px;margin:0 auto 30px;padding:0 20px;display:none}
     .fav-panel.open{display:block;animation:cardIn .3s ease both}
@@ -496,6 +508,17 @@
     </div>
     <div class="filter-group" id="filter-group">
       <button class="filter-btn active" onclick="filterCategory('TODOS',this)"><span>Todos</span></button>
+    </div>
+    <div class="stock-toggle-row">
+      <label class="stock-toggle-label" for="toggle-stock">
+        🟢 Mostrar solo productos disponibles
+        <span>Ocultá los que están sin stock</span>
+      </label>
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggle-stock" checked onchange="render()">
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
     </div>
   </div>
 
@@ -851,10 +874,13 @@
     function render() {
       var grid  = document.getElementById('catalog-grid');
       var query = document.getElementById('search-input').value.toLowerCase();
+      var soloDisponibles = document.getElementById('toggle-stock').checked;
       var filtrados = productos.filter(function(p){
         var matchMarca  = (marcaFiltro==='TODOS'||p.producto===marcaFiltro);
         var matchSearch = (p.producto||'').toLowerCase().includes(query)||(p.sabor||'').toLowerCase().includes(query);
-        return matchMarca && matchSearch;
+        var stock = parseInt(p.stock, 10);
+        var matchStock  = !soloDisponibles || isNaN(stock) || stock > STOCK_OUT;
+        return matchMarca && matchSearch && matchStock;
       });
       var s = document.getElementById('stat-showing');
       if (s) s.textContent = filtrados.length;
