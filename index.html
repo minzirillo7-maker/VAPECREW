@@ -285,7 +285,47 @@
     .cart-add-btn{position:relative;overflow:hidden;background:rgba(0,255,255,.08);border:1px solid var(--border-bright);color:var(--cyan);padding:11px 13px;border-radius:var(--radius-btn);font-size:.85rem;font-weight:700;font-family:var(--font-body);cursor:pointer;transition:var(--transition);white-space:nowrap;flex-shrink:0}
     .cart-add-btn:hover{background:rgba(0,255,255,.18);transform:scale(1.05);box-shadow:0 4px 16px rgba(0,255,255,.2)}
     .cart-add-btn.added{background:linear-gradient(135deg,var(--neon-green),var(--turquoise));color:#000;border-color:transparent;animation:addedPop .3s cubic-bezier(.175,.885,.32,1.275)}
+    .mp-btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#009ee3,#007eb5);color:#fff;border:none;padding:11px 14px;border-radius:var(--radius-btn);font-size:.72rem;font-weight:700;font-family:var(--font-body);text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:var(--transition);white-space:nowrap;cursor:pointer;display:inline-flex;align-items:center;gap:6px;flex-shrink:0}
+    .mp-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#00c4ff,#009ee3);opacity:0;transition:var(--transition)}
+    .mp-btn span{position:relative;z-index:1}
+    .mp-btn:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(0,158,227,.45)}
+    .mp-btn:hover::before{opacity:1}
+    .mp-btn svg{width:14px;height:14px;flex-shrink:0;position:relative;z-index:1}
     @keyframes addedPop{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+
+    /* ── PAYMENT MODAL ── */
+    .pay-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:800;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(8px)}
+    .pay-modal-overlay.open{opacity:1;pointer-events:all}
+    .pay-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-60%);z-index:801;width:90%;max-width:420px;background:var(--bg-card);border:1px solid var(--border-bright);border-radius:24px;padding:32px 28px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(0,255,255,.08);transition:transform .4s cubic-bezier(.25,.8,.25,1),opacity .3s ease;opacity:0;pointer-events:none}
+    .pay-modal.open{transform:translate(-50%,-50%);opacity:1;pointer-events:all}
+    .pay-modal-header{text-align:center;margin-bottom:24px}
+    .pay-modal-icon{font-size:2.5rem;margin-bottom:10px;display:block}
+    .pay-modal-title{font-family:var(--font-display);font-size:1.8rem;letter-spacing:2px;background:linear-gradient(135deg,#009ee3,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+    .pay-modal-subtitle{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+    .pay-modal-product{background:rgba(0,158,227,.06);border:1px solid rgba(0,158,227,.2);border-radius:14px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+    .pay-modal-product-img{width:48px;height:48px;object-fit:contain;border-radius:10px;background:#0d0d14;flex-shrink:0;padding:4px}
+    .pay-modal-product-info{}
+    .pay-modal-product-name{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.5px;line-height:1.1}
+    .pay-modal-product-price{font-size:.8rem;color:var(--cyan);font-weight:600;margin-top:2px}
+    .pay-modal-steps{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+    .pay-step{display:flex;align-items:flex-start;gap:12px}
+    .pay-step-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#009ee3,var(--cyan));color:#000;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .pay-step-text{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+    .pay-step-text strong{color:var(--text-main)}
+    .pay-alias-box{background:rgba(0,0,0,.4);border:1px solid var(--border-bright);border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}
+    .pay-alias-info{}
+    .pay-alias-label{font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:3px}
+    .pay-alias-value{font-family:var(--font-display);font-size:1.3rem;letter-spacing:2px;color:var(--cyan)}
+    .pay-alias-cvu{font-size:.65rem;color:var(--text-dim);margin-top:2px;letter-spacing:.5px}
+    .pay-copy-btn{background:rgba(0,255,255,.08);border:1px solid var(--border-bright);color:var(--cyan);padding:8px 12px;border-radius:8px;font-size:.7rem;font-weight:700;font-family:var(--font-body);text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:var(--transition);white-space:nowrap;flex-shrink:0}
+    .pay-copy-btn:hover{background:rgba(0,255,255,.2)}
+    .pay-modal-actions{display:flex;flex-direction:column;gap:10px}
+    .pay-wa-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;padding:15px;border-radius:14px;font-size:.85rem;font-weight:700;font-family:var(--font-body);text-transform:uppercase;letter-spacing:1.5px;cursor:pointer;transition:var(--transition);text-decoration:none}
+    .pay-wa-btn:hover{transform:scale(1.02);box-shadow:0 8px 30px rgba(37,211,102,.4)}
+    .pay-wa-btn svg{width:18px;height:18px;flex-shrink:0}
+    .pay-cancel-btn{width:100%;background:none;border:1px solid var(--border);color:var(--text-muted);padding:11px;border-radius:12px;font-size:.75rem;font-weight:600;font-family:var(--font-body);text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:var(--transition)}
+    .pay-cancel-btn:hover{border-color:rgba(255,255,255,.2);color:var(--text-main)}
+    @media(max-width:480px){.pay-modal{padding:24px 18px;width:95%}}
 
     /* CART DRAWER */
     .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;opacity:0;pointer-events:none;transition:opacity .35s ease;backdrop-filter:blur(4px)}
@@ -426,6 +466,45 @@
   <div class="toast" id="toast">
     <span class="toast-icon" id="toast-icon">✓</span>
     <span id="toast-msg">Mensaje</span>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+  <div class="pay-modal-overlay" id="pay-modal-overlay" onclick="closePayModal()"></div>
+  <div class="pay-modal" id="pay-modal">
+    <div class="pay-modal-header">
+      <span class="pay-modal-icon">💳</span>
+      <div class="pay-modal-title">COMPRAR</div>
+      <div class="pay-modal-subtitle">Transferí desde tu app de banco o Mercado Pago y envianos el comprobante por WhatsApp para confirmar tu pedido.</div>
+    </div>
+    <div class="pay-modal-product" id="pay-modal-product"></div>
+    <div class="pay-alias-box">
+      <div class="pay-alias-info">
+        <div class="pay-alias-label">Alias Mercado Pago</div>
+        <div class="pay-alias-value">vvpecrew</div>
+      </div>
+      <button class="pay-copy-btn" onclick="copyAlias()">📋 Copiar</button>
+    </div>
+    <div class="pay-modal-steps">
+      <div class="pay-step">
+        <div class="pay-step-num">1</div>
+        <div class="pay-step-text">Abrí tu app de banco o Mercado Pago y transferí el monto exacto al alias <strong>vvpecrew</strong></div>
+      </div>
+      <div class="pay-step">
+        <div class="pay-step-num">2</div>
+        <div class="pay-step-text">Tocá el botón de abajo y envianos el <strong>comprobante de pago</strong> por WhatsApp</div>
+      </div>
+      <div class="pay-step">
+        <div class="pay-step-num">3</div>
+        <div class="pay-step-text">Confirmamos tu pedido y coordinamos la <strong>entrega</strong> 🚀</div>
+      </div>
+    </div>
+    <div class="pay-modal-actions">
+      <a id="pay-wa-btn" class="pay-wa-btn" href="#" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ya pagué — Enviar comprobante
+      </a>
+      <button class="pay-cancel-btn" onclick="closePayModal()">Cancelar</button>
+    </div>
   </div>
 
   <!-- Cart overlay -->
@@ -882,6 +961,7 @@
         var matchStock  = !soloDisponibles || isNaN(stock) || stock > STOCK_OUT;
         return matchMarca && matchSearch && matchStock;
       });
+      window._filtrados = filtrados;
       var s = document.getElementById('stat-showing');
       if (s) s.textContent = filtrados.length;
       if (!filtrados.length) {
@@ -896,10 +976,12 @@
         var priceCls= agotado ? 'product-price out' : 'product-price';
         var favCls  = isFav ? 'fav-btn active' : 'fav-btn';
         var favIcon = isFav ? '♥' : '♡';
+        var mpBtn = '<button class="mp-btn" onclick="openPayModal(' + i + ')" title="Comprar"><span>Comprar</span></button>';
         var btns    = agotado
           ? '<span class="order-btn disabled"><span>Sin stock</span></span>'
           : '<div class="btn-group">'+
               '<a href="'+buildWALink(p)+'" target="_blank" class="order-btn"><span>Pedir</span></a>'+
+              mpBtn+
               '<button class="cart-add-btn" onclick="addToCart(\''+p.id+'\',this)" title="Agregar al carrito">+</button>'+
             '</div>';
         return '<div class="'+cardCls+'" style="animation-delay:'+Math.min(i*.05,.5)+'s">'+
@@ -924,6 +1006,52 @@
       if (waf) waf.href = 'https://wa.me/'+WHATSAPP+'?text='+msg;
       var nav = document.getElementById('nav-wa');
       if (nav) nav.href = 'https://wa.me/'+WHATSAPP+'?text='+msg;
+    }
+
+    function openPayModal(idx) {
+      var p = window._filtrados[idx];
+      if (!p) return;
+      var overlay = document.getElementById('pay-modal-overlay');
+      var modal   = document.getElementById('pay-modal');
+      document.getElementById('pay-modal-product').innerHTML =
+        '<img class="pay-modal-product-img" src="' + p.imagen_url + '" onerror="this.style.opacity=0.2">' +
+        '<div class="pay-modal-product-info">' +
+          '<div class="pay-modal-product-name">' + p.producto + ' — ' + p.sabor + '</div>' +
+          '<div class="pay-modal-product-price">' + p.precio + ' · Transferencia sin comisión</div>' +
+        '</div>';
+      var msg = encodeURIComponent(
+        '¡Hola Vapes Crew! 👋 Acabo de realizar una transferencia para pagar:
+
+' +
+        '🛒 *Producto:* ' + p.producto + '
+' +
+        '🍓 *Sabor:* ' + p.sabor + '
+' +
+        '💰 *Monto:* ' + p.precio + '
+' +
+        '💳 *Alias:* vvpecrew
+
+' +
+        'Te adjunto el comprobante 🧾'
+      );
+      document.getElementById('pay-wa-btn').href = 'https://wa.me/5492612152270?text=' + msg;
+      overlay.classList.add('open');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePayModal() {
+      document.getElementById('pay-modal-overlay').classList.remove('open');
+      document.getElementById('pay-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function copyAlias() {
+      navigator.clipboard.writeText('vvpecrew').then(function(){
+        showToast('Alias copiado: vvpecrew ✓','📋');
+      }).catch(function(){
+        showToast('Alias: vvpecrew','📋');
+      });
     }
 
     document.getElementById('search-input').addEventListener('input', onSearchInput);
