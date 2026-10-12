@@ -2,462 +2,293 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAPE CREW — Catálogo Oficial · Mendoza | Vapes 40K originales</title>
-<meta name="description" content="Catálogo oficial de VAPE CREW. Vapes descartables originales de 40K puffs. Garantía 24hs, envíos toda la noche en Mendoza. Original o nada. Pedí por DM.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>VAPE CREW — Vapes 40K originales en Mendoza | Promo 3x</title>
+<meta name="description" content="Vapes descartables 40K originales en Mendoza. Promo 3x: ELFBAR CREATE 40K a $20.000 c/u y ELFBAR ICEKING 40K a $27.500 c/u. Envío en el momento, también de noche. Garantía 24hs. Pedí por DM.">
 <meta name="theme-color" content="#040BE7">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VAPE CREW">
-<meta property="og:title" content="VAPE CREW — Catálogo Oficial">
-<meta property="og:description" content="Vapes 40K originales. Garantía 24hs · Envíos toda la noche · Original o nada. Pedí por DM.">
+<meta property="og:title" content="VAPE CREW — Promo 3x en vapes 40K">
+<meta property="og:description" content="CREATE 40K 3x $20.000 c/u · ICEKING 40K 3x $27.500 c/u. Envío en el momento en Mendoza. Pedí por DM.">
 <meta property="og:image" content="https://i.ibb.co/3mL1r5vm/Whats-App-Image-2026-05-24-at-1-37-01-PM-removebg-preview.png">
-<link rel="icon" href="https://i.ibb.co/3mL1r5vm/Whats-App-Image-2026-05-24-at-1-37-01-PM-removebg-preview.png">
+<link rel="icon" href="assets/logo.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   VAPE CREW — TOKENS DE MARCA
-   Cambiá acá los valores y se propagan a toda la página.
+   VAPE CREW — TOKENS (fondo blanco, azul eléctrico de acento)
    ============================================================ */
 :root{
   --blue:#040BE7;
-  --blue-soft:rgba(4,11,231,.16);
-  --blue-line:rgba(4,11,231,.42);
-  --white:#FFFFFF;
+  --blue-2:#0A12FF;
+  --blue-soft:#EEF0FF;
+  --blue-line:rgba(4,11,231,.28);
+  --ink:#0A0A0C;
+  --ink-2:#26262D;
+  --muted:#62626D;
   --silver:#D9D9D9;
-  --bg:#0A0A0C;              /* carbón oscuro — reemplazá por el HEX final del manual */
-  --bg-2:#111116;
-  --bg-3:#16161C;
-  --muted:#8B8B96;
-  --dim:#4A4A55;
-  --line:rgba(255,255,255,.08);
-  --line-2:rgba(255,255,255,.16);
-  --wa:#25D366;
-  --mp:#009EE3;
-  --font-display:'Oswald',sans-serif;
-  --font-mono:'Space Mono',monospace;
-  --r-lg:18px; --r-md:12px; --r-sm:8px;
-  --ease:.28s cubic-bezier(.25,.8,.25,1);
-  --maxw:1180px;
+  --bg:#FFFFFF;
+  --bg-2:#F5F5F7;
+  --bg-3:#ECECF0;
+  --line:#E4E4EA;
+  --ok:#0B8A4B;
+  --warn:#B4530B;
+  --wa:#1FAF55;
+  --font-display:'Oswald',system-ui,sans-serif;
+  --font-mono:'Space Mono',ui-monospace,monospace;
   --logo:url('assets/logo.webp');
+  --r:14px;
+  --shadow:0 10px 30px -12px rgba(10,10,12,.22);
+  --safe-b:env(safe-area-inset-bottom,0px);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:var(--font-mono);font-size:15px;line-height:1.6;overflow-x:hidden;padding-bottom:110px;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-mono);font-size:14px;line-height:1.5;overflow-x:hidden;padding-bottom:calc(84px + var(--safe-b))}
 img{display:block;max-width:100%}
-::selection{background:var(--blue);color:#fff}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.icon{width:18px;height:18px;fill:currentColor;flex:none}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 16px}
+.hl{background:var(--blue);color:#fff;padding:0 .14em;display:inline-block;line-height:1.02}
+.mono{font-family:var(--font-mono)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-.icon{width:1em;height:1em;fill:currentColor;flex-shrink:0}
-
-/* TIPOGRAFÍA DE MARCA */
-h1,h2,h3,.display{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.5px;line-height:1.04}
-.eyebrow{font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--silver);display:flex;align-items:center;gap:9px}
-.eyebrow::before{content:'';width:22px;height:2px;background:var(--blue);flex-shrink:0}
-.hl{background:var(--blue);color:#fff;padding:0 .16em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.lead{color:var(--silver);font-size:.86rem;line-height:1.75}
-
-/* SECCIONES */
-section{position:relative;z-index:2}
-.section{padding:74px 0}
-.section-head{margin-bottom:34px;display:flex;flex-direction:column;gap:14px}
-.section-title{font-size:clamp(2rem,5.6vw,3.3rem)}
-
-/* ============ AGE GATE ============ */
-.age-gate{position:fixed;inset:0;z-index:3000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
-.age-gate.hidden{display:none}
-.age-gate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,var(--blue-soft),transparent 62%)}
-.age-inner{position:relative;max-width:430px;display:flex;flex-direction:column;align-items:center;gap:20px}
-.age-logo{height:78px;width:116px;background:var(--logo) center/contain no-repeat}
-.age-title{font-size:2.4rem}
-.age-text{font-size:.8rem;color:var(--silver);line-height:1.7}
-.age-actions{display:flex;gap:10px;width:100%;flex-wrap:wrap;justify-content:center}
-.age-deny{background:none;border:1px solid var(--line-2);color:var(--muted)}
-.age-legal{font-size:.62rem;color:var(--dim);letter-spacing:.06em;line-height:1.6}
-
-/* ============ BOTONES ============ */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-mono);font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;padding:14px 24px;border-radius:var(--r-md);border:1px solid transparent;cursor:pointer;text-decoration:none;transition:var(--ease);white-space:nowrap}
+/* ---------- BOTONES ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 22px;border-radius:12px;font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:.04em;text-transform:uppercase;transition:transform .12s,background .15s,opacity .15s;white-space:nowrap}
+.btn:active{transform:scale(.97)}
 .btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(4,11,231,.45)}
-.btn-ghost{background:transparent;border-color:var(--line-2);color:var(--white)}
-.btn-ghost:hover{border-color:var(--blue);background:var(--blue-soft)}
-.btn-wa{background:var(--wa);color:#04220f}
-.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.35)}
+.btn-blue:hover{background:var(--blue-2)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-line{border:2px solid var(--ink);color:var(--ink)}
 .btn-block{width:100%}
-.btn:disabled,.btn.disabled{opacity:.35;pointer-events:none}
+.btn[disabled]{opacity:.35;pointer-events:none}
 
-/* ============ HEADER ============ */
-.site-header{position:relative;z-index:20;padding:22px 0 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand-logo{display:block;height:66px;width:98px;background:var(--logo) center/contain no-repeat}
-.header-nav{display:flex;gap:26px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.header-nav a{text-decoration:none;color:var(--silver);transition:var(--ease);padding-bottom:3px;border-bottom:2px solid transparent}
-.header-nav a:hover{color:#fff;border-bottom-color:var(--blue)}
-@media(max-width:860px){.header-nav{display:none}.brand-logo{height:50px;width:74px}.site-header{padding:16px 0 0}}
+/* ---------- AGE GATE (liviano: la página se ve detrás) ---------- */
+.age{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(10,10,12,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.age.hidden{display:none}
+.age-card{width:100%;max-width:460px;background:#fff;border-radius:22px 22px 0 0;padding:26px 20px calc(22px + var(--safe-b));box-shadow:0 -10px 40px rgba(0,0,0,.25);animation:up .28s ease-out}
+@media(min-width:600px){.age{align-items:center}.age-card{border-radius:22px}}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.age-promo{display:flex;gap:8px;margin-bottom:18px}
+.age-promo div{flex:1;background:var(--blue);color:#fff;border-radius:12px;padding:10px 12px}
+.age-promo small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.age-promo b{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:.01em}
+.age-title{font-size:34px;margin-bottom:6px}
+.age-text{color:var(--muted);font-size:12.5px;margin-bottom:18px}
+.age-actions{display:flex;flex-direction:column;gap:8px}
+.age-no{font-size:12px;color:var(--muted);padding:10px;text-decoration:underline}
 
-/* TICKER PROMESAS */
-.ticker{margin-top:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:rgba(4,11,231,.05)}
-.ticker-track{display:flex;gap:0;width:max-content;animation:tick 34s linear infinite}
-.ticker-item{display:flex;align-items:center;gap:10px;padding:11px 26px;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);white-space:nowrap}
-.ticker-item .icon{color:var(--blue);font-size:.95rem}
-.ticker-item::after{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;margin-left:16px}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ---------- HEADER ---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo-plate{display:flex;align-items:center;justify-content:center;background:var(--blue);border-radius:10px;height:44px;width:72px}
+.logo-plate span{display:block;width:56px;height:36px;background:var(--logo) center/contain no-repeat}
+.top-nav{display:none;gap:26px;font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:15px}
+.top-nav a:hover{color:var(--blue)}
+@media(min-width:860px){.top-nav{display:flex}}
+.top-cart{position:relative;display:flex;align-items:center;gap:8px;height:44px;padding:0 14px;border-radius:10px;background:var(--bg-2);font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.badge-n{min-width:20px;height:20px;border-radius:10px;background:var(--blue);color:#fff;font-size:11px;font-family:var(--font-mono);display:none;align-items:center;justify-content:center;padding:0 6px}
+.badge-n.on{display:inline-flex}
 
-/* ============ TOPE DE PÁGINA (compacto: el catálogo entra enseguida) ============ */
-.page-top{padding:30px 0 22px}
-.page-title{font-size:clamp(1.85rem,4.6vw,3.15rem);line-height:1.08;margin:13px 0 17px;max-width:24ch}
-.promise-chips{display:flex;gap:9px;flex-wrap:wrap}
-.chip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg-2);border-radius:999px;padding:8px 15px;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--silver)}
-.chip .icon{color:var(--blue);font-size:.95rem}
+/* ---------- HERO PROMO ---------- */
+.hero{padding:22px 0 8px}
+.hero h1{font-size:clamp(42px,11vw,86px);margin:8px 0 10px}
+.hero-sub{color:var(--muted);font-size:13px;max-width:520px}
+.promos{display:grid;gap:12px;margin-top:20px}
+@media(min-width:760px){.promos{grid-template-columns:1fr 1fr}}
+.promo{position:relative;display:grid;grid-template-columns:1fr 112px;gap:6px;background:var(--bg-2);border-radius:18px;padding:18px;overflow:hidden;border:2px solid transparent;transition:border-color .15s}
+.promo:hover{border-color:var(--blue)}
+.promo.hot{background:var(--blue);color:#fff}
+.promo-tag{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;padding:4px 8px;border-radius:6px;margin-bottom:10px}
+.promo.hot .promo-tag{background:#fff;color:var(--blue)}
+.promo-name{font-size:24px;margin-bottom:12px}
+.promo-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.promo-price .big{font-family:var(--font-display);font-weight:700;font-size:44px;line-height:1;letter-spacing:-.01em}
+.promo-price .cu{font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.promo-meta{font-size:12px;margin-top:6px;opacity:.85}
+.promo-meta s{opacity:.7}
+.promo-save{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--blue);padding:4px 8px;border-radius:6px}
+.promo:not(.hot) .promo-save{background:var(--blue);color:#fff}
+.promo-img{align-self:center;width:112px;height:150px;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(0,0,0,.25))}
+.promo .btn{grid-column:1/-1;margin-top:12px}
+.promo.hot .btn{background:#fff;color:var(--blue)}
+.promo-out{grid-column:1/-1;font-size:12px;margin-top:10px;opacity:.9}
+.promise-row{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding-bottom:4px;scrollbar-width:none}
+.promise-row::-webkit-scrollbar{display:none}
+.pill{display:inline-flex;align-items:center;gap:7px;flex:none;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:11.5px;letter-spacing:.04em}
+.pill .icon{width:15px;height:15px;color:var(--blue)}
 
-/* ============ TIENDA: grilla + combo al costado ============ */
-.shop{display:grid;grid-template-columns:1fr 328px;gap:22px;align-items:start;margin-top:20px}
-.shop-aside{position:sticky;top:18px;display:flex;flex-direction:column;gap:14px}
+/* ---------- CATÁLOGO ---------- */
+.section{padding:40px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-title{font-size:clamp(32px,7vw,48px)}
+.tools{position:sticky;top:62px;z-index:20;background:#fff;padding:10px 0 10px;margin:0 -16px;padding-left:16px;padding-right:16px}
+.search{position:relative}
+.search input{width:100%;height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg-2);padding:0 44px 0 42px;font:inherit;font-size:15px;color:var(--ink);outline:none}
+.search input:focus{border-color:var(--blue);background:#fff}
+.search .icon{position:absolute;left:14px;top:15px;color:var(--muted)}
+.search-x{position:absolute;right:6px;top:6px;width:36px;height:36px;border-radius:8px;display:none;align-items:center;justify-content:center;color:var(--muted)}
+.search-x.on{display:flex}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;height:36px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:13.5px}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.card-img{position:relative;aspect-ratio:1/1;background:var(--bg-2);display:flex;align-items:center;justify-content:center}
+.card-img img{width:82%;height:82%;object-fit:contain}
+.card-badge{position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:6px;background:var(--blue);color:#fff}
+.card-badge.low{background:var(--warn)}
+.card-badge.out{background:var(--ink)}
+.fav{position:absolute;top:6px;right:6px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.fav.on{color:var(--blue)}
+.card-body{display:flex;flex-direction:column;gap:2px;padding:11px 11px 12px;flex:1}
+.card-name{font-family:var(--font-display);font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.02em;line-height:1.1;color:var(--muted)}
+.card-flavor{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:18px;line-height:1.05;margin-bottom:6px}
+.card-price{font-family:var(--font-display);font-weight:700;font-size:22px;line-height:1}
+.card-deal{font-size:11px;color:var(--blue);font-weight:700;margin-top:3px}
+.card-foot{margin-top:auto;padding-top:10px}
+.add{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:15px}
+.add.done{background:var(--ok)}
+.add.ask{background:var(--bg-2);color:var(--ink)}
+.stepper{display:flex;align-items:center;justify-content:space-between;height:42px;border-radius:10px;background:var(--blue-soft);color:var(--blue)}
+.stepper button{width:42px;height:42px;display:flex;align-items:center;justify-content:center}
+.stepper b{font-family:var(--font-display);font-size:18px}
+.card.agotado .card-img img{opacity:.35;filter:grayscale(1)}
+.card.agotado .card-price{color:var(--muted)}
+.divider{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin:18px 0 4px;color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.divider:before,.divider:after{content:"";flex:1;height:1px;background:var(--line)}
+.empty{grid-column:1/-1;text-align:center;padding:34px 14px;border:1.5px dashed var(--line);border-radius:var(--r);color:var(--muted)}
+.empty b{display:block;color:var(--ink);font-family:var(--font-display);text-transform:uppercase;font-size:20px;margin-bottom:6px}
+.empty .btn{margin-top:14px}
+.sk{border-radius:var(--r);background:linear-gradient(90deg,var(--bg-2) 25%,var(--bg-3) 50%,var(--bg-2) 75%);background-size:200% 100%;animation:sh 1.2s infinite;aspect-ratio:3/4.4}
+@keyframes sh{to{background-position:-200% 0}}
 
-.combo-strip{display:none;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:var(--blue);color:#fff;border-radius:var(--r-md);padding:12px 16px;margin-bottom:16px}
-.combo-strip b{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.5px;display:block}
-.combo-strip span{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85;display:block}
-.combo-strip .icon{font-size:1.15rem;flex-shrink:0}
+/* ---------- NOCHE ---------- */
+.night{background:var(--ink);color:#fff;padding:52px 0}
+.night .eyebrow{color:#9A9AA6}
+.night h2{font-size:clamp(34px,8vw,60px);margin:10px 0 12px}
+.night p.lead{color:#C9C9D2;max-width:560px}
+.night-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.night-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+.promise-grid{display:grid;gap:10px}
+@media(min-width:760px){.promise-grid{grid-template-columns:repeat(3,1fr)}}
+.promise{border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px}
+.promise .icon{width:24px;height:24px;color:#8B90FF;margin-bottom:10px}
+.promise h3{font-size:22px;margin-bottom:6px}
+.promise p{color:#C9C9D2;font-size:12.5px}
 
-.combo-box{border:1px solid var(--blue-line);border-radius:var(--r-lg);background:var(--bg-2);overflow:hidden}
-.combo-summary{list-style:none;cursor:pointer;display:block;position:relative;padding:15px 42px 15px 17px;background:rgba(4,11,231,.09)}
-.combo-summary::-webkit-details-marker{display:none}
-.combo-eyebrow{display:block;font-size:.57rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--silver)}
-.combo-sum-title{font-family:var(--font-display);font-size:1.35rem;line-height:1.1;display:block;margin-top:3px}
-.combo-sum-price{font-family:var(--font-display);font-size:1.45rem;color:#fff;background:var(--blue);padding:1px 9px;white-space:nowrap;display:inline-block;margin-top:9px}
-.combo-chev{position:absolute;right:15px;top:22px;color:var(--muted);transition:var(--ease);font-size:1.05rem}
-.combo-box[open] .combo-chev{transform:rotate(180deg)}
-.combo-note{padding:14px 17px 0;font-size:.71rem;color:var(--muted);line-height:1.65}
-.marker-underline{display:block;width:calc(100% - 34px);height:11px;color:var(--white);opacity:.65;margin:3px 17px 0}
+/* ---------- CÓMO / FAQ ---------- */
+.steps{display:grid;gap:10px;margin-top:16px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--bg-2);border-radius:14px;padding:16px;display:flex;gap:14px}
+.step-n{font-family:var(--font-display);font-weight:700;font-size:34px;color:var(--blue);line-height:.9}
+.step h3{font-size:20px;margin-bottom:4px}
+.step p{color:var(--muted);font-size:12.5px}
+.faq{margin-top:28px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 0;font-family:var(--font-display);font-weight:600;text-transform:uppercase;font-size:17px;letter-spacing:.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .icon{transition:transform .2s}
+.faq details[open] summary .icon{transform:rotate(180deg)}
+.faq p{color:var(--muted);padding:0 0 16px;font-size:13px;max-width:640px}
+footer{background:var(--blue);color:#fff;padding:34px 0 40px;text-align:center}
+.foot-logo{width:120px;height:80px;margin:0 auto 14px;background:var(--logo) center/contain no-repeat}
+footer p{font-size:11px;opacity:.85;max-width:560px;margin:0 auto}
 
-.featured{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-2);padding:13px;display:none;align-items:center;gap:11px;flex-wrap:wrap}
-.featured.visible{display:flex}
-.featured-img{width:50px;height:50px;object-fit:contain;background:var(--bg-3);border-radius:var(--r-md);padding:5px;flex-shrink:0}
-.featured-info{flex:1;min-width:0}
-.featured-label{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
-.featured-name{font-family:var(--font-display);font-size:1.05rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.featured-flavor{font-size:.67rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.featured-price{font-family:var(--font-display);font-size:1.15rem;color:#fff;background:var(--blue);padding:1px 8px}
-.featured .btn{padding:10px 15px;font-size:.64rem}
+/* ---------- BARRA INFERIOR (móvil + escritorio) ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + var(--safe-b));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.bar-inner{max-width:640px;margin:0 auto;display:flex;gap:8px}
+.bar .btn{flex:1 1 0;min-width:0;min-height:54px;padding:0 12px;font-size:16px;gap:7px}
+.bar-cart{justify-content:space-between!important;padding:0 16px!important}
+.bar-cart .bar-l{display:flex;align-items:center;gap:10px}
+.bar-cart .bar-n{background:#fff;color:var(--blue);border-radius:8px;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;font-weight:700}
+.bar-hint{display:block;text-align:center;font-size:11px;color:var(--blue);font-weight:700;margin-bottom:6px;letter-spacing:.02em}
+.bar-hint:empty{display:none}
 
+/* ---------- SHEETS (carrito y armado de promo) ---------- */
+.ov{position:fixed;inset:0;z-index:60;background:rgba(10,10,12,.5);opacity:0;pointer-events:none;transition:opacity .2s}
+.ov.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:70;left:0;right:0;bottom:0;max-height:92vh;display:flex;flex-direction:column;background:#fff;border-radius:22px 22px 0 0;transform:translateY(105%);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.sheet.on{transform:none}
+@media(min-width:760px){.sheet{left:auto;top:0;max-height:none;width:440px;border-radius:0;transform:translateX(105%)}.sheet.on{transform:none}}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+.sheet-head h3{font-size:26px}
+.sheet-x{width:40px;height:40px;border-radius:10px;background:var(--bg-2);display:flex;align-items:center;justify-content:center}
+.sheet-body{flex:1;overflow-y:auto;padding:14px 18px;-webkit-overflow-scrolling:touch}
+.sheet-foot{padding:12px 18px calc(14px + var(--safe-b));border-top:1px solid var(--line);background:#fff}
+.grab{width:42px;height:5px;border-radius:3px;background:var(--bg-3);margin:8px auto 0}
+@media(min-width:760px){.grab{display:none}}
 
-@media(max-width:900px){
-  .shop{grid-template-columns:1fr;gap:18px}
-  .shop-aside{position:static;order:2}
-  .combo-strip{display:flex}
-}
+/* armado de promo */
+.pk-info{background:var(--blue-soft);border-radius:12px;padding:12px 14px;font-size:12.5px;margin-bottom:12px}
+.pk-info b{color:var(--blue)}
+.pk-list{display:grid;gap:8px}
+.pk{display:flex;align-items:center;gap:12px;padding:8px;border:1.5px solid var(--line);border-radius:12px}
+.pk.on{border-color:var(--blue)}
+.pk img{width:54px;height:54px;object-fit:contain;background:var(--bg-2);border-radius:8px}
+.pk-t{flex:1;min-width:0}
+.pk-t b{display:block;font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1.05}
+.pk-t small{color:var(--muted);font-size:11px}
+.pk .stepper{width:116px;flex:none}
+.pk-progress{display:flex;gap:6px;margin-bottom:10px}
+.pk-progress i{flex:1;height:6px;border-radius:3px;background:var(--bg-3)}
+.pk-progress i.on{background:var(--blue)}
+.pk-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.pk-total span{font-size:12px;color:var(--muted)}
+.pk-total b{font-family:var(--font-display);font-size:28px}
 
-/* ============ PROMESAS ============ */
-.promises{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
-.promise{background:var(--bg-2);padding:38px 28px;transition:var(--ease)}
-.promise:hover{background:var(--bg-3)}
-.promise-num{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.24em;color:var(--dim)}
-.promise-icon{color:var(--blue);font-size:1.9rem;margin:14px 0 12px}
-.promise h3{font-size:1.55rem;margin-bottom:9px}
-.promise p{font-size:.76rem;color:var(--muted);line-height:1.7}
-@media(max-width:820px){.promise-grid{grid-template-columns:1fr}.promise{padding:28px 22px}}
+/* carrito */
+.ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.ci img{width:62px;height:62px;object-fit:contain;background:var(--bg-2);border-radius:10px;flex:none}
+.ci-t{flex:1;min-width:0}
+.ci-t small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.ci-t b{display:block;font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1.05;margin-bottom:8px}
+.ci .stepper{width:110px;height:36px}
+.ci .stepper button{height:36px;width:36px}
+.ci-p{text-align:right;font-family:var(--font-display);font-weight:700;font-size:18px;white-space:nowrap}
+.ci-p small{display:block;font-family:var(--font-mono);font-weight:400;font-size:10.5px;color:var(--muted)}
+.nudge{display:flex;gap:10px;align-items:flex-start;background:var(--blue);color:#fff;border-radius:12px;padding:12px 14px;margin:12px 0;font-size:12.5px}
+.nudge .icon{margin-top:2px}
+.nudge button{margin-top:8px;background:#fff;color:var(--blue);border-radius:8px;padding:7px 12px;font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:13px}
+.deal-ok{display:flex;gap:8px;align-items:center;background:#E8F7EF;color:var(--ok);border-radius:10px;padding:10px 12px;margin:10px 0;font-size:12px;font-weight:700}
+.totals{display:grid;gap:4px;font-size:13px}
+.totals div{display:flex;justify-content:space-between}
+.totals .grand{font-family:var(--font-display);font-weight:700;font-size:28px;margin-top:4px}
+.totals .save{color:var(--ok);font-weight:700}
+.field{margin:12px 0 4px}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;height:46px;border-radius:10px;border:1.5px solid var(--line);padding:0 12px;font:inherit;font-size:15px;outline:none;background:var(--bg-2)}
+.field input:focus{border-color:var(--blue);background:#fff}
+.pay-opt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.pay-opt label{position:relative;display:flex;flex-direction:column;gap:2px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer}
+.pay-opt input{position:absolute;opacity:0}
+.pay-opt b{font-family:var(--font-display);text-transform:uppercase;font-size:15px}
+.pay-opt small{font-size:10.5px;color:var(--muted)}
+.pay-opt label:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}
+.alias{display:none;align-items:center;justify-content:space-between;gap:10px;background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.alias.on{display:flex}
+.alias small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.alias b{font-family:var(--font-display);font-size:24px;letter-spacing:.03em}
+.alias button{background:#fff;color:var(--ink);border-radius:8px;height:38px;padding:0 12px;display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:600;text-transform:uppercase}
+.cart-empty{text-align:center;padding:40px 10px;color:var(--muted)}
+.cart-empty b{display:block;color:var(--ink);font-family:var(--font-display);text-transform:uppercase;font-size:22px;margin-bottom:6px}
+.link-btn{font-size:12px;color:var(--muted);text-decoration:underline;padding:8px;display:block;margin:6px auto 0}
 
-/* ============ COMBOS ============ */
-.combo-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:34px}
-.combo-price-box{border:1px solid var(--blue-line);border-radius:var(--r-lg);background:rgba(4,11,231,.07);padding:24px 26px;position:relative}
-.combo-price-label{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--silver);margin-bottom:6px}
-.combo-price-value{font-family:var(--font-display);font-size:3.2rem;line-height:1;color:#fff}
-.combo-price-note{font-size:.72rem;color:var(--muted);margin-top:8px}
-.marker-circle{position:absolute;inset:-14px -10px;pointer-events:none;color:var(--white);opacity:.85}
-@media(max-width:820px){.combo-head{grid-template-columns:1fr;gap:26px}}
-
-.combo-builder{background:transparent}
-.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:16px;border-bottom:1px solid var(--line);background:var(--bg-3)}
-.slot{border:1px dashed var(--line-2);border-radius:var(--r-md);min-height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px;text-align:center;position:relative;transition:var(--ease)}
-.slot.filled{border-style:solid;border-color:var(--blue);background:var(--blue-soft);cursor:pointer}
-.slot-num{font-size:.62rem;letter-spacing:.2em;color:var(--dim)}
-.slot-empty-text{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-.slot img{width:44px;height:44px;object-fit:contain}
-.slot-name{font-size:.62rem;color:var(--white);line-height:1.3;word-break:break-word}
-.slot-remove{position:absolute;top:5px;right:6px;color:var(--muted);font-size:.8rem;line-height:1}
-.combo-progress{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.combo-count{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--silver)}
-.combo-count b{color:var(--blue);font-size:.9rem}
-.combo-saving{font-size:.72rem;color:var(--silver)}
-.combo-saving s{color:var(--dim)}
-.combo-saving b{color:var(--blue)}
-.combo-picker{padding:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-height:340px;overflow-y:auto}
-.flavor{border:1px solid var(--line);border-radius:var(--r-md);background:var(--bg-2);padding:12px;display:flex;flex-direction:column;gap:8px;transition:var(--ease)}
-.flavor:hover{border-color:var(--blue-line)}
-.flavor.picked{border-color:var(--blue);background:var(--blue-soft)}
-.flavor img{width:100%;height:70px;object-fit:contain}
-.flavor-name{font-family:var(--font-display);font-size:1rem;line-height:1.1}
-.flavor-meta{font-size:.62rem;color:var(--muted);letter-spacing:.06em}
-.flavor-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
-.flavor-qty{display:flex;align-items:center;gap:8px}
-.qty-btn{background:var(--bg-3);border:1px solid var(--line);color:#fff;width:28px;height:28px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.8rem;transition:var(--ease)}
-.qty-btn:hover:not(:disabled){border-color:var(--blue);background:var(--blue-soft)}
-.qty-btn:disabled{opacity:.28;cursor:not-allowed}
-.qty-num{font-size:.82rem;font-weight:700;min-width:16px;text-align:center}
-.combo-actions{padding:16px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;background:var(--bg-3)}
-.combo-actions .btn{flex:1;min-width:100%;padding:13px 14px}
-.combo-empty{padding:36px 22px;text-align:center;color:var(--muted);font-size:.8rem;line-height:1.8}
-@media(max-width:560px){.combo-picker{grid-template-columns:repeat(2,1fr);padding:14px;gap:10px}.slots{padding:14px;gap:8px}.combo-price-value{font-size:2.6rem}}
-
-/* ============ CONTROLES CATÁLOGO ============ */
-.stats-bar{display:none;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-bottom:24px;background:var(--bg-2)}
-.stats-bar.visible{display:grid;grid-template-columns:repeat(3,1fr)}
-.stat{padding:16px;text-align:center;border-right:1px solid var(--line)}
-.stat:last-child{border-right:none}
-.stat-value{font-family:var(--font-display);font-size:1.7rem;color:var(--white)}
-.stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-
-.control-panel{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
-.search-wrapper{position:relative}
-.search-icon{position:absolute;left:17px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.05rem;pointer-events:none;z-index:2}
-.search-bar{width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:15px 46px;color:#fff;font-size:.86rem;font-family:var(--font-mono);outline:none;transition:var(--ease)}
-.search-bar::placeholder{color:var(--dim)}
-.search-bar:focus{border-color:var(--blue);background:var(--bg-3)}
-.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:.95rem;display:none;z-index:2;padding:4px}
-.search-clear.visible{display:flex}
-.suggestions-box{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--bg-2);border:1px solid var(--blue-line);border-radius:var(--r-md);overflow:hidden;z-index:100;display:none;box-shadow:0 20px 46px rgba(0,0,0,.7)}
-.suggestions-box.open{display:block}
-.suggestion-item{display:flex;align-items:center;gap:12px;padding:11px 16px;cursor:pointer;border-bottom:1px solid var(--line);transition:var(--ease)}
-.suggestion-item:last-child{border-bottom:none}
-.suggestion-item:hover{background:var(--blue-soft)}
-.suggestion-img{width:34px;height:34px;object-fit:contain;background:var(--bg-3);border-radius:var(--r-sm);flex-shrink:0}
-.suggestion-text{flex:1;min-width:0}
-.suggestion-name{font-family:var(--font-display);font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.suggestion-name mark{background:var(--blue);color:#fff}
-.suggestion-flavor{font-size:.68rem;color:var(--muted)}
-.suggestion-flavor mark{background:var(--blue);color:#fff}
-.suggestion-price{font-size:.78rem;font-weight:700;color:var(--silver);flex-shrink:0}
-.suggestion-empty{padding:15px 16px;font-size:.78rem;color:var(--muted);text-align:center}
-
-.filter-group{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
-.filter-group::-webkit-scrollbar{display:none}
-.filter-btn{background:var(--bg-2);border:1px solid var(--line);color:var(--muted);padding:10px 18px;border-radius:999px;font-size:.66rem;font-weight:700;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:var(--ease);white-space:nowrap}
-.filter-btn:hover{border-color:var(--blue-line);color:#fff}
-.filter-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
-
-.stock-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:13px 18px}
-.stock-toggle-label{display:flex;flex-direction:column;gap:2px;font-size:.74rem;font-weight:700;color:#fff;cursor:pointer;user-select:none;letter-spacing:.06em}
-.stock-toggle-label span{font-size:.66rem;color:var(--muted);font-weight:400;letter-spacing:0}
-.toggle-switch{position:relative;width:44px;height:24px;flex-shrink:0;cursor:pointer}
-.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
-.toggle-track{position:absolute;inset:0;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid var(--line);transition:var(--ease)}
-.toggle-switch input:checked ~ .toggle-track{background:var(--blue);border-color:var(--blue)}
-.toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:var(--ease)}
-.toggle-switch input:checked ~ .toggle-thumb{transform:translateX(20px)}
-
-/* FAVORITOS */
-.fav-panel{display:none;margin-bottom:28px}
-.fav-panel.open{display:block}
-.fav-panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.fav-panel-title{font-family:var(--font-display);font-size:1.4rem;display:flex;align-items:center;gap:10px}
-.fav-panel-title .icon{color:var(--blue)}
-.fav-panel-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.68rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;display:flex;align-items:center;gap:6px}
-.fav-empty{text-align:center;padding:26px;color:var(--muted);font-size:.8rem;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);line-height:1.8}
-.fav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
-.fav-item{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md);padding:11px;display:flex;gap:10px;align-items:center}
-.fav-item-img{width:42px;height:42px;object-fit:contain;background:var(--bg-3);border-radius:var(--r-sm);flex-shrink:0}
-.fav-item-info{flex:1;min-width:0}
-.fav-item-name{font-family:var(--font-display);font-size:.95rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fav-item-flavor{font-size:.66rem;color:var(--muted)}
-.fav-item-remove{background:none;border:none;color:var(--dim);cursor:pointer;padding:4px;flex-shrink:0;font-size:.85rem}
-.fav-item-remove:hover{color:var(--blue)}
-
-/* ============ GRILLA ============ */
-.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;content-visibility:auto}
-.skeleton-card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
-.skeleton-img{width:100%;padding-top:100%;background:linear-gradient(90deg,var(--bg-2) 25%,var(--bg-3) 50%,var(--bg-2) 75%);background-size:200% 100%;animation:shimmer 1.6s infinite}
-.skeleton-body{padding:18px;display:flex;flex-direction:column;gap:10px}
-.skeleton-line{height:12px;border-radius:4px;background:linear-gradient(90deg,var(--bg-2) 25%,var(--bg-3) 50%,var(--bg-2) 75%);background-size:200% 100%;animation:shimmer 1.6s infinite}
-.skeleton-line.short{width:40%}.skeleton-line.medium{width:65%}.skeleton-line.tall{height:18px;width:80%}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-.product-card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:var(--ease);position:relative}
-.product-card:hover{transform:translateY(-5px);border-color:var(--blue-line);box-shadow:0 22px 50px rgba(0,0,0,.55)}
-.product-card.agotado{opacity:.45}
-.product-card.agotado:hover{transform:none}
-.product-card.agotado .product-image{filter:grayscale(90%)}
-.badge-wrap{position:absolute;top:11px;left:11px;z-index:5;display:flex;flex-direction:column;gap:5px}
-.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
-.badge-ultimas{background:var(--blue);color:#fff}
-.badge-agotado{background:rgba(255,255,255,.07);border:1px solid var(--line-2);color:var(--muted)}
-.fav-btn{position:absolute;top:11px;right:11px;z-index:5;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border:1px solid var(--line-2);border-radius:50%;width:33px;height:33px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--silver);transition:var(--ease);font-size:.95rem}
-.fav-btn:hover{border-color:var(--blue);color:#fff}
-.fav-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
-.product-image-wrapper{position:relative;width:100%;padding-top:100%;background:radial-gradient(circle at 50% 45%,var(--bg-3),var(--bg-2));overflow:hidden}
-.product-image-wrapper::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,var(--blue-soft),transparent 62%);opacity:0;transition:var(--ease)}
-.product-card:hover .product-image-wrapper::after{opacity:1}
-.product-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .5s cubic-bezier(.25,.8,.25,1);z-index:1}
-.product-card:hover .product-image{transform:scale(1.05)}
-.product-info{padding:18px;display:flex;flex-direction:column;flex-grow:1}
-.product-tag{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--blue);margin-bottom:7px}
-.product-title{font-family:var(--font-display);font-size:1.35rem;line-height:1.05;margin-bottom:3px}
-.product-flavor{font-size:.74rem;color:var(--muted);margin-bottom:12px}
-.stock-indicator{display:flex;align-items:center;gap:9px;margin-bottom:13px}
-.stock-bar-wrap{flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
-.stock-bar-fill{height:100%;border-radius:999px;transition:width .6s ease}
-.stock-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
-.stock-ok .stock-bar-fill{background:var(--blue)}
-.stock-ok .stock-label{color:var(--silver)}
-.stock-low .stock-bar-fill{background:#fff}
-.stock-low .stock-label{color:#fff}
-.stock-out .stock-bar-fill{background:rgba(255,255,255,.12);width:100%!important}
-.stock-out .stock-label{color:var(--muted)}
-.product-footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:11px}
-.product-price{font-family:var(--font-display);font-size:1.5rem;color:#fff;align-self:flex-start;background:var(--blue);padding:1px 9px}
-.product-price.out{background:none;color:var(--muted);padding:1px 0}
-.btn-group{display:flex;flex-wrap:wrap;gap:7px;align-items:stretch}
-.order-btn{flex:1 1 100%;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--blue);color:#fff;border:none;padding:11px 10px;border-radius:var(--r-sm);font-size:.66rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;cursor:pointer;text-decoration:none;transition:var(--ease)}
-.order-btn:hover{filter:brightness(1.18)}
-.order-btn.disabled{background:rgba(255,255,255,.06);color:var(--muted);pointer-events:none}
-.mp-btn{flex:1;background:transparent;border:1px solid var(--line-2);color:var(--silver);padding:11px 12px;border-radius:var(--r-sm);font-size:.66rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:var(--ease)}
-.mp-btn:hover{border-color:var(--mp);color:#fff}
-.cart-add-btn{flex:0 0 auto;background:transparent;border:1px solid var(--line-2);color:#fff;padding:11px 13px;border-radius:var(--r-sm);cursor:pointer;transition:var(--ease);display:flex;align-items:center;justify-content:center;font-size:.95rem}
-.cart-add-btn:hover{border-color:var(--blue);background:var(--blue-soft)}
-.cart-add-btn.added{background:var(--blue);border-color:var(--blue)}
-.empty-state{grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--muted)}
-.empty-state .icon{font-size:2.4rem;color:var(--dim);margin-bottom:14px}
-.empty-state p{font-size:.84rem;line-height:1.8}
-
-/* ============ SOMOS LA NOCHE ============ */
-.night{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.night-title{font-size:clamp(1.8rem,4.4vw,2.9rem);margin:15px 0 16px}
-.night-lead{max-width:52ch}
-.night-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 4px;max-width:720px}
-.night-photos figure{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line)}
-.night-photos img{width:100%;height:100%;object-fit:cover;aspect-ratio:2/3}
-.night-list{list-style:none;display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
-.night-list li{display:flex;gap:11px;align-items:flex-start;font-size:.76rem;color:var(--silver);line-height:1.65;flex:1;min-width:220px}
-.night-list .icon{color:var(--blue);font-size:1.05rem;margin-top:2px;flex-shrink:0}
-@media(max-width:640px){.night-photos{gap:10px}.night-list{gap:14px;flex-direction:column}.night-list li{min-width:0}}
-
-/* ============ CÓMO COMPRAR ============ */
-.how-grid{display:grid;grid-template-columns:1.1fr .82fr;gap:46px;align-items:center}
-.steps{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:8px}
-.step{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
-.step:last-child{border-bottom:none}
-.step-num{font-family:var(--font-display);font-size:1.6rem;color:var(--blue);line-height:1;min-width:38px}
-.step h3{font-size:1.2rem;margin-bottom:5px}
-.step p{font-size:.76rem;color:var(--muted);line-height:1.7}
-.how-photo{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line)}
-.how-photo img{width:100%;height:auto}
-@media(max-width:860px){.how-grid{grid-template-columns:1fr;gap:28px}}
-
-/* ============ FOOTER ============ */
-footer{padding:64px 0 40px;text-align:center;border-top:1px solid var(--line)}
-.footer-logo{display:block;height:74px;width:110px;margin:0 auto 22px;background:var(--logo) center/contain no-repeat}
-.footer-promises{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
-.footer-promises span{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);border:1px solid var(--line);border-radius:999px;padding:7px 15px}
-.footer-legal{font-size:.64rem;color:var(--dim);line-height:1.9;max-width:620px;margin:0 auto}
-.age-pill{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:2px solid var(--blue);color:#fff;font-family:var(--font-display);font-size:.9rem;margin-bottom:16px}
-
-/* ============ CARRITO ============ */
-.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:900;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(4px)}
-.cart-overlay.open{opacity:1;pointer-events:all}
-.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:415px;background:var(--bg-2);border-left:1px solid var(--line-2);z-index:901;display:flex;flex-direction:column;transform:translateX(105%);transition:transform .35s cubic-bezier(.25,.8,.25,1)}
-.cart-drawer.open{transform:translateX(0)}
-.cart-header{padding:22px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.cart-title{font-family:var(--font-display);font-size:1.5rem;display:flex;align-items:center;gap:10px}
-.cart-count-badge{background:var(--blue);color:#fff;font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:999px;font-family:var(--font-mono)}
-.cart-close{background:none;border:none;color:var(--muted);cursor:pointer;padding:6px;font-size:1.05rem}
-.cart-close:hover{color:#fff}
-.cart-items{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:11px}
-.cart-item{display:flex;gap:12px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:11px}
-.cart-item.is-combo{border-color:var(--blue-line);background:rgba(4,11,231,.06)}
-.cart-item-img{width:50px;height:50px;object-fit:contain;background:var(--bg-3);border-radius:var(--r-sm);flex-shrink:0}
-.cart-item-info{flex:1;min-width:0}
-.cart-item-name{font-family:var(--font-display);font-size:1rem;line-height:1.1;margin-bottom:2px}
-.cart-item-flavor{font-size:.66rem;color:var(--muted);line-height:1.5}
-.cart-item-controls{display:flex;align-items:center;gap:8px;margin-top:7px}
-.cart-item-price{font-size:.8rem;font-weight:700;color:#fff;white-space:nowrap}
-.cart-item-remove{background:none;border:none;color:var(--dim);cursor:pointer;padding:4px;font-size:.85rem}
-.cart-item-remove:hover{color:var(--blue)}
-.cart-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);text-align:center;padding:20px}
-.cart-empty .icon{font-size:2.6rem;color:var(--dim)}
-.cart-empty p{font-size:.8rem;line-height:1.8}
-.cart-footer{padding:20px;border-top:1px solid var(--line);flex-shrink:0}
-.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.cart-total-label{font-size:.66rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
-.cart-total-value{font-family:var(--font-display);font-size:1.8rem;color:#fff}
-.cart-clear-btn{width:100%;margin-top:9px;background:none;border:1px solid var(--line);color:var(--muted);padding:11px;border-radius:var(--r-sm);font-size:.66rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;cursor:pointer;transition:var(--ease)}
-.cart-clear-btn:hover{border-color:var(--line-2);color:#fff}
-
-/* ============ MODAL PAGO ============ */
-.pay-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:1000;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(6px)}
-.pay-modal-overlay.open{opacity:1;pointer-events:all}
-.pay-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-46%);z-index:1001;width:calc(100% - 32px);max-width:420px;max-height:88vh;overflow-y:auto;background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-lg);padding:28px 26px;opacity:0;pointer-events:none;transition:var(--ease)}
-.pay-modal.open{transform:translate(-50%,-50%);opacity:1;pointer-events:all}
-.pay-modal-header{text-align:center;margin-bottom:20px}
-.pay-modal-title{font-family:var(--font-display);font-size:1.8rem;margin-bottom:7px}
-.pay-modal-subtitle{font-size:.74rem;color:var(--muted);line-height:1.7}
-.pay-modal-product{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:13px 15px;margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.pay-modal-product-img{width:46px;height:46px;object-fit:contain;background:var(--bg-3);border-radius:var(--r-sm);flex-shrink:0}
-.pay-modal-product-name{font-family:var(--font-display);font-size:1.05rem;line-height:1.15}
-.pay-modal-product-price{font-size:.7rem;color:var(--silver);margin-top:3px}
-.pay-alias-box{background:var(--bg);border:1px solid var(--blue-line);border-radius:var(--r-md);padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
-.pay-alias-label{font-size:.58rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);margin-bottom:3px}
-.pay-alias-value{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.06em;color:#fff}
-.pay-copy-btn{background:var(--blue-soft);border:1px solid var(--blue-line);color:#fff;padding:8px 12px;border-radius:var(--r-sm);font-size:.62rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;cursor:pointer;display:flex;align-items:center;gap:6px;transition:var(--ease)}
-.pay-copy-btn:hover{background:var(--blue)}
-.pay-modal-steps{display:flex;flex-direction:column;gap:11px;margin-bottom:20px}
-.pay-step{display:flex;align-items:flex-start;gap:11px}
-.pay-step-num{width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.pay-step-text{font-size:.74rem;color:var(--muted);line-height:1.6}
-.pay-step-text strong{color:#fff;font-weight:700}
-.pay-modal-actions{display:flex;flex-direction:column;gap:9px}
-.pay-cancel-btn{width:100%;background:none;border:1px solid var(--line);color:var(--muted);padding:11px;border-radius:var(--r-sm);font-size:.66rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;cursor:pointer;transition:var(--ease)}
-.pay-cancel-btn:hover{border-color:var(--line-2);color:#fff}
-
-/* ============ FLOTANTES / NAV ============ */
-.cart-fab{position:fixed;bottom:26px;left:24px;z-index:400;background:var(--bg-2);border:1px solid var(--line-2);color:#fff;border-radius:999px;padding:13px 20px;font-size:.68rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;cursor:pointer;display:flex;align-items:center;gap:9px;transition:var(--ease)}
-.cart-fab:hover{border-color:var(--blue);background:var(--blue-soft)}
-.cart-fab-badge{background:var(--blue);color:#fff;font-size:.58rem;padding:2px 7px;border-radius:999px;display:none}
-.cart-fab-badge.visible{display:inline-block}
-.wa-float{position:fixed;bottom:26px;right:24px;z-index:400;display:flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border-radius:999px;padding:14px 22px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;text-decoration:none;transition:var(--ease);box-shadow:0 10px 34px rgba(4,11,231,.4)}
-.wa-float:hover{transform:translateY(-3px)}
-.wa-float .icon{font-size:1.2rem}
-.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;background:rgba(10,10,12,.95);backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:7px 0 max(7px,env(safe-area-inset-bottom))}
-.mobile-nav-inner{display:flex;justify-content:space-around;align-items:center}
-.nav-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;color:var(--muted);font-size:.52rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;padding:6px 8px;text-decoration:none;transition:var(--ease)}
-.nav-item .icon{font-size:1.15rem}
-.nav-item:hover,.nav-item.active{color:#fff}
-.nav-item.active .icon{color:var(--blue)}
-.nav-badge,.nav-fav-badge{position:absolute;top:0;right:2px;background:var(--blue);color:#fff;font-size:.48rem;font-weight:700;padding:1px 5px;border-radius:999px;display:none}
-.nav-badge.visible,.nav-fav-badge.visible{display:block}
-@media(max-width:768px){.mobile-nav{display:block}.cart-fab,.wa-float{display:none}body{padding-bottom:76px}}
-
-/* TOAST */
-.toast{position:fixed;bottom:96px;right:20px;z-index:2000;background:var(--bg-3);border:1px solid var(--blue-line);border-radius:var(--r-md);padding:13px 17px;display:flex;align-items:center;gap:10px;font-size:.76rem;transform:translateX(140%);transition:transform .35s cubic-bezier(.25,.8,.25,1);max-width:300px}
-.toast.show{transform:translateX(0)}
-.toast .icon{color:var(--blue);font-size:1.05rem}
-@media(max-width:768px){.toast{bottom:88px;right:12px;left:12px;max-width:none}}
-
-@media(max-width:600px){
-  .section{padding:52px 0}
-  .catalog-grid{grid-template-columns:repeat(2,1fr);gap:11px}
-  .product-info{padding:13px}
-  .product-title{font-size:1.1rem}
-  .product-price{font-size:1.2rem}
-}
-@media(max-width:640px){
-  .promise-chips{display:none}
-  .page-top{padding:20px 0 14px}
-  .page-title{margin-bottom:0}
-  .stat{padding:11px 8px}
-  .stat-value{font-size:1.35rem}
-  .stats-bar{margin-bottom:18px}
-}
-@media(max-width:370px){.catalog-grid{grid-template-columns:1fr}}
+/* toast */
+.toast{position:fixed;left:50%;bottom:calc(112px + var(--safe-b));z-index:90;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;border-radius:10px;padding:10px 14px;display:flex;gap:8px;align-items:center;font-size:12.5px;transition:all .22s;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body>
+<body id="top">
 
-<!-- SPRITE DE ICONOS (sin emojis: todo SVG) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-cart" viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM2 3h2.3l.9 2H21a1 1 0 0 1 .95 1.32l-2.5 7A1 1 0 0 1 18.5 14H7.4l-.4 2H19v2H6a1 1 0 0 1-.97-1.24L5.6 14 3.2 5H2V3Z"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.7 4.2 13a4.9 4.9 0 0 1 0-7 5 5 0 0 1 7 0l.8.8.8-.8a5 5 0 0 1 7 0 4.9 4.9 0 0 1 0 7L12 20.7Zm-6.4-9.1L12 18l6.4-6.4a2.9 2.9 0 0 0 0-4.2 3 3 0 0 0-4.2 0L12 9.6 9.8 7.4a3 3 0 0 0-4.2 0 2.9 2.9 0 0 0 0 4.2Z"/></symbol>
@@ -472,315 +303,154 @@ footer{padding:64px 0 40px;text-align:center;border-top:1px solid var(--line)}
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12.3 2a9 9 0 1 0 9.4 11.9 7.4 7.4 0 0 1-9.4-9.4A9.6 9.6 0 0 0 12.3 2Zm-1.9 2.4a7 7 0 0 0 8.6 8.6A7 7 0 1 1 10.4 4.4Z"/></symbol>
   <symbol id="i-verified" viewBox="0 0 24 24"><path d="m12 1.5 2.5 2.2 3.3-.4.9 3.2 3 1.5-1.3 3.1 1.3 3.1-3 1.5-.9 3.2-3.3-.4L12 22.5 9.5 20.3l-3.3.4-.9-3.2-3-1.5 1.3-3.1L2.3 9.8l3-1.5.9-3.2 3.3.4L12 1.5Zm-1.3 14.1 6-6-1.4-1.5-4.6 4.6-2.1-2-1.4 1.4 3.5 3.5Z"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></symbol>
-  <symbol id="i-grid" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3Zm2 2v4h4V5H5Zm8-2h8v8h-8V3Zm2 2v4h4V5h-4ZM3 13h8v8H3v-8Zm2 2v4h4v-4H5Zm8-2h8v8h-8v-8Zm2 2v4h4v-4h-4Z"/></symbol>
-  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5.5-10 5.5L2 7.5 12 2Zm0 2.3L6.1 7.5 12 10.7l5.9-3.2L12 4.3ZM3.6 11.2 12 15.8l8.4-4.6 1.6.9-10 5.4-10-5.4 1.6-.9Zm0 4.5L12 20.3l8.4-4.6 1.6.9-10 5.4-10-5.4 1.6-.9Z"/></symbol>
   <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 4h11a1 1 0 0 1 1 1v3h3.3a1 1 0 0 1 .8.4l2.7 3.6a1 1 0 0 1 .2.6V17a1 1 0 0 1-1 1h-1.2a3 3 0 0 1-5.6 0H9.8a3 3 0 0 1-5.6 0H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v10h.4a3 3 0 0 1 5.2 0H13V6H4Zm11 4v6h.4a3 3 0 0 1 5.2 0H21v-3.7L18.8 10H15ZM7 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm11 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></symbol>
-  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 2 1 21h22L12 2Zm0 4 7.5 13h-15L12 6Zm-1 4v5h2v-5h-2Zm0 6v2h2v-2h-2Z"/></symbol>
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M12 15.4 5.3 8.7 6.7 7.3 12 12.6l5.3-5.3 1.4 1.4Z"/></symbol>
-  <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 4.5v11L12 22l-9-4.5v-11L12 2Zm0 2.2L5.9 7 12 10l6.1-3L12 4.2ZM5 8.6v7.6l6 3v-7.6l-6-3Zm8 10.6 6-3V8.6l-6 3v7.6Z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.2 5.3 19.9 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.1l-4.3-4.3 1.4-1.4Z"/></symbol>
 </svg>
 
-<!-- ============ AGE GATE ============ -->
-<div class="age-gate" id="age-gate">
-  <div class="age-inner">
-    <span class="age-logo" role="img" aria-label="VAPE CREW"></span>
-    <h1 class="age-title">¿Tenés <span class="hl">18</span> años?</h1>
-    <p class="age-text">Este catálogo es solo para mayores de 18. Los productos con nicotina no se venden a menores de edad.</p>
-    <div class="age-actions">
-      <button class="btn btn-blue" onclick="passAgeGate()">Sí, tengo 18 o más</button>
-      <button class="btn age-deny" onclick="denyAgeGate()">No</button>
+<!-- ============ +18 (hoja liviana, la página se ve detrás) ============ -->
+<div class="age" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
+  <div class="age-card">
+    <div class="age-promo">
+      <div><small>CREATE 40K · 3x</small><b>$20.000 c/u</b></div>
+      <div><small>ICEKING 40K · 3x</small><b>$27.500 c/u</b></div>
     </div>
-    <p class="age-legal">El consumo de nicotina es adictivo. Prohibida la venta a menores de 18 años.</p>
+    <h2 class="age-title" id="age-title">¿Sos <span class="hl">+18</span>?</h2>
+    <p class="age-text">Vendemos productos con nicotina, solo para mayores de 18 años.</p>
+    <div class="age-actions">
+      <button class="btn btn-blue btn-block" onclick="passAgeGate()">Sí, ver promos <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      <button class="age-no" onclick="denyAgeGate()">Soy menor de 18</button>
+    </div>
   </div>
 </div>
 
-<!-- ============ TOAST ============ -->
-<div class="toast" id="toast" role="status" aria-live="polite">
-  <svg class="icon" id="toast-icon"><use href="#i-check"></use></svg>
-  <span id="toast-msg"></span>
-</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><svg class="icon" id="toast-icon"><use href="#i-check"></use></svg><span id="toast-msg"></span></div>
 
 <!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a href="#top"><span class="brand-logo" role="img" aria-label="VAPE CREW"></span></a>
-    <nav class="header-nav">
-      <a href="#combos">Combos</a>
+<header class="top">
+  <div class="wrap top-inner">
+    <a href="#top" class="logo-plate" aria-label="VAPE CREW"><span></span></a>
+    <nav class="top-nav">
+      <a href="#promos">Promos</a>
       <a href="#catalogo">Catálogo</a>
-      <a href="#noche">La noche</a>
+      <a href="#noche">Envíos</a>
       <a href="#comprar">Cómo comprar</a>
     </nav>
-  </div>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track" id="ticker-track"></div>
+    <button class="top-cart" onclick="openCart()" aria-label="Ver pedido">
+      <svg class="icon"><use href="#i-cart"></use></svg>Pedido<span class="badge-n" id="top-n">0</span>
+    </button>
   </div>
 </header>
 
-<!-- ============ TOPE + TIENDA (catálogo directo, combo al costado) ============ -->
-<section class="page-top" id="catalogo">
+<!-- ============ HERO + PROMOS ============ -->
+<section class="hero" id="promos">
   <div class="wrap">
-    <p class="eyebrow">Catálogo oficial · Mendoza</p>
-    <h1 class="page-title">Tu vape llega <span class="hl">hoy</span>, no mañana</h1>
-    <div class="promise-chips">
-      <span class="chip"><svg class="icon"><use href="#i-shield"></use></svg>Garantía 24hs</span>
-      <span class="chip"><svg class="icon"><use href="#i-moon"></use></svg>Envíos toda la noche</span>
-      <span class="chip"><svg class="icon"><use href="#i-verified"></use></svg>Original o nada</span>
+    <p class="eyebrow">Promos · Elegí tus sabores</p>
+    <h1>40K puffs desde <span class="hl">$20.000</span></h1>
+    <p class="hero-sub">Llevá uno o los que quieras. Con 3 del mismo modelo te baja el precio de cada uno, y te lo mandamos en el momento.</p>
+
+    <div class="promos" id="promo-cards"></div>
+
+    <div class="promise-row">
+      <span class="pill"><svg class="icon"><use href="#i-truck"></use></svg>Envío en el momento</span>
+      <span class="pill"><svg class="icon"><use href="#i-shield"></use></svg>Garantía 24hs</span>
+      <span class="pill"><svg class="icon"><use href="#i-verified"></use></svg>Original o nada</span>
+      <span class="pill"><svg class="icon"><use href="#i-wa"></use></svg>Pedí por DM</span>
     </div>
   </div>
 </section>
 
-<section style="padding-bottom:70px">
+<!-- ============ CATÁLOGO ============ -->
+<section class="section" id="catalogo" style="padding-top:28px">
   <div class="wrap">
-
-    <div class="stats-bar" id="stats-bar">
-      <div class="stat"><div class="stat-value" id="stat-total">—</div><div class="stat-label">Productos</div></div>
-      <div class="stat"><div class="stat-value" id="stat-brands">—</div><div class="stat-label">Marcas</div></div>
-      <div class="stat"><div class="stat-value" id="stat-showing">—</div><div class="stat-label">Mostrando</div></div>
+    <div class="sec-head">
+      <h2 class="sec-title">Elegí tu <span class="hl">sabor</span></h2>
+      <span class="eyebrow" id="cat-count"></span>
     </div>
-
-    <div class="control-panel">
-      <div class="search-wrapper">
-        <svg class="icon search-icon"><use href="#i-search"></use></svg>
-        <input type="text" id="search-input" class="search-bar" placeholder="Buscá un sabor o una marca" autocomplete="off" aria-label="Buscar productos">
-        <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Borrar búsqueda"><svg class="icon"><use href="#i-close"></use></svg></button>
-        <div class="suggestions-box" id="suggestions-box"></div>
+    <div class="tools">
+      <div class="search">
+        <svg class="icon"><use href="#i-search"></use></svg>
+        <input type="text" inputmode="search" enterkeyhint="search" id="search-input" placeholder="Buscá sabor o modelo" autocomplete="off" aria-label="Buscar">
+        <button class="search-x" id="search-x" onclick="clearSearch()" aria-label="Borrar"><svg class="icon"><use href="#i-close"></use></svg></button>
       </div>
-      <div class="filter-group" id="filter-group">
-        <button class="filter-btn active" onclick="filterCategory('TODOS',this)">Todos</button>
-      </div>
-      <div class="stock-toggle-row">
-        <label class="stock-toggle-label" for="toggle-stock">
-          Mostrar solo disponibles
-          <span>Ocultá lo que está sin stock</span>
-        </label>
-        <label class="toggle-switch">
-          <input type="checkbox" id="toggle-stock" checked onchange="render()" aria-label="Mostrar solo productos disponibles">
-          <span class="toggle-track"></span>
-          <span class="toggle-thumb"></span>
-        </label>
-      </div>
+      <div class="chips" id="chips"></div>
     </div>
-
-    <div class="fav-panel" id="fav-panel">
-      <div class="fav-panel-header">
-        <span class="fav-panel-title"><svg class="icon"><use href="#i-heart-fill"></use></svg>Mis favoritos</span>
-        <button class="fav-panel-close" onclick="closeFavPanel()">Cerrar <svg class="icon"><use href="#i-close"></use></svg></button>
-      </div>
-      <div id="fav-panel-content"></div>
-    </div>
-
-    <a class="combo-strip" href="#combos">
-      <span><span>Combo 3x sabores combinables</span><b>ELFBAR ICEKING $79.000</b></span>
-      <svg class="icon"><use href="#i-layers"></use></svg>
-    </a>
-
-    <div class="shop">
-      <main class="shop-main">
-        <div class="catalog-grid" id="catalog-grid">
-          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div></div></div>
-          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line tall"></div><div class="skeleton-line medium"></div></div></div>
-        </div>
-      </main>
-
-      <aside class="shop-aside" id="combos">
-        <details class="combo-box" id="combo-box" open>
-          <summary class="combo-summary">
-            <span>
-              <span class="combo-eyebrow">Combo 3 unidades</span>
-              <span class="combo-sum-title">ELFBAR ICEKING</span>
-            </span>
-            <span class="combo-sum-price">$79.000</span>
-            <svg class="icon combo-chev"><use href="#i-chevron"></use></svg>
-          </summary>
-          <p class="combo-note">Tres unidades, los sabores que quieras. Tres iguales, tres distintos o la mezcla que se te cante: el precio es el mismo.</p>
-          <svg class="marker-underline" viewBox="0 0 300 12" fill="none" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M4 8c46-4 92-5 140-4 44 1 88 3 152 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div class="combo-builder" id="combo-builder">
-            <div class="combo-empty" id="combo-loading">Cargando sabores disponibles…</div>
-            <div id="combo-body" style="display:none">
-              <div class="slots" id="combo-slots"></div>
-              <div class="combo-progress">
-                <span class="combo-count" id="combo-count">Elegiste <b>0</b> de 3</span>
-                <span class="combo-saving" id="combo-saving"></span>
-              </div>
-              <div class="combo-picker" id="combo-picker"></div>
-              <div class="combo-actions">
-                <button class="btn btn-blue" id="combo-add" onclick="addComboToCart()" disabled>
-                  <svg class="icon"><use href="#i-cart"></use></svg>Agregar combo
-                </button>
-                <a class="btn btn-ghost" id="combo-wa" href="#" target="_blank" rel="noopener">
-                  <svg class="icon"><use href="#i-wa"></use></svg>Pedí por DM
-                </a>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <div class="featured" id="featured">
-          <img class="featured-img" id="featured-img" src="" alt="" onerror="this.style.opacity=.15">
-          <div class="featured-info">
-            <div class="featured-label">Destacado</div>
-            <div class="featured-name" id="featured-name"></div>
-            <div class="featured-flavor" id="featured-flavor"></div>
-          </div>
-          <span class="featured-price" id="featured-price"></span>
-          <button class="btn btn-blue" onclick="heroAddToCart()">Agregar</button>
-        </div>
-      </aside>
+    <div class="grid" id="catalog-grid">
+      <div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROMESAS ============ -->
-<section class="promises">
-  <div class="wrap" style="padding:0">
-    <div class="promise-grid">
-      <div class="promise">
-        <div class="promise-num">01</div>
-        <svg class="icon promise-icon"><use href="#i-shield"></use></svg>
-        <h3>Garantía 24hs</h3>
-        <p>Si el vape te llega fallado, tenés 24 horas para avisarnos y te lo cambiamos. Sin discutir, sin letra chica.</p>
-      </div>
-      <div class="promise">
-        <div class="promise-num">02</div>
-        <svg class="icon promise-icon"><use href="#i-moon"></use></svg>
-        <h3>Envíos toda la noche</h3>
-        <p>Entregamos cuando el resto ya cerró. Coordinás por DM y sale el pedido esa misma noche.</p>
-      </div>
-      <div class="promise">
-        <div class="promise-num">03</div>
-        <svg class="icon promise-icon"><use href="#i-verified"></use></svg>
-        <h3>Original o nada</h3>
-        <p>Solo productos originales. Nada de réplicas ni de puff que rinde la mitad de lo que dice la caja.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ SOMOS LA NOCHE ============ -->
-<section class="section night" id="noche">
+<!-- ============ NOCHE ============ -->
+<section class="night" id="noche">
   <div class="wrap">
-    <p class="eyebrow">Envíos nocturnos</p>
-    <h2 class="night-title">Cuando todos bajan la persiana,<br><span class="hl">nosotros salimos</span></h2>
-    <p class="lead night-lead">Se te terminó a las tres de la mañana, en la previa o volviendo a casa. Ahí es donde el resto ya no atiende y nosotros sí.</p>
-
+    <p class="eyebrow">Envíos al momento · Mendoza</p>
+    <h2>Cuando todos cierran,<br><span class="hl">nosotros salimos</span></h2>
+    <p class="lead">Pedís y te lo mandamos en ese momento, a la hora que sea. Y si se te terminó a las tres de la mañana, también: ahí el resto ya no atiende y la crew sí.</p>
     <div class="night-photos">
-      <figure><img src="assets/somos-la-noche.webp" alt="VAPE CREW — Somos la noche" width="900" height="1350" loading="lazy"></figure>
-      <figure><img src="assets/moto-noche.webp" alt="Repartidor de VAPE CREW en moto por la ciudad de noche" width="900" height="1350" loading="lazy"></figure>
+      <img src="assets/somos-la-noche.webp" alt="VAPE CREW de noche" width="900" height="1350" loading="lazy">
+      <img src="assets/moto-noche.webp" alt="Repartidor de VAPE CREW en moto de noche" width="900" height="1350" loading="lazy">
     </div>
-
-    <ul class="night-list">
-      <li><svg class="icon"><use href="#i-wa"></use></svg><span>Escribís al DM y coordinamos punto de entrega.</span></li>
-      <li><svg class="icon"><use href="#i-truck"></use></svg><span>Sale la moto y te llega donde estés.</span></li>
-      <li><svg class="icon"><use href="#i-shield"></use></svg><span>Lo probás en el momento. Si falla, entra la garantía.</span></li>
-    </ul>
-
-    <a class="btn btn-blue" style="margin-top:26px" href="https://wa.me/5492612152270" target="_blank" rel="noopener">
-      <svg class="icon"><use href="#i-wa"></use></svg>Pedí por DM
-    </a>
+    <div class="promise-grid">
+      <div class="promise"><svg class="icon"><use href="#i-shield"></use></svg><h3>Garantía 24hs</h3><p>Si te llega fallado, tenés 24 horas para avisarnos y te lo cambiamos. Sin discutir.</p></div>
+      <div class="promise"><svg class="icon"><use href="#i-moon"></use></svg><h3>Envíos toda la noche</h3><p>Te lo mandamos en el momento en que pedís, de día o de noche. Cuando el resto ya bajó la persiana, seguimos.</p></div>
+      <div class="promise"><svg class="icon"><use href="#i-verified"></use></svg><h3>Original o nada</h3><p>Solo productos originales. Nada de réplicas que rinden la mitad de lo que dice la caja.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- ============ CÓMO COMPRAR ============ -->
+<!-- ============ CÓMO COMPRAR + FAQ ============ -->
 <section class="section" id="comprar">
-  <div class="wrap how-grid">
-    <div>
-      <p class="eyebrow">Cómo comprar</p>
-      <h2 class="section-title" style="margin:14px 0 6px">Tres <span class="hl">pasos</span>.<br>Nada más.</h2>
-      <ol class="steps">
-        <li class="step"><span class="step-num">01</span><div><h3>Elegí</h3><p>Armá el carrito desde el catálogo o cerrá el combo 3x. Podés mezclar sabores como quieras.</p></div></li>
-        <li class="step"><span class="step-num">02</span><div><h3>Pagá</h3><p>Transferí al alias <strong style="color:#fff">vvpecrew</strong> desde tu banco o Mercado Pago y mandanos el comprobante.</p></div></li>
-        <li class="step"><span class="step-num">03</span><div><h3>Recibí</h3><p>Confirmamos, coordinamos punto de entrega y sale el pedido esa misma noche.</p></div></li>
-      </ol>
+  <div class="wrap">
+    <p class="eyebrow">Cómo comprar</p>
+    <h2 class="sec-title" style="margin-top:8px">Tres <span class="hl">pasos</span></h2>
+    <div class="steps">
+      <div class="step"><span class="step-n">01</span><div><h3>Elegí</h3><p>Elegí los sabores que quieras, uno o varios. Si llevás 3 del mismo modelo, el precio baja solo.</p></div></div>
+      <div class="step"><span class="step-n">02</span><div><h3>Mandá el pedido</h3><p>Se abre WhatsApp con todo escrito. Solo tocás enviar.</p></div></div>
+      <div class="step"><span class="step-n">03</span><div><h3>Recibí</h3><p>Confirmamos, pagás por transferencia o en efectivo y sale en el momento.</p></div></div>
     </div>
-    <figure class="how-photo">
-      <img src="assets/entrega.webp" alt="Entrega de un pedido de VAPE CREW en la calle" width="900" height="1350" loading="lazy">
-    </figure>
+
+    <div class="faq">
+      <details><summary>¿Tengo que llevar 3?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>No. Podés llevar uno solo. La promo es si llevás 3 o más del mismo modelo (CREATE o ICEKING): ahí cada uno te queda más barato, y podés mezclar los sabores como quieras.</p></details>
+      <details><summary>¿Son originales?<svg class="icon"><use href="#i-verified"></use></svg></summary><p>Todos. Original o nada es una de nuestras tres promesas. Si tenés dudas, preguntanos por DM y te mostramos el producto.</p></details>
+      <details><summary>¿Cómo pago?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Transferencia al alias vvpecrew (banco o Mercado Pago) o efectivo al recibir. Lo elegís al mandar el pedido.</p></details>
+      <details><summary>¿Y si me llega fallado?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Tenés garantía de 24 horas. Nos avisás por DM y te lo cambiamos.</p></details>
+      <details><summary>¿Cuándo me llega?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Te lo mandamos en el momento en que pedís, de día o de noche, en Mendoza. Coordinamos el punto de entrega por DM.</p></details>
+    </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span class="footer-logo" role="img" aria-label="VAPE CREW"></span>
-    <div class="footer-promises">
-      <span>Garantía 24hs</span><span>Envíos toda la noche</span><span>Original o nada</span>
-    </div>
-    <div class="age-pill">+18</div>
-    <p class="footer-legal">
-      VAPE CREW® · Mendoza, Argentina · Venta exclusiva a mayores de 18 años.<br>
-      El consumo de nicotina es adictivo y puede ser nocivo para la salud. Los precios y el stock pueden cambiar sin previo aviso.
-    </p>
+    <div class="foot-logo" role="img" aria-label="VAPE CREW"></div>
+    <p>VAPE CREW® · Mendoza, Argentina · Venta exclusiva a mayores de 18 años. El consumo de nicotina es adictivo y puede ser nocivo para la salud. Precios y stock sujetos a cambios.</p>
   </div>
 </footer>
 
-<!-- ============ CARRITO ============ -->
-<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-<aside class="cart-drawer" id="cart-drawer" aria-label="Carrito">
-  <div class="cart-header">
-    <span class="cart-title"><svg class="icon"><use href="#i-cart"></use></svg>Carrito <span class="cart-count-badge" id="cart-count-badge">0</span></span>
-    <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito"><svg class="icon"><use href="#i-close"></use></svg></button>
-  </div>
-  <div class="cart-items" id="cart-items"></div>
-  <div class="cart-footer" id="cart-footer" style="display:none">
-    <div class="cart-total-row"><span class="cart-total-label">Total estimado</span><span class="cart-total-value" id="cart-total">$0</span></div>
-    <a id="cart-wa-btn" class="btn btn-wa btn-block" href="#" target="_blank" rel="noopener">
-      <svg class="icon"><use href="#i-wa"></use></svg>Pedí por DM
-    </a>
-    <button class="cart-clear-btn" onclick="clearCart()">Vaciar carrito</button>
-  </div>
-</aside>
-
-<!-- ============ MODAL DE PAGO ============ -->
-<div class="pay-modal-overlay" id="pay-modal-overlay" onclick="closePayModal()"></div>
-<div class="pay-modal" id="pay-modal" role="dialog" aria-modal="true" aria-label="Pagar por transferencia">
-  <div class="pay-modal-header">
-    <div class="pay-modal-title">Comprar</div>
-    <div class="pay-modal-subtitle">Transferí desde tu banco o Mercado Pago y mandanos el comprobante por DM para confirmar el pedido.</div>
-  </div>
-  <div class="pay-modal-product" id="pay-modal-product"></div>
-  <div class="pay-alias-box">
-    <div>
-      <div class="pay-alias-label">Alias Mercado Pago</div>
-      <div class="pay-alias-value">vvpecrew</div>
-    </div>
-    <button class="pay-copy-btn" onclick="copyAlias()"><svg class="icon"><use href="#i-copy"></use></svg>Copiar</button>
-  </div>
-  <div class="pay-modal-steps">
-    <div class="pay-step"><div class="pay-step-num">1</div><div class="pay-step-text">Abrí tu banco o Mercado Pago y transferí el monto exacto al alias <strong>vvpecrew</strong>.</div></div>
-    <div class="pay-step"><div class="pay-step-num">2</div><div class="pay-step-text">Tocá el botón de abajo y mandanos el <strong>comprobante</strong> por DM.</div></div>
-    <div class="pay-step"><div class="pay-step-num">3</div><div class="pay-step-text">Confirmamos el pedido y coordinamos la <strong>entrega</strong>.</div></div>
-  </div>
-  <div class="pay-modal-actions">
-    <a id="pay-wa-btn" class="btn btn-wa btn-block" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"></use></svg>Ya pagué, mando comprobante</a>
-    <button class="pay-cancel-btn" onclick="closePayModal()">Cancelar</button>
-  </div>
+<!-- ============ BARRA INFERIOR ============ -->
+<div class="bar" id="bar">
+  <span class="bar-hint" id="bar-hint"></span>
+  <div class="bar-inner" id="bar-inner"></div>
 </div>
 
-<!-- ============ FLOTANTES ============ -->
-<button class="cart-fab" id="cart-fab" onclick="openCart()">
-  <svg class="icon"><use href="#i-cart"></use></svg>Carrito
-  <span class="cart-fab-badge" id="cart-fab-badge">0</span>
-</button>
-<a class="wa-float" href="https://wa.me/5492612152270" target="_blank" rel="noopener">
-  <svg class="icon"><use href="#i-wa"></use></svg>Pedí por DM
-</a>
+<!-- ============ HOJA: ARMAR PROMO 3x ============ -->
+<div class="ov" id="pk-ov" onclick="closePicker()"></div>
+<aside class="sheet" id="pk-sheet" aria-label="Elegir sabores">
+  <div class="grab"></div>
+  <div class="sheet-head"><h3 id="pk-title">Elegí tus sabores</h3><button class="sheet-x" onclick="closePicker()" aria-label="Cerrar"><svg class="icon"><use href="#i-close"></use></svg></button></div>
+  <div class="sheet-body" id="pk-body"></div>
+  <div class="sheet-foot" id="pk-foot"></div>
+</aside>
 
-<nav class="mobile-nav" aria-label="Navegación">
-  <div class="mobile-nav-inner">
-    <button class="nav-item active" id="nav-catalog" onclick="navTo('catalog')"><svg class="icon"><use href="#i-grid"></use></svg><span>Catálogo</span></button>
-    <button class="nav-item" id="nav-combos" onclick="navTo('combos')"><svg class="icon"><use href="#i-layers"></use></svg><span>Combos</span></button>
-    <button class="nav-item" id="nav-favs" onclick="navTo('favs')"><svg class="icon"><use href="#i-heart"></use></svg><span>Favoritos</span><span class="nav-fav-badge" id="nav-fav-badge">0</span></button>
-    <button class="nav-item" id="nav-cart" onclick="navTo('cart')"><svg class="icon"><use href="#i-cart"></use></svg><span>Carrito</span><span class="nav-badge" id="nav-cart-badge">0</span></button>
-    <a class="nav-item" href="https://wa.me/5492612152270" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"></use></svg><span>DM</span></a>
-  </div>
-</nav>
+<!-- ============ HOJA: PEDIDO ============ -->
+<div class="ov" id="cart-ov" onclick="closeCart()"></div>
+<aside class="sheet" id="cart-sheet" aria-label="Tu pedido">
+  <div class="grab"></div>
+  <div class="sheet-head"><h3>Tu pedido</h3><button class="sheet-x" onclick="closeCart()" aria-label="Cerrar"><svg class="icon"><use href="#i-close"></use></svg></button></div>
+  <div class="sheet-body" id="cart-body"></div>
+  <div class="sheet-foot" id="cart-foot"></div>
+</aside>
 
 <script>
 /* =============================================================
@@ -792,710 +462,445 @@ var ALIAS     = "vvpecrew";
 var STOCK_OUT = 0;
 var STOCK_LOW = 3;
 
-/* --- CONFIG DEL COMBO: cambiá acá el precio o las unidades --- */
-var COMBO = {
-  nombre: "COMBO 3X ELFBAR ICEKING",
-  units: 3,
-  precio_num: 79000,
-  precio: "$79.000",
-  match: ["ELFBAR", "ICEKING"]   // se busca en producto + categoría (sin espacios ni tildes)
-};
+/* --- PROMOS POR CANTIDAD: cambiá acá precios y mínimos ---
+   match: palabras que tiene que tener el PRODUCTO (sin espacios ni tildes).
+   Llevando "min" o más del mismo modelo (sabores mezclados), cada uno queda a "promo". */
+var PROMOS = [
+  { key:"CREATE",  nombre:"ELFBAR CREATE 40K",  match:["CREATE"],  unit:24500, promo:20000, min:3, hot:true,  tag:"La más barata" },
+  { key:"ICEKING", nombre:"ELFBAR ICEKING 40K", match:["ICEKING"], unit:29000, promo:27500, min:3, hot:false, tag:"Línea ICE" }
+];
 
-var HERO_ID   = null;
 var productos = [];
 var filtrados = [];
-var favProds  = [];
-var marcaFiltro = "TODOS";
-var carrito   = [];
-var favoritos = JSON.parse(localStorage.getItem('vc_favs') || '[]');
-var comboItems = [];   // productos ELFBAR ICEKING disponibles
-var comboPick  = [];   // ids elegidos (se puede repetir)
+var carrito   = [];          // [{id, qty}]
+var favoritos = [];
+try { favoritos = JSON.parse(localStorage.getItem('vc_favs') || '[]') || []; } catch(e){ favoritos = []; }
+try { carrito = JSON.parse(localStorage.getItem('vc_cart') || '[]') || []; } catch(e){ carrito = []; }
+var filtro = 'TODOS';
+var pago = 'transferencia';
+var zonaVal = '';
 
 /* ---------- UTILIDADES ---------- */
-function esc(s){
-  return String(s == null ? '' : s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-}
-function norm(s){
-  return String(s || '').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Z0-9]/g,'');
-}
-function money(n){ return '$' + Number(n || 0).toLocaleString('es-AR'); }
+function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function norm(s){ return String(s || '').toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Z0-9]/g,'').replace(/(\d)O(K)/g,'$10$2'); }
+function money(n){ return '$' + Math.round(Number(n || 0)).toLocaleString('es-AR'); }
 function icon(id){ return '<svg class="icon"><use href="#' + id + '"></use></svg>'; }
+function $(id){ return document.getElementById(id); }
+function track(){ try { if (window.vcTrack) window.vcTrack.apply(null, arguments); } catch(e){} }
+function waLink(msg){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg); }
+function cleanName(s){ return String(s || '').replace(/(\d)O(K)\b/gi, '$10$2').replace(/\bEBC\s+/i, ''); }
+function titleCase(s){ return String(s || '').toLowerCase().replace(/(^|\s)\S/g, function(c){ return c.toUpperCase(); }); }
 
-/* ---------- AGE GATE ---------- */
+/* ---------- STOCK ---------- */
+function stockDe(p){ var s = parseInt(p && p.stock, 10); return isNaN(s) ? 99 : s; }
+function disponible(p){ return stockDe(p) > STOCK_OUT; }
+function promoDe(p){
+  var n = norm(p && p.producto);
+  for (var i = 0; i < PROMOS.length; i++){
+    var ok = PROMOS[i].match.every(function(m){ return n.indexOf(norm(m)) !== -1; });
+    if (ok) return PROMOS[i];
+  }
+  return null;
+}
+function prodById(id){ for (var i = 0; i < productos.length; i++) if (String(productos[i].id) === String(id)) return productos[i]; return null; }
+function precioBase(p){ var pr = promoDe(p); return pr ? pr.unit : Number(p.precio_num || 0); }
+
+/* ---------- +18 ---------- */
 function passAgeGate(){
-  try { localStorage.setItem('vc_age18','1'); } catch(e){}
-  document.getElementById('age-gate').classList.add('hidden');
+  try { localStorage.setItem('vc_age18', '1'); } catch(e){}
+  $('age-gate').classList.add('hidden');
   document.body.style.overflow = '';
 }
 function denyAgeGate(){
-  document.getElementById('age-gate').innerHTML =
-    '<div class="age-inner"><h1 class="age-title">Solo <span class="hl">+18</span></h1>' +
-    '<p class="age-text">Este sitio vende productos con nicotina y no está disponible para menores de 18 años.</p></div>';
+  $('age-gate').querySelector('.age-card').innerHTML =
+    '<h2 class="age-title">Solo <span class="hl">+18</span></h2><p class="age-text">Este sitio vende productos con nicotina y no está disponible para menores de 18 años.</p>';
 }
-(function initAgeGate(){
+(function(){
   var ok = false;
   try { ok = localStorage.getItem('vc_age18') === '1'; } catch(e){}
-  if (ok) { document.getElementById('age-gate').classList.add('hidden'); }
-  else { document.body.style.overflow = 'hidden'; }
-})();
-
-/* ---------- TICKER ---------- */
-(function buildTicker(){
-  var items = ['Garantía 24hs','Envíos toda la noche','Original o nada','Vapes 40K puffs','Mendoza capital y alrededores','Pedí por DM'];
-  var icons = ['i-shield','i-moon','i-verified','i-box','i-truck','i-wa'];
-  var html = '';
-  for (var r = 0; r < 2; r++){
-    for (var i = 0; i < items.length; i++){
-      html += '<span class="ticker-item">' + icon(icons[i]) + esc(items[i]) + '</span>';
-    }
-  }
-  document.getElementById('ticker-track').innerHTML = html;
+  if (ok) $('age-gate').classList.add('hidden'); else document.body.style.overflow = 'hidden';
 })();
 
 /* ---------- TOAST ---------- */
-var toastTimer;
-function showToast(msg, iconId){
-  var t = document.getElementById('toast');
-  document.getElementById('toast-icon').innerHTML = '<use href="#' + (iconId || 'i-check') + '"></use>';
-  document.getElementById('toast-msg').textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2800);
+var toastT;
+function showToast(msg, ic){
+  $('toast-icon').innerHTML = '<use href="#' + (ic || 'i-check') + '"></use>';
+  $('toast-msg').textContent = msg;
+  $('toast').classList.add('on');
+  clearTimeout(toastT); toastT = setTimeout(function(){ $('toast').classList.remove('on'); }, 2200);
 }
-function scrollToCatalog(){ document.getElementById('catalogo').scrollIntoView({behavior:'smooth'}); }
-function scrollToCombos(){ document.getElementById('combos').scrollIntoView({behavior:'smooth'}); }
-
-/* ---------- BADGES / STOCK ---------- */
-function getBadge(stock){
-  var s = parseInt(stock, 10);
-  if (isNaN(s)) return '';
-  if (s <= STOCK_OUT) return '<span class="badge badge-agotado">Agotado</span>';
-  if (s <= STOCK_LOW) return '<span class="badge badge-ultimas">Últimas ' + s + '</span>';
-  return '';
-}
-function getStockIndicator(stock){
-  var s = parseInt(stock, 10), max = 20;
-  if (isNaN(s)) return '';
-  var cls, label, pct;
-  if (s <= STOCK_OUT){ cls='stock-out'; label='Sin stock'; pct=100; }
-  else if (s <= STOCK_LOW){ cls='stock-low'; label=s+' unidad'+(s===1?'':'es'); pct=Math.max((s/max)*100,8); }
-  else { cls='stock-ok'; label='Disponible'; pct=Math.min((s/max)*100,100); }
-  return '<div class="stock-indicator '+cls+'"><div class="stock-bar-wrap"><div class="stock-bar-fill" style="width:'+pct+'%"></div></div><span class="stock-label">'+esc(label)+'</span></div>';
-}
-function stockDe(p){
-  var s = parseInt(p.stock, 10);
-  return isNaN(s) ? 99 : s;
-}
-
-/* ---------- LINKS DE WHATSAPP (sin emojis) ---------- */
-function buildWALink(p){
-  var msg = 'Hola VAPE CREW. Quiero pedir:\n\n' +
-            'Producto: ' + p.producto + '\n' +
-            'Sabor: ' + p.sabor + '\n' +
-            'Precio: ' + p.precio + '\n\n' +
-            '¿Tienen stock?';
-  return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-}
-
-/* ---------- BÚSQUEDA ---------- */
-function highlight(text, q){
-  var safe = esc(text);
-  if (!q) return safe;
-  var qs = esc(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return safe.replace(new RegExp('(' + qs + ')', 'gi'), '<mark>$1</mark>');
-}
-var suggTimeout, suggMatches = [];
-function onSearchInput(){
-  var q = document.getElementById('search-input').value.trim();
-  document.getElementById('search-clear').classList.toggle('visible', q.length > 0);
-  clearTimeout(suggTimeout);
-  suggTimeout = setTimeout(function(){ updateSuggestions(q); render(); }, 120);
-}
-function updateSuggestions(q){
-  var box = document.getElementById('suggestions-box');
-  if (!q){ box.classList.remove('open'); return; }
-  var ql = q.toLowerCase();
-  suggMatches = productos.filter(function(p){
-    return (p.producto||'').toLowerCase().indexOf(ql) !== -1 || (p.sabor||'').toLowerCase().indexOf(ql) !== -1;
-  }).slice(0, 6);
-  if (!suggMatches.length){
-    box.innerHTML = '<div class="suggestion-empty">Sin resultados para "' + esc(q) + '"</div>';
-    box.classList.add('open'); return;
-  }
-  box.innerHTML = suggMatches.map(function(p, i){
-    return '<div class="suggestion-item" onclick="selectSuggestion(' + i + ')">' +
-      '<img class="suggestion-img" src="' + esc(p.imagen_url) + '" loading="lazy" alt="" onerror="this.style.opacity=.15">' +
-      '<div class="suggestion-text"><div class="suggestion-name">' + highlight(p.producto, q) + '</div>' +
-      '<div class="suggestion-flavor">' + highlight(p.sabor, q) + '</div></div>' +
-      '<span class="suggestion-price">' + esc(p.precio) + '</span></div>';
-  }).join('');
-  box.classList.add('open');
-}
-function selectSuggestion(i){
-  var p = suggMatches[i];
-  if (!p) return;
-  document.getElementById('search-input').value = (p.producto || '') + ' ' + (p.sabor || '');
-  document.getElementById('suggestions-box').classList.remove('open');
-  document.getElementById('search-clear').classList.add('visible');
-  render();
-}
-function clearSearch(){
-  document.getElementById('search-input').value = '';
-  document.getElementById('search-clear').classList.remove('visible');
-  document.getElementById('suggestions-box').classList.remove('open');
-  render();
-}
-document.addEventListener('click', function(e){
-  if (!e.target.closest('.search-wrapper')) document.getElementById('suggestions-box').classList.remove('open');
-});
-
-/* ---------- FAVORITOS ---------- */
-function saveFavs(){ try { localStorage.setItem('vc_favs', JSON.stringify(favoritos)); } catch(e){} }
-function toggleFavByIndex(i, btnEl){
-  var p = filtrados[i];
-  if (!p) return;
-  toggleFav(p.id, btnEl);
-}
-function toggleFav(id, btnEl){
-  var idx = favoritos.indexOf(id);
-  if (idx === -1){
-    favoritos.push(id);
-    if (btnEl){ btnEl.classList.add('active'); btnEl.innerHTML = icon('i-heart-fill'); }
-    showToast('Guardado en favoritos', 'i-heart-fill');
-  } else {
-    favoritos.splice(idx, 1);
-    if (btnEl){ btnEl.classList.remove('active'); btnEl.innerHTML = icon('i-heart'); }
-    showToast('Sacado de favoritos', 'i-heart');
-  }
-  saveFavs(); updateFavBadge();
-  if (document.getElementById('fav-panel').classList.contains('open')) renderFavPanel();
-}
-function updateFavBadge(){
-  var b = document.getElementById('nav-fav-badge');
-  if (b){ b.textContent = favoritos.length; b.classList.toggle('visible', favoritos.length > 0); }
-}
-function openFavPanel(){
-  var p = document.getElementById('fav-panel');
-  p.classList.add('open'); renderFavPanel();
-  p.scrollIntoView({behavior:'smooth', block:'start'});
-}
-function closeFavPanel(){ document.getElementById('fav-panel').classList.remove('open'); }
-function removeFavByIndex(i){
-  var p = favProds[i];
-  if (!p) return;
-  toggleFav(p.id, null); renderFavPanel(); render();
-}
-function renderFavPanel(){
-  var container = document.getElementById('fav-panel-content');
-  favProds = productos.filter(function(p){ return favoritos.indexOf(p.id) !== -1; });
-  if (!favProds.length){
-    container.innerHTML = '<div class="fav-empty">Todavía no guardaste ningún favorito.<br>Tocá el corazón en cualquier producto para tenerlo acá.</div>';
-    return;
-  }
-  container.innerHTML = '<div class="fav-grid">' + favProds.map(function(p, i){
-    return '<div class="fav-item">' +
-      '<img class="fav-item-img" src="' + esc(p.imagen_url) + '" alt="" onerror="this.style.opacity=.15">' +
-      '<div class="fav-item-info"><div class="fav-item-name">' + esc(p.producto) + '</div>' +
-      '<div class="fav-item-flavor">' + esc(p.sabor) + '</div></div>' +
-      '<button class="fav-item-remove" onclick="removeFavByIndex(' + i + ')" aria-label="Sacar de favoritos">' + icon('i-close') + '</button></div>';
-  }).join('') + '</div>';
-}
-
-/* ---------- NAV MÓVIL ---------- */
-function navTo(dest){
-  var items = document.querySelectorAll('.nav-item');
-  for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
-  if (dest === 'catalog'){ document.getElementById('nav-catalog').classList.add('active'); closeFavPanel(); scrollToCatalog(); }
-  else if (dest === 'combos'){ document.getElementById('nav-combos').classList.add('active'); closeFavPanel(); scrollToCombos(); }
-  else if (dest === 'favs'){ document.getElementById('nav-favs').classList.add('active'); openFavPanel(); }
-  else if (dest === 'cart'){ document.getElementById('nav-cart').classList.add('active'); openCart(); }
-}
-
-/* ---------- CARRITO ---------- */
-function openCart(){
-  document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('cart-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCart(){
-  document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('cart-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function addToCartByIndex(i, btnEl){
-  var p = filtrados[i];
-  if (!p) return;
-  addToCart(p.id, btnEl);
-}
-function addToCart(id, btnEl){
-  var p = null;
-  for (var i = 0; i < productos.length; i++) if (productos[i].id === id) p = productos[i];
-  if (!p) return;
-  var existing = null;
-  for (var j = 0; j < carrito.length; j++) if (carrito[j].id === id) existing = carrito[j];
-  if (existing) existing.qty++;
-  else carrito.push({
-    id: p.id, producto: p.producto, sabor: p.sabor, precio: p.precio,
-    precio_num: p.precio_num, imagen_url: p.imagen_url, qty: 1, combo: false
-  });
-  updateCartUI();
-  showToast(p.producto + ' agregado al carrito', 'i-cart');
-  if (btnEl){
-    btnEl.classList.add('added'); btnEl.innerHTML = icon('i-check');
-    setTimeout(function(){ btnEl.classList.remove('added'); btnEl.innerHTML = icon('i-plus'); }, 1200);
-  }
-}
-function changeQty(id, delta){
-  var idx = -1;
-  for (var i = 0; i < carrito.length; i++) if (carrito[i].id === id) idx = i;
-  if (idx === -1) return;
-  carrito[idx].qty += delta;
-  if (carrito[idx].qty <= 0) carrito.splice(idx, 1);
-  updateCartUI();
-}
-function removeFromCart(id){
-  carrito = carrito.filter(function(c){ return c.id !== id; });
-  updateCartUI();
-}
-function clearCart(){ carrito = []; updateCartUI(); showToast('Carrito vaciado', 'i-close'); }
-function updateCartUI(){
-  var total = carrito.reduce(function(a,c){ return a + (Number(c.precio_num||0) * c.qty); }, 0);
-  var count = carrito.reduce(function(a,c){ return a + c.qty; }, 0);
-  ['cart-fab-badge','cart-count-badge','nav-cart-badge'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el){ el.textContent = count; el.classList.toggle('visible', count > 0); }
-  });
-  document.getElementById('cart-total').textContent = money(total);
-  document.getElementById('cart-footer').style.display = carrito.length ? 'block' : 'none';
-  var container = document.getElementById('cart-items');
-  if (!carrito.length){
-    container.innerHTML = '<div class="cart-empty">' + icon('i-cart') +
-      '<p>El carrito está vacío.<br>Agregá productos o armá un combo 3x.</p></div>';
-  } else {
-    container.innerHTML = carrito.map(function(c){
-      var safeId = esc(c.id).replace(/&#39;/g, "\\'");
-      return '<div class="cart-item' + (c.combo ? ' is-combo' : '') + '">' +
-        '<img class="cart-item-img" src="' + esc(c.imagen_url) + '" alt="" onerror="this.style.opacity=.15">' +
-        '<div class="cart-item-info">' +
-          '<div class="cart-item-name">' + esc(c.producto) + '</div>' +
-          '<div class="cart-item-flavor">' + esc(c.sabor) + '</div>' +
-          '<div class="cart-item-controls">' +
-            '<button class="qty-btn" onclick="changeQty(\'' + safeId + '\',-1)" aria-label="Restar">' + icon('i-minus') + '</button>' +
-            '<span class="qty-num">' + c.qty + '</span>' +
-            '<button class="qty-btn" onclick="changeQty(\'' + safeId + '\',1)" aria-label="Sumar">' + icon('i-plus') + '</button>' +
-          '</div>' +
-        '</div>' +
-        '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">' +
-          '<span class="cart-item-price">' + esc(c.precio) + '</span>' +
-          '<button class="cart-item-remove" onclick="removeFromCart(\'' + safeId + '\')" aria-label="Quitar">' + icon('i-close') + '</button>' +
-        '</div></div>';
-    }).join('');
-  }
-  buildCartWALink();
-}
-function buildCartWALink(){
-  if (!carrito.length) return;
-  var lines = carrito.map(function(c){
-    if (c.combo) return '- ' + c.producto + ' x' + c.qty + ' (' + c.precio + ' c/u)\n  Sabores: ' + c.sabor;
-    return '- ' + c.producto + ' | ' + c.sabor + ' x' + c.qty + ' (' + c.precio + ' c/u)';
-  });
-  var total = carrito.reduce(function(a,c){ return a + (Number(c.precio_num||0) * c.qty); }, 0);
-  var msg = 'Hola VAPE CREW. Quiero hacer este pedido:\n\n' + lines.join('\n') +
-            '\n\nTotal estimado: ' + money(total) +
-            '\n\n¿Me confirman disponibilidad y coordinamos el envío?';
-  document.getElementById('cart-wa-btn').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-}
-
-/* ---------- MODAL DE PAGO ---------- */
-function openPayModal(i){ openPayModalFor(filtrados[i]); }
-function openPayModalFor(p){
-  if (!p) return;
-  document.getElementById('pay-modal-product').innerHTML =
-    '<img class="pay-modal-product-img" src="' + esc(p.imagen_url) + '" alt="" onerror="this.style.opacity=.15">' +
-    '<div><div class="pay-modal-product-name">' + esc(p.producto) + '</div>' +
-    '<div class="pay-modal-product-price">' + esc(p.sabor) + ' · ' + esc(p.precio) + '</div></div>';
-  var msg = 'Hola VAPE CREW. Hice la transferencia para pagar:\n\n' +
-            'Producto: ' + p.producto + '\n' +
-            'Sabor: ' + p.sabor + '\n' +
-            'Monto: ' + p.precio + '\n' +
-            'Alias: ' + ALIAS + '\n\n' +
-            'Les mando el comprobante.';
-  document.getElementById('pay-wa-btn').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-  document.getElementById('pay-modal-overlay').classList.add('open');
-  document.getElementById('pay-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closePayModal(){
-  document.getElementById('pay-modal-overlay').classList.remove('open');
-  document.getElementById('pay-modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function copyAlias(){
-  if (navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(ALIAS).then(function(){ showToast('Alias copiado: ' + ALIAS, 'i-copy'); })
-      .catch(function(){ showToast('Alias: ' + ALIAS, 'i-copy'); });
-  } else { showToast('Alias: ' + ALIAS, 'i-copy'); }
-}
-document.addEventListener('keydown', function(e){
-  if (e.key === 'Escape'){ closePayModal(); closeCart(); }
-});
 
 /* =============================================================
-   COMBO 3X ELFBAR ICEKING
+   PRECIOS DEL PEDIDO (la promo se aplica sola)
    ============================================================= */
-function esCombo(p){
-  var hay = norm((p.producto || '') + ' ' + (p.categoria || '') + ' ' + (p.linea || ''));
-  for (var i = 0; i < COMBO.match.length; i++){
-    if (hay.indexOf(norm(COMBO.match[i])) === -1) return false;
-  }
-  return true;
-}
-function buildCombo(){
-  comboItems = productos.filter(function(p){ return esCombo(p) && stockDe(p) > STOCK_OUT; });
-  var loading = document.getElementById('combo-loading');
-  var body    = document.getElementById('combo-body');
-  if (!comboItems.length){
-    body.style.display = 'none';
-    loading.style.display = 'block';
-    loading.innerHTML = 'Ahora mismo no hay stock de ELFBAR ICEKING para armar el combo.<br>' +
-      '<a href="https://wa.me/' + WA + '" target="_blank" rel="noopener" style="color:#fff;border-bottom:2px solid var(--blue)">Consultá por DM</a> y te avisamos cuando entre.';
-    return;
-  }
-  loading.style.display = 'none';
-  body.style.display = 'block';
-  renderCombo();
-}
-function comboCountOf(id){
-  return comboPick.filter(function(x){ return x === id; }).length;
-}
-function comboItemById(id){
-  for (var i = 0; i < comboItems.length; i++) if (comboItems[i].id === id) return comboItems[i];
-  return null;
-}
-function comboAdd(i){
-  var p = comboItems[i];
-  if (!p) return;
-  if (comboPick.length >= COMBO.units){ showToast('El combo ya tiene ' + COMBO.units + ' unidades', 'i-alert'); return; }
-  if (comboCountOf(p.id) >= stockDe(p)){ showToast('No hay más stock de ese sabor', 'i-alert'); return; }
-  comboPick.push(p.id);
-  renderCombo();
-}
-function comboRemove(i){
-  var p = comboItems[i];
-  if (!p) return;
-  var idx = comboPick.lastIndexOf(p.id);
-  if (idx !== -1) comboPick.splice(idx, 1);
-  renderCombo();
-}
-function comboRemoveSlot(slot){
-  if (slot < comboPick.length){ comboPick.splice(slot, 1); renderCombo(); }
-}
-function comboClear(){ comboPick = []; renderCombo(); }
-function renderCombo(){
-  /* slots */
-  var slotsHtml = '';
-  for (var s = 0; s < COMBO.units; s++){
-    var id = comboPick[s];
-    if (id){
-      var p = comboItemById(id);
-      slotsHtml += '<div class="slot filled" onclick="comboRemoveSlot(' + s + ')" title="Tocá para sacarlo">' +
-        '<span class="slot-remove">' + icon('i-close') + '</span>' +
-        '<img src="' + esc(p.imagen_url) + '" alt="" onerror="this.style.opacity=.15">' +
-        '<span class="slot-name">' + esc(p.sabor || p.producto) + '</span></div>';
-    } else {
-      slotsHtml += '<div class="slot"><span class="slot-num">0' + (s+1) + '</span>' +
-        '<span class="slot-empty-text">Elegí un sabor</span></div>';
-    }
-  }
-  document.getElementById('combo-slots').innerHTML = slotsHtml;
-
-  /* contador y ahorro */
-  document.getElementById('combo-count').innerHTML =
-    'Elegiste <b>' + comboPick.length + '</b> de ' + COMBO.units;
-  var suelto = comboPick.reduce(function(a, id){
-    var p = comboItemById(id);
-    return a + (p ? Number(p.precio_num || 0) : 0);
-  }, 0);
-  var savEl = document.getElementById('combo-saving');
-  if (comboPick.length === COMBO.units && suelto > COMBO.precio_num){
-    savEl.innerHTML = 'Suelto <s>' + money(suelto) + '</s> · combo <b>' + COMBO.precio + '</b> · ahorrás <b>' + money(suelto - COMBO.precio_num) + '</b>';
-  } else if (comboPick.length === COMBO.units){
-    savEl.innerHTML = 'Combo cerrado: <b>' + COMBO.precio + '</b>';
-  } else {
-    savEl.innerHTML = 'Precio final del combo: <b>' + COMBO.precio + '</b>';
-  }
-
-  /* picker de sabores */
-  document.getElementById('combo-picker').innerHTML = comboItems.map(function(p, i){
-    var n = comboCountOf(p.id);
-    var stock = stockDe(p);
-    var full = comboPick.length >= COMBO.units || n >= stock;
-    return '<div class="flavor' + (n ? ' picked' : '') + '">' +
-      '<img src="' + esc(p.imagen_url) + '" alt="' + esc(p.sabor) + '" loading="lazy" onerror="this.style.opacity=.15">' +
-      '<div class="flavor-name">' + esc(p.sabor || p.producto) + '</div>' +
-      '<div class="flavor-meta">' + esc(p.producto) + (stock < 99 ? ' · ' + stock + ' en stock' : '') + '</div>' +
-      '<div class="flavor-row"><div class="flavor-qty">' +
-        '<button class="qty-btn" onclick="comboRemove(' + i + ')" ' + (n ? '' : 'disabled') + ' aria-label="Sacar una unidad">' + icon('i-minus') + '</button>' +
-        '<span class="qty-num">' + n + '</span>' +
-        '<button class="qty-btn" onclick="comboAdd(' + i + ')" ' + (full ? 'disabled' : '') + ' aria-label="Sumar una unidad">' + icon('i-plus') + '</button>' +
-      '</div></div></div>';
-  }).join('');
-
-  /* acciones */
-  var listo = comboPick.length === COMBO.units;
-  document.getElementById('combo-add').disabled = !listo;
-  var waBtn = document.getElementById('combo-wa');
-  if (listo){
-    var msg = 'Hola VAPE CREW. Quiero el ' + COMBO.nombre + ' por ' + COMBO.precio + ':\n\n' +
-              comboSaboresLista().map(function(l){ return '- ' + l; }).join('\n') +
-              '\n\n¿Me confirman stock y coordinamos el envío?';
-    waBtn.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-    waBtn.classList.remove('disabled');
-  } else {
-    waBtn.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('Hola VAPE CREW. Quiero armar el combo 3x de ELFBAR ICEKING. ¿Qué sabores tienen?');
-    waBtn.classList.remove('disabled');
-  }
-}
-function comboSaboresLista(){
-  var conteo = {};
-  comboPick.forEach(function(id){ conteo[id] = (conteo[id] || 0) + 1; });
-  var out = [];
-  Object.keys(conteo).forEach(function(id){
-    var p = comboItemById(id);
-    if (p) out.push((p.sabor || p.producto) + ' x' + conteo[id]);
+function calcular(){
+  var grupos = {}, lineas = [], total = 0, lista = 0;
+  carrito.forEach(function(c){
+    var p = prodById(c.id); if (!p) return;
+    var pr = promoDe(p), k = pr ? pr.key : '_';
+    grupos[k] = (grupos[k] || 0) + c.qty;
   });
-  return out;
+  carrito.forEach(function(c){
+    var p = prodById(c.id); if (!p) return;
+    var pr = promoDe(p);
+    var base = precioBase(p);
+    var unit = (pr && grupos[pr.key] >= pr.min) ? pr.promo : base;
+    lineas.push({ c:c, p:p, pr:pr, unit:unit, base:base, sub:unit * c.qty });
+    total += unit * c.qty; lista += base * c.qty;
+  });
+  var faltan = null;
+  PROMOS.forEach(function(pr){
+    var q = grupos[pr.key] || 0;
+    if (q > 0 && q < pr.min && !faltan){
+      var ahorro = (pr.unit - pr.promo) * pr.min;
+      faltan = { pr:pr, falta:pr.min - q, ahorro:ahorro };
+    }
+  });
+  var count = carrito.reduce(function(a, c){ return a + c.qty; }, 0);
+  return { lineas:lineas, total:total, lista:lista, ahorro:lista - total, faltan:faltan, grupos:grupos, count:count };
+}
+function qtyEnCarrito(id){ for (var i = 0; i < carrito.length; i++) if (String(carrito[i].id) === String(id)) return carrito[i].qty; return 0; }
+function setQty(id, q){
+  var p = prodById(id); if (!p) return;
+  q = Math.max(0, Math.min(q, stockDe(p)));
+  var idx = -1;
+  for (var i = 0; i < carrito.length; i++) if (String(carrito[i].id) === String(id)) idx = i;
+  if (q === 0){ if (idx !== -1) carrito.splice(idx, 1); }
+  else if (idx === -1) carrito.push({ id:p.id, qty:q });
+  else carrito[idx].qty = q;
+  guardarCarrito(); refrescar();
+}
+function guardarCarrito(){ try { localStorage.setItem('vc_cart', JSON.stringify(carrito)); } catch(e){} }
+
+function addToCart(id, btnEl){
+  var p = prodById(id); if (!p) return;
+  if (qtyEnCarrito(id) >= stockDe(p)){ showToast('No hay más stock de ese sabor', 'i-close'); return; }
+  setQty(id, qtyEnCarrito(id) + 1);
+  var r = calcular(), pr = promoDe(p);
+  if (pr && r.grupos[pr.key] === pr.min) showToast('Promo 3x activada: ' + money(pr.promo) + ' c/u', 'i-bolt');
+  else if (pr && r.grupos[pr.key] < pr.min) showToast('Sumá ' + (pr.min - r.grupos[pr.key]) + ' más y cada uno queda a ' + money(pr.promo), 'i-bolt');
+  else showToast(cleanName(p.producto) + ' agregado', 'i-cart');
+}
+function changeQty(id, d){ setQty(id, qtyEnCarrito(id) + d); }
+
+/* =============================================================
+   PROMO CARDS (arriba de todo)
+   ============================================================= */
+function stockPromo(pr){ return productos.filter(function(p){ return promoDe(p) === pr && disponible(p); }); }
+function renderPromos(){
+  $('promo-cards').innerHTML = PROMOS.map(function(pr, i){
+    var items = stockPromo(pr);
+    var todos = productos.filter(function(p){ return promoDe(p) === pr; });
+    var img = (items[0] || todos[0] || {}).imagen_url || '';
+    var cargando = !productos.length;
+    var hay = items.length > 0;
+    var btn = cargando ? '<button class="btn btn-ink" disabled>Cargando sabores…</button>'
+      : hay ? '<button class="btn btn-ink" onclick="openPicker(' + i + ')">Elegir sabores ' + icon('i-arrow') + '</button>'
+      : '<a class="btn btn-ink" data-ctx="promo_sin_stock" target="_blank" rel="noopener" href="' + waLink('Hola VAPE CREW. Quiero la promo 3x de ' + pr.nombre + '. ¿Cuándo vuelven a tener sabores?') + '">' + icon('i-wa') + 'Reservá por DM</a>';
+    return '<article class="promo' + (pr.hot ? ' hot' : '') + '">' +
+      '<div><span class="promo-tag">' + esc(pr.tag) + '</span>' +
+      '<h3 class="promo-name">' + esc(pr.nombre) + '</h3>' +
+      '<div class="promo-price"><span class="big">' + money(pr.promo) + '</span><span class="cu">c/u llevando ' + pr.min + '</span></div>' +
+      '<div class="promo-meta">' + pr.min + ' por ' + money(pr.promo * pr.min) + ' · suelto&nbsp;<s>' + money(pr.unit) + '</s></div>' +
+      '<span class="promo-save">Ahorrás ' + money((pr.unit - pr.promo) * pr.min) + '</span></div>' +
+      (img ? '<img class="promo-img" src="' + esc(img) + '" alt="' + esc(pr.nombre) + '" onerror="this.style.visibility=\'hidden\'">' : '<div></div>') +
+      btn +
+      (!cargando && !hay ? '<p class="promo-out">Estamos reponiendo sabores. Reservá y te avisamos apenas entran.</p>' : '') +
+      (hay ? '<p class="promo-out">' + items.length + ' sabor' + (items.length === 1 ? '' : 'es') + ' disponible' + (items.length === 1 ? '' : 's') + ' · mezclables</p>' : '') +
+      '</article>';
+  }).join('');
+}
+
+/* ---------- HOJA "ARMAR 3x" ---------- */
+var pkActual = null;
+function openPicker(i){
+  pkActual = PROMOS[i]; if (!pkActual) return;
+  $('pk-title').innerHTML = 'Elegí tus <span class="hl">sabores</span>';
+  renderPicker();
+  $('pk-ov').classList.add('on'); $('pk-sheet').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  track('abrio_promo', pkActual.nombre, '', pkActual.promo, 'promo');
+}
+function closePicker(){ $('pk-ov').classList.remove('on'); $('pk-sheet').classList.remove('on'); document.body.style.overflow = ''; }
+function renderPicker(){
+  var pr = pkActual; if (!pr) return;
+  var items = stockPromo(pr);
+  var r = calcular(), q = r.grupos[pr.key] || 0;
+  var prog = ''; for (var k = 0; k < pr.min; k++) prog += '<i class="' + (k < q ? 'on' : '') + '"></i>';
+  $('pk-body').innerHTML =
+    '<div class="pk-info"><b>' + esc(pr.nombre) + '</b> · Llevá los que quieras. Con ' + pr.min + ' o más (mezclando sabores), cada uno queda a <b>' + money(pr.promo) + '</b> en vez de ' + money(pr.unit) + '.</div>' +
+    '<div class="pk-progress">' + prog + '</div>' +
+    '<div class="pk-list">' + items.map(function(p){
+      var n = qtyEnCarrito(p.id), s = stockDe(p), id = esc(p.id);
+      return '<div class="pk' + (n ? ' on' : '') + '">' +
+        '<img src="' + esc(p.imagen_url) + '" alt="" loading="lazy" onerror="this.style.opacity=.15">' +
+        '<div class="pk-t"><b>' + esc(titleCase(p.sabor)) + '</b><small>' + (s < 99 && s <= STOCK_LOW ? 'Últimas ' + s : 'Disponible') + '</small></div>' +
+        '<div class="stepper"><button onclick="pkQty(\'' + id + '\',-1)" aria-label="Restar"' + (n ? '' : ' disabled style="opacity:.3"') + '>' + icon('i-minus') + '</button><b>' + n + '</b>' +
+        '<button onclick="pkQty(\'' + id + '\',1)" aria-label="Sumar"' + (n >= s ? ' disabled style="opacity:.3"' : '') + '>' + icon('i-plus') + '</button></div></div>';
+    }).join('') + '</div>';
+  var unit = q >= pr.min ? pr.promo : pr.unit;
+  var falta = Math.max(0, pr.min - q);
+  $('pk-foot').innerHTML =
+    '<div class="pk-total"><span>' + (q ? q + ' elegido' + (q === 1 ? '' : 's') + ' · ' + money(unit) + ' c/u' : 'Todavía no elegiste') + '</span><b>' + money(unit * q) + '</b></div>' +
+    (q >= pr.min
+      ? '<button class="btn btn-blue btn-block" onclick="addComboToCart()">' + icon('i-check') + 'Listo, ver pedido</button>'
+      : q ? '<p class="bar-hint" style="margin-bottom:8px">Sumá ' + falta + ' más y cada uno queda a ' + money(pr.promo) + '</p><button class="btn btn-blue btn-block" onclick="addComboToCart()">' + icon('i-check') + 'Agregar y ver pedido</button>'
+      : '<button class="btn btn-blue btn-block" disabled>Elegí tus sabores</button>');
+}
+function pkQty(id, d){
+  var antes = qtyEnCarrito(id);
+  changeQty(id, d);
+  if (d > 0 && qtyEnCarrito(id) > antes){ var p = prodById(id); track('agrego_carrito', p.producto, p.sabor, p.precio_num, 'promo'); }
+  renderPicker();
 }
 function addComboToCart(){
-  if (comboPick.length !== COMBO.units) return;
-  var primero = comboItemById(comboPick[0]);
-  carrito.push({
-    id: 'combo-' + Date.now(),
-    producto: COMBO.nombre,
-    sabor: comboSaboresLista().join(' + '),
-    precio: COMBO.precio,
-    precio_num: COMBO.precio_num,
-    imagen_url: primero ? primero.imagen_url : '',
-    qty: 1,
-    combo: true
-  });
-  updateCartUI();
-  showToast('Combo agregado al carrito', 'i-layers');
-  comboClear();
-  openCart();
+  var pr = pkActual; if (!pr) return;
+  var r = calcular();
+  var sabores = r.lineas.filter(function(l){ return l.pr === pr; }).map(function(l){ return titleCase(l.p.sabor) + ' x' + l.c.qty; }).join(' + ');
+  if ((r.grupos[pr.key] || 0) >= pr.min) track('combo_armado', pr.nombre, sabores, pr.promo * (r.grupos[pr.key] || 0));
+  closePicker(); openCart();
 }
 
 /* =============================================================
-   CARGA DE DATOS
+   CATÁLOGO
    ============================================================= */
-async function cargar(){
-  try {
-    var res  = await fetch(URL_DB);
-    var text = await res.text();
-    productos = JSON.parse(text);
-    if (!Array.isArray(productos)) throw new Error('respuesta inesperada');
+function modelos(){
+  var m = [];
+  productos.forEach(function(p){ var n = cleanName(p.producto); if (n && m.indexOf(n) === -1) m.push(n); });
+  return m;
+}
+function renderChips(){
+  var m = modelos();
+  var h = '<button class="chip' + (filtro === 'TODOS' ? ' on' : '') + '" onclick="setFiltro(\'TODOS\')">Todos</button>';
+  m.forEach(function(x, i){ h += '<button class="chip' + (filtro === x ? ' on' : '') + '" onclick="setFiltroIdx(' + i + ')">' + esc(x.replace(/^ELFBAR\s+/i, '')) + '</button>'; });
+  $('chips').innerHTML = h;
+}
+function setFiltroIdx(i){ setFiltro(modelos()[i]); }
+function setFiltro(f){ filtro = f; renderChips(); render(); }
+function clearSearch(){ $('search-input').value = ''; $('search-x').classList.remove('on'); render(); }
 
-    document.getElementById('stats-bar').classList.add('visible');
-    document.getElementById('stat-total').textContent = productos.length;
-    var marcas = [];
-    productos.forEach(function(p){ if (p.producto && marcas.indexOf(p.producto) === -1) marcas.push(p.producto); });
-    document.getElementById('stat-brands').textContent = marcas.length;
-
-    var heroP = productos.find(function(p){
-      return p.producto && p.producto.toUpperCase().indexOf('ELFBAR') !== -1 &&
-             p.sabor && p.sabor.toUpperCase().indexOf('STRAWBERRY SPARKS') !== -1;
-    });
-    if (!heroP) heroP = productos.find(function(p){ return stockDe(p) > STOCK_OUT; });
-    if (heroP){
-      HERO_ID = heroP.id;
-      document.getElementById('featured-img').src = heroP.imagen_url || '';
-      document.getElementById('featured-name').textContent = heroP.producto || '';
-      document.getElementById('featured-flavor').textContent = heroP.sabor || '';
-      document.getElementById('featured-price').textContent = heroP.precio || '';
-      document.getElementById('featured').classList.add('visible');
-    }
-
-    renderFilters();
-    render();
-    buildCombo();
-    updateCartUI();
-    updateFavBadge();
-  } catch(e){
-    document.getElementById('catalog-grid').innerHTML =
-      '<div class="empty-state">' + icon('i-alert') +
-      '<p>No pudimos conectar con el stock.<br>Probá de nuevo en unos segundos.</p>' +
-      '<button class="btn btn-blue" style="margin-top:16px" onclick="cargar()">Reintentar</button></div>';
-    document.getElementById('combo-loading').innerHTML =
-      'No pudimos cargar los sabores. <a href="https://wa.me/' + WA + '" target="_blank" rel="noopener" style="color:#fff;border-bottom:2px solid var(--blue)">Consultá por DM</a>.';
+function matchBusqueda(p, q){
+  if (!q) return true;
+  var hay = norm(cleanName(p.producto) + ' ' + p.sabor + ' ' + (p.categoria || ''));
+  return q.split(/\s+/).every(function(w){ var n = norm(w); return !n || hay.indexOf(n) !== -1; });
+}
+function cardHTML(p, i){
+  var s = stockDe(p), ag = s <= STOCK_OUT, pr = promoDe(p), n = qtyEnCarrito(p.id), fav = favoritos.indexOf(p.id) !== -1;
+  var id = esc(p.id);
+  var badge = ag ? '<span class="card-badge out">Agotado</span>'
+    : (s < 99 && s <= STOCK_LOW) ? '<span class="card-badge low">Últimas ' + s + '</span>'
+    : pr ? '<span class="card-badge">Promo 3x</span>' : '';
+  var foot;
+  if (ag){
+    foot = '<a class="add ask" data-ctx="avisame" target="_blank" rel="noopener" href="' + waLink('Hola VAPE CREW. ¿Cuándo vuelven a tener ' + cleanName(p.producto) + ' ' + titleCase(p.sabor) + '?') + '">' + icon('i-wa') + 'Avisame</a>';
+  } else if (n){
+    foot = '<div class="stepper"><button onclick="changeQty(\'' + id + '\',-1)" aria-label="Restar">' + icon('i-minus') + '</button><b>' + n + '</b><button onclick="addToCartByIndex(' + i + ')" aria-label="Sumar">' + icon('i-plus') + '</button></div>';
+  } else {
+    foot = '<button class="add" onclick="addToCartByIndex(' + i + ')">' + icon('i-plus') + 'Agregar</button>';
   }
+  return '<article class="card' + (ag ? ' agotado' : '') + '" data-vc-i="' + i + '">' +
+    '<div class="card-img">' + badge +
+      '<button class="fav' + (fav ? ' on' : '') + '" onclick="toggleFavByIndex(' + i + ')" aria-label="Favorito">' + icon(fav ? 'i-heart-fill' : 'i-heart') + '</button>' +
+      '<img src="' + esc(p.imagen_url) + '" alt="' + esc(cleanName(p.producto) + ' ' + p.sabor) + '" loading="lazy" onerror="this.style.opacity=.12">' +
+    '</div>' +
+    '<div class="card-body">' +
+      '<span class="card-name">' + esc(cleanName(p.producto)) + '</span>' +
+      '<span class="card-flavor">' + esc(titleCase(p.sabor)) + '</span>' +
+      '<span class="card-price">' + money(precioBase(p)) + '</span>' +
+      (pr ? '<span class="card-deal">3x ' + money(pr.promo) + ' c/u</span>' : '') +
+      '<div class="card-foot">' + foot + '</div>' +
+    '</div></article>';
 }
-function heroAddToCart(){
-  if (!HERO_ID){ showToast('Todavía cargando el catálogo', 'i-alert'); return; }
-  addToCart(HERO_ID, null);
-}
+function render(){
+  var grid = $('catalog-grid');
+  if (!productos.length) return;
+  var q = $('search-input').value.trim();
+  $('search-x').classList.toggle('on', q.length > 0);
+  var base = productos.filter(function(p){ return (filtro === 'TODOS' || cleanName(p.producto) === filtro) && matchBusqueda(p, q); });
+  var disp = base.filter(disponible), agot = base.filter(function(p){ return !disponible(p); });
+  // promos primero, después el resto
+  disp.sort(function(a, b){ return (promoDe(b) ? (promoDe(b).hot ? 2 : 1) : 0) - (promoDe(a) ? (promoDe(a).hot ? 2 : 1) : 0); });
+  filtrados = disp.concat(agot);
+  $('cat-count').textContent = disp.length + ' disponible' + (disp.length === 1 ? '' : 's');
 
-/* ---------- FILTROS ---------- */
-var marcasList = [];
-function renderFilters(){
-  var container = document.getElementById('filter-group');
-  marcasList = [];
-  productos.forEach(function(p){ if (p.producto && marcasList.indexOf(p.producto) === -1) marcasList.push(p.producto); });
-  var html = '<button class="filter-btn active" onclick="filterCategory(\'TODOS\',this)">Todos</button>';
-  marcasList.forEach(function(m, i){
-    html += '<button class="filter-btn" onclick="filterByIndex(' + i + ',this)">' + esc(m) + '</button>';
+  if (!filtrados.length){
+    grid.innerHTML = '<div class="empty"><b>No lo tenemos cargado</b>Igual escribinos: capaz entra esta semana o te recomendamos algo parecido.' +
+      '<br><a class="btn btn-wa" data-ctx="busqueda" target="_blank" rel="noopener" href="' + waLink('Hola VAPE CREW. ¿Tienen ' + q + '?') + '">' + icon('i-wa') + 'Preguntar por "' + esc(q) + '"</a></div>';
+    return;
+  }
+  var h = '';
+  filtrados.forEach(function(p, i){
+    if (i === disp.length && agot.length) h += '<div class="divider">Agotados · te avisamos cuando vuelven</div>';
+    h += cardHTML(p, i);
   });
-  container.innerHTML = html;
+  grid.innerHTML = h;
 }
-function filterByIndex(i, btn){ filterCategory(marcasList[i], btn); }
-function filterCategory(m, btn){
-  marcaFiltro = m;
-  var btns = document.querySelectorAll('.filter-btn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
-  if (btn) btn.classList.add('active');
+function addToCartByIndex(i){ var p = filtrados[i]; if (p) addToCart(p.id); }
+
+/* ---------- FAVORITOS ---------- */
+function toggleFavByIndex(i){ var p = filtrados[i]; if (p) toggleFav(p.id); }
+function toggleFav(id){
+  var k = favoritos.indexOf(id);
+  if (k === -1){ favoritos.push(id); showToast('Guardado en favoritos', 'i-heart-fill'); }
+  else { favoritos.splice(k, 1); showToast('Sacado de favoritos', 'i-heart'); }
+  try { localStorage.setItem('vc_favs', JSON.stringify(favoritos)); } catch(e){}
   render();
 }
 
-/* ---------- RENDER DE LA GRILLA ---------- */
-function render(){
-  var grid  = document.getElementById('catalog-grid');
-  var query = document.getElementById('search-input').value.toLowerCase();
-  var soloDisponibles = document.getElementById('toggle-stock').checked;
+/* =============================================================
+   PEDIDO (hoja) + BARRA INFERIOR
+   ============================================================= */
+function openCart(){
+  renderCart();
+  $('cart-ov').classList.add('on'); $('cart-sheet').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  track('abrio_carrito', '', '', calcular().total, '');
+}
+function closeCart(){ $('cart-ov').classList.remove('on'); $('cart-sheet').classList.remove('on'); document.body.style.overflow = ''; }
 
-  filtrados = productos.filter(function(p){
-    var matchMarca  = (marcaFiltro === 'TODOS' || p.producto === marcaFiltro);
-    var matchSearch = (p.producto||'').toLowerCase().indexOf(query) !== -1 || (p.sabor||'').toLowerCase().indexOf(query) !== -1;
-    var stock = parseInt(p.stock, 10);
-    var matchStock = !soloDisponibles || isNaN(stock) || stock > STOCK_OUT;
-    return matchMarca && matchSearch && matchStock;
+function mensajePedido(r){
+  var zona = zonaVal.trim();
+  var lineas = r.lineas.map(function(l){
+    return '- ' + cleanName(l.p.producto) + ' | ' + titleCase(l.p.sabor) + ' x' + l.c.qty + ' (' + money(l.unit) + ' c/u)';
   });
-
-  var s = document.getElementById('stat-showing');
-  if (s) s.textContent = filtrados.length;
-
-  if (!filtrados.length){
-    grid.innerHTML = '<div class="empty-state">' + icon('i-search') +
-      '<p>No encontramos nada con esa búsqueda.<br>Probá con otro sabor o sacá los filtros.</p></div>';
+  var promos = PROMOS.filter(function(pr){ return (r.grupos[pr.key] || 0) >= pr.min; }).map(function(pr){ return 'Promo 3x ' + pr.nombre; });
+  return 'Hola VAPE CREW. Quiero hacer este pedido:\n\n' + lineas.join('\n') +
+    (promos.length ? '\n\n' + promos.join('\n') : '') +
+    '\n\nTotal: ' + money(r.total) + (r.ahorro > 0 ? ' (ahorro ' + money(r.ahorro) + ')' : '') +
+    '\nPago: ' + (pago === 'transferencia' ? 'transferencia al alias ' + ALIAS : 'efectivo al recibir') +
+    (zona ? '\nZona: ' + zona : '') +
+    '\n\n¿Me confirman y coordinamos el envío?';
+}
+function renderCart(){
+  var r = calcular();
+  if (!r.lineas.length){
+    $('cart-body').innerHTML = '<div class="cart-empty"><b>Todavía nada</b>Elegí tus sabores. Con 3 del mismo modelo pagás menos cada uno.</div>' +
+      PROMOS.map(function(pr, i){ return stockPromo(pr).length ? '<button class="btn btn-line btn-block" style="margin-top:8px" onclick="closeCart();openPicker(' + i + ')">' + esc(pr.nombre) + ' · ' + money(pr.promo) + ' c/u</button>' : ''; }).join('');
+    $('cart-foot').innerHTML = '';
     return;
   }
-
-  grid.innerHTML = filtrados.map(function(p, i){
-    var stock   = parseInt(p.stock, 10);
-    var agotado = !isNaN(stock) && stock <= STOCK_OUT;
-    var isFav   = favoritos.indexOf(p.id) !== -1;
-    var btns = agotado
-      ? '<span class="order-btn disabled">Sin stock</span>'
-      : '<div class="btn-group">' +
-          '<a href="' + buildWALink(p) + '" target="_blank" rel="noopener" class="order-btn">' + icon('i-wa') + 'Pedí por DM</a>' +
-          '<button class="mp-btn" onclick="openPayModal(' + i + ')">Comprar</button>' +
-          '<button class="cart-add-btn" onclick="addToCartByIndex(' + i + ',this)" aria-label="Agregar al carrito">' + icon('i-plus') + '</button>' +
-        '</div>';
-    return '<article class="' + (agotado ? 'product-card agotado' : 'product-card') + '">' +
-      '<div class="badge-wrap">' + getBadge(p.stock) + '</div>' +
-      '<button class="fav-btn' + (isFav ? ' active' : '') + '" onclick="toggleFavByIndex(' + i + ',this)" aria-label="Guardar en favoritos">' +
-        icon(isFav ? 'i-heart-fill' : 'i-heart') + '</button>' +
-      '<div class="product-image-wrapper">' +
-        '<img src="' + esc(p.imagen_url) + '" class="product-image" loading="lazy" alt="' + esc(p.producto + ' ' + p.sabor) + '" onerror="this.style.opacity=.12">' +
-      '</div>' +
-      '<div class="product-info">' +
-        '<span class="product-tag">' + esc(p.categoria || 'Descartable') + '</span>' +
-        '<h3 class="product-title">' + esc(p.producto) + '</h3>' +
-        '<p class="product-flavor">' + esc(p.sabor) + '</p>' +
-        getStockIndicator(p.stock) +
-        '<div class="product-footer">' +
-          '<span class="' + (agotado ? 'product-price out' : 'product-price') + '">' + esc(p.precio) + '</span>' +
-          btns +
-        '</div>' +
-      '</div></article>';
+  var h = r.lineas.map(function(l){
+    var id = esc(l.p.id), promoOn = l.unit < l.base;
+    return '<div class="ci"><img src="' + esc(l.p.imagen_url) + '" alt="" onerror="this.style.opacity=.15">' +
+      '<div class="ci-t"><small>' + esc(cleanName(l.p.producto)) + '</small><b>' + esc(titleCase(l.p.sabor)) + '</b>' +
+      '<div class="stepper"><button onclick="cartQty(\'' + id + '\',-1)" aria-label="Restar">' + icon('i-minus') + '</button><b>' + l.c.qty + '</b><button onclick="cartQty(\'' + id + '\',1)" aria-label="Sumar">' + icon('i-plus') + '</button></div></div>' +
+      '<div class="ci-p">' + money(l.sub) + '<small>' + (promoOn ? '<s>' + money(l.base) + '</s> ' : '') + money(l.unit) + ' c/u</small></div></div>';
   }).join('');
+  if (r.faltan){
+    var idx = PROMOS.indexOf(r.faltan.pr);
+    h += '<div class="nudge">' + icon('i-bolt') + '<div>Sumá <b>' + r.faltan.falta + ' ' + esc(r.faltan.pr.nombre) + '</b> más y cada uno te queda a <b>' + money(r.faltan.pr.promo) + '</b>. Ahorrás ' + money(r.faltan.ahorro) + '.' +
+      '<br><button onclick="closeCart();openPicker(' + idx + ')">Elegir sabor' + (r.faltan.falta === 1 ? '' : 'es') + '</button></div></div>';
+  }
+  if (r.ahorro > 0) h += '<div class="deal-ok">' + icon('i-check') + 'Promo aplicada: ahorrás ' + money(r.ahorro) + '</div>';
+  h += '<div class="field"><label for="zona">¿Dónde te lo llevamos? (opcional)</label><input id="zona" placeholder="Barrio o zona" autocomplete="address-level2" value="' + esc(zonaVal) + '" oninput="zonaVal=this.value;updWA()"></div>' +
+    '<div class="pay-opt">' +
+      '<label><input type="radio" name="pago" value="transferencia"' + (pago === 'transferencia' ? ' checked' : '') + ' onchange="setPago(this.value)"><b>Transferencia</b><small>Alias ' + ALIAS + '</small></label>' +
+      '<label><input type="radio" name="pago" value="efectivo"' + (pago === 'efectivo' ? ' checked' : '') + ' onchange="setPago(this.value)"><b>Efectivo</b><small>Al recibir</small></label>' +
+    '</div>' +
+    '<div class="alias' + (pago === 'transferencia' ? ' on' : '') + '" id="alias-box"><div><small>Alias Mercado Pago</small><b>' + ALIAS + '</b></div><button onclick="copyAlias()">' + icon('i-copy') + 'Copiar</button></div>' +
+    '<button class="link-btn" onclick="clearCart()">Vaciar pedido</button>';
+  $('cart-body').innerHTML = h;
+  $('cart-foot').innerHTML =
+    '<div class="totals">' +
+      (r.ahorro > 0 ? '<div><span>Precio suelto</span><s>' + money(r.lista) + '</s></div><div class="save"><span>Ahorro promo</span><span>-' + money(r.ahorro) + '</span></div>' : '') +
+      '<div class="grand"><span>Total</span><span>' + money(r.total) + '</span></div></div>' +
+    '<a id="cart-wa-btn" class="btn btn-wa btn-block" style="margin-top:10px" data-ctx="carrito" target="_blank" rel="noopener" href="#">' + icon('i-wa') + 'Enviar pedido por WhatsApp</a>';
+  updWA();
 }
+function updWA(){ var b = $('cart-wa-btn'); if (b) b.href = waLink(mensajePedido(calcular())); }
+function cartQty(id, d){ changeQty(id, d); renderCart(); }
+function setPago(v){ pago = v; var a = $('alias-box'); if (a) a.classList.toggle('on', v === 'transferencia'); updWA(); if (v === 'transferencia') track('abrio_pago', '', '', calcular().total, 'transferencia'); }
+function clearCart(){ carrito = []; guardarCarrito(); refrescar(); renderCart(); }
+function copyAlias(){
+  var ok = function(){ showToast('Alias copiado: ' + ALIAS, 'i-copy'); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ALIAS).then(ok, ok); else ok();
+}
+function renderBar(){
+  var r = calcular();
+  $('top-n').textContent = r.count; $('top-n').classList.toggle('on', r.count > 0);
+  if (!r.count){
+    $('bar-hint').textContent = '';
+    var pi = -1; PROMOS.forEach(function(pr, i){ if (pi === -1 && stockPromo(pr).length) pi = i; });
+    $('bar-inner').innerHTML = '<button class="btn btn-blue" onclick="document.getElementById(\'catalogo\').scrollIntoView({behavior:\'smooth\'})">' + icon('i-bolt') + 'Ver sabores</button>' +
+      '<a class="btn btn-wa" data-ctx="barra" target="_blank" rel="noopener" href="' + waLink('Hola VAPE CREW. Quiero hacer un pedido.') + '">' + icon('i-wa') + 'Pedí por DM</a>';
+  } else {
+    $('bar-hint').textContent = r.faltan ? 'Sumá ' + r.faltan.falta + ' ' + r.faltan.pr.key + ' más y ahorrás ' + money(r.faltan.ahorro) : (r.ahorro > 0 ? 'Promo aplicada · ahorrás ' + money(r.ahorro) : '');
+    $('bar-inner').innerHTML = '<button class="btn btn-blue bar-cart" onclick="openCart()"><span class="bar-l"><span class="bar-n">' + r.count + '</span>Ver pedido</span><span>' + money(r.total) + '</span></button>';
+  }
+}
+function refrescar(){ renderBar(); render(); renderPromos(); }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeCart(); closePicker(); } });
 
-document.getElementById('search-input').addEventListener('input', onSearchInput);
-document.addEventListener('DOMContentLoaded', function(){ cargar(); });
-if (document.readyState !== 'loading') cargar();
+/* =============================================================
+   CARGA
+   ============================================================= */
+var buscT;
+$('search-input').addEventListener('input', function(){ clearTimeout(buscT); buscT = setTimeout(render, 120); });
+
+async function cargar(){
+  try {
+    var res = await fetch(URL_DB);
+    var data = JSON.parse(await res.text());
+    if (!Array.isArray(data)) throw new Error('respuesta inesperada');
+    productos = data.filter(function(p){ return p && p.producto; });
+    carrito = carrito.filter(function(c){ var p = prodById(c.id); return p && disponible(p); });
+    renderChips(); refrescar();
+  } catch(e){
+    $('catalog-grid').innerHTML = '<div class="empty"><b>No cargó el stock</b>Probá de nuevo o pedí directo por DM.' +
+      '<br><button class="btn btn-blue" onclick="cargar()">Reintentar</button></div>';
+    renderPromos(); renderBar();
+  }
+}
+renderPromos(); renderBar();
+cargar();
 </script>
+
 <!-- ============================================================
-     VAPE CREW — MEDICIÓN
-     Pegá este bloque al final del archivo, justo antes del cierre
-     del body y después del bloque de script que ya está.
-     No modifica ninguna función existente: las envuelve.
+     VAPE CREW — MEDICIÓN (misma planilla EVENTOS, mismo endpoint)
      Si algo falla acá, la página sigue funcionando igual.
      ============================================================ -->
 <script>
 (function () {
   "use strict";
-
-  /* ===== CONFIGURACIÓN ===== */
-  // Pegá la URL del despliegue del Apps Script de eventos.
-  // Mientras esté vacía, este bloque no hace absolutamente nada.
   var VC_TRACK_URL = "https://script.google.com/macros/s/AKfycbx7YFrLdt2p41j0lO6lRZEU4OuWRSpqzZH-wLxcqTW0Ge_5vf7-WZ3VA1-C_NICMsY7FQ/exec";
-  var FLUSH_MS     = 4000;   // cada cuánto manda lo acumulado
-  var LOTE_MAX     = 20;     // eventos acumulados antes de mandar igual
-
+  var FLUSH_MS = 4000, LOTE_MAX = 20;
   if (!VC_TRACK_URL) return;
 
-  /* ===== IDENTIDAD ANÓNIMA ===== */
-  function nuevoId() {
-    return Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
-  }
+  function nuevoId() { return Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4); }
   function leer(store, k) { try { return store.getItem(k); } catch (e) { return null; } }
   function guardar(store, k, v) { try { store.setItem(k, v); } catch (e) {} }
 
   var uid = leer(localStorage, 'vc_uid');
   if (!uid) { uid = nuevoId(); guardar(localStorage, 'vc_uid', uid); }
-
   var sid = leer(sessionStorage, 'vc_sid');
   var sesionNueva = !sid;
   if (!sid) { sid = nuevoId(); guardar(sessionStorage, 'vc_sid', sid); }
-
   var dev = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'movil' : 'escritorio';
   var ref = document.referrer || 'directo';
 
-  /* ===== COLA Y ENVÍO ===== */
   var cola = [];
-
   function track(evento, producto, sabor, valor, detalle) {
     try {
-      cola.push({
-        t: Date.now(),
-        e: evento,
-        p: producto || '',
-        s: sabor || '',
-        v: (valor === undefined || valor === null) ? '' : valor,
-        d: detalle || ''
-      });
+      cola.push({ t: Date.now(), e: evento, p: producto || '', s: sabor || '', v: (valor === undefined || valor === null) ? '' : valor, d: detalle || '' });
       if (cola.length >= LOTE_MAX) enviar();
     } catch (e) {}
   }
-
   function enviar() {
     if (!cola.length) return;
     var payload;
-    try {
-      payload = JSON.stringify({
-        uid: uid, sid: sid, dev: dev, ref: ref,
-        url: location.pathname + location.search,
-        eventos: cola
-      });
-    } catch (e) { cola = []; return; }
+    try { payload = JSON.stringify({ uid: uid, sid: sid, dev: dev, ref: ref, url: location.pathname + location.search, eventos: cola }); }
+    catch (e) { cola = []; return; }
     cola = [];
     try {
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(VC_TRACK_URL, payload);
-      } else {
-        fetch(VC_TRACK_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: payload });
-      }
+      if (navigator.sendBeacon) navigator.sendBeacon(VC_TRACK_URL, payload);
+      else fetch(VC_TRACK_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: payload });
     } catch (e) {}
   }
-
+  window.vcTrack = track;
   setInterval(enviar, FLUSH_MS);
-  document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') enviar();
-  });
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') enviar(); });
   window.addEventListener('pagehide', enviar);
 
-  /* ===== HERRAMIENTA PARA ENVOLVER SIN TOCAR ===== */
   function envolver(nombre, despues) {
     var original = window[nombre];
     if (typeof original !== 'function') return;
@@ -1507,48 +912,16 @@ if (document.readyState !== 'loading') cargar();
   }
   function buscarProducto(pid) {
     var arr = window.productos || [];
-    for (var i = 0; i < arr.length; i++) if (arr[i].id === pid) return arr[i];
+    for (var i = 0; i < arr.length; i++) if (String(arr[i].id) === String(pid)) return arr[i];
     return null;
   }
 
-  /* ===== EVENTOS ===== */
-
-  // Sesión (una sola vez por visita)
   if (sesionNueva) track('sesion', '', '', '', ref);
-
-  // Pasó el control de edad
   envolver('passAgeGate', function () { track('paso_edad'); });
-
-  // Agregó un producto al carrito
   envolver('addToCart', function (id) {
     var p = buscarProducto(id);
-    if (p) track('agrego_carrito', p.producto, p.sabor, p.precio_num);
+    if (p) track('agrego_carrito', p.producto, p.sabor, p.precio_num, 'catalogo');
   });
-
-  // Cerró un combo 3x
-  (function () {
-    var original = window.addComboToCart;
-    if (typeof original !== 'function') return;
-    window.addComboToCart = function () {
-      var antes = (window.carrito || []).length;
-      var r = original.apply(this, arguments);
-      try {
-        var c = window.carrito || [];
-        if (c.length > antes) {
-          var ultimo = c[c.length - 1];
-          track('combo_armado', ultimo.producto, ultimo.sabor, ultimo.precio_num);
-        }
-      } catch (e) {}
-      return r;
-    };
-  })();
-
-  // Abrió el modal de pago
-  envolver('openPayModalFor', function (p) {
-    if (p) track('abrio_pago', p.producto, p.sabor, p.precio_num);
-  });
-
-  // Favoritos
   envolver('toggleFav', function (id) {
     var p = buscarProducto(id);
     if (!p) return;
@@ -1556,62 +929,48 @@ if (document.readyState !== 'loading') cargar();
     track(activo ? 'favorito_agregado' : 'favorito_sacado', p.producto, p.sabor, p.precio_num);
   });
 
-  // Clic en cualquier link de WhatsApp, con el contexto de dónde salió
+  // Clic en WhatsApp con contexto (data-ctx)
   document.addEventListener('click', function (e) {
     try {
-      var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], #cart-wa-btn') : null;
       if (!a) return;
-
-      var ctx = 'otro';
-      if (a.id === 'cart-wa-btn') ctx = 'carrito';
-      else if (a.id === 'pay-wa-btn') ctx = 'comprobante';
-      else if (a.id === 'combo-wa') ctx = 'combo';
-      else if (a.classList.contains('order-btn')) ctx = 'producto';
-      else if (a.classList.contains('wa-float')) ctx = 'flotante';
-      else if (a.classList.contains('nav-item')) ctx = 'nav';
-      else if (a.classList.contains('btn-blue')) ctx = 'seccion_noche';
-
-      var producto = '', sabor = '';
-      var card = a.closest ? a.closest('.product-card') : null;
+      var ctx = a.getAttribute('data-ctx') || 'otro';
+      var producto = '', sabor = '', valor = '';
+      var card = a.closest('.card');
       if (card) {
-        var t = card.querySelector('.product-title');
-        var f = card.querySelector('.product-flavor');
-        producto = t ? t.textContent : '';
-        sabor = f ? f.textContent : '';
+        var t = card.querySelector('.card-name'), f = card.querySelector('.card-flavor');
+        producto = t ? t.textContent : ''; sabor = f ? f.textContent : '';
       }
-      track('click_dm', producto, sabor, '', ctx);
-      enviar();   // sale ya, antes de que se vaya de la página
+      if (ctx === 'carrito' && window.calcular) valor = window.calcular().total;
+      track('click_dm', producto, sabor, valor, ctx);
+      enviar();
     } catch (err) {}
   }, true);
 
-  // Productos que la gente realmente mira (una vez por sesión cada uno)
-  var vistos = {};
-  var io = null;
+  // Productos que la gente mira (una vez por sesión cada uno)
+  var vistos = {}, io = null;
   if ('IntersectionObserver' in window) {
     io = new IntersectionObserver(function (entradas) {
       for (var i = 0; i < entradas.length; i++) {
         var en = entradas[i];
         if (!en.isIntersecting) continue;
         io.unobserve(en.target);
-        var idx = Number(en.target.getAttribute('data-vc-i'));
-        var p = (window.filtrados || [])[idx];
+        var p = (window.filtrados || [])[Number(en.target.getAttribute('data-vc-i'))];
         if (!p || vistos[p.id]) continue;
         vistos[p.id] = 1;
         track('vista_producto', p.producto, p.sabor, p.precio_num);
       }
     }, { threshold: 0.5 });
   }
-  function observarCards() {
-    if (!io) return;
-    var cards = document.querySelectorAll('#catalog-grid .product-card');
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].setAttribute('data-vc-i', i);
-      io.observe(cards[i]);
-    }
-  }
-  envolver('render', function () { setTimeout(observarCards, 60); });
+  envolver('render', function () {
+    setTimeout(function () {
+      if (!io) return;
+      var cards = document.querySelectorAll('#catalog-grid .card');
+      for (var i = 0; i < cards.length; i++) io.observe(cards[i]);
+    }, 60);
+  });
 
-  // Búsquedas, separando las que no encuentran nada
+  // Búsquedas (las sin resultado ahora ofrecen preguntar por DM)
   (function () {
     var inp = document.getElementById('search-input');
     if (!inp) return;
@@ -1621,12 +980,11 @@ if (document.readyState !== 'loading') cargar();
       timer = setTimeout(function () {
         var q = inp.value.trim();
         if (q.length < 3) return;
-        var n = (window.filtrados || []).length;
+        var n = (window.filtrados || []).filter(function (p) { return window.disponible ? window.disponible(p) : true; }).length;
         track(n ? 'busqueda' : 'busqueda_sin_resultados', '', '', n, q);
       }, 1200);
     });
   })();
-
 })();
 </script>
 </body>
