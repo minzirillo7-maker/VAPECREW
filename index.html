@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <script>document.documentElement.className+=" js";setTimeout(function(){if(!window.__vcReveal)document.documentElement.classList.remove("js")},2500);</script>
-<title>VAPE CREW — Vapes originales en Mendoza | Promos</title>
-<meta name="description" content="Vapes descartables 40K originales en Mendoza. Promos: ICEKING, TRIO y RABBEATS 3 a $26.000 c/u, 2 a $27.000 c/u, BC 5K 2 por $15.000. Envío en el momento, también de noche. Garantía 24hs. Pedí por DM.">
+<title>VAPE CREW — Vapes originales en Mendoza</title>
+<meta name="description" content="Vapes descartables originales en Mendoza. Un precio por unidad: llevá uno o los que quieras. BC 5K 2 por $16.500. Envío en el momento, también de noche. Garantía 24hs. Pedí por DM.">
 <meta name="theme-color" content="#040BE7">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VAPE CREW">
-<meta property="og:title" content="VAPE CREW — Más llevás, menos pagás">
-<meta property="og:description" content="ICEKING/TRIO/RABBEATS 3x $26.000 c/u · BC 5K 2 por $15.000. Envío en el momento en Mendoza. Pedí por DM.">
+<meta property="og:title" content="VAPE CREW — Un precio, sin vueltas">
+<meta property="og:description" content="Originales, un precio por unidad. BC 5K 2 por $16.500. Envío en el momento en Mendoza. Pedí por DM.">
 <meta property="og:image" content="https://i.ibb.co/3mL1r5vm/Whats-App-Image-2026-05-24-at-1-37-01-PM-removebg-preview.png">
 <link rel="icon" href="assets/logo-azul.webp" type="image/webp">
 <link rel="preconnect" href="https://wsrv.nl" crossorigin>
@@ -124,8 +124,42 @@ p{text-wrap:pretty}
 .top-cart:active{transform:scale(.97)}
 .badge-n{min-width:22px;height:22px;border-radius:11px;background:var(--blue);color:#fff;font-size:12px;font-family:var(--font-mono);display:none;align-items:center;justify-content:center;padding:0 6px}
 .badge-n.on{display:inline-flex}
+.top-right{display:flex;align-items:center;gap:8px}
+.top-cc{display:flex;align-items:center;gap:7px;height:44px;padding:0 14px;border-radius:999px;box-shadow:inset 0 0 0 2px var(--blue);color:var(--blue);font-family:var(--font-display);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.05em;transition:transform 160ms var(--ease-out),background-color 200ms ease,color 200ms ease}
+.top-cc:active{transform:scale(.97)}
+@media(hover:hover) and (pointer:fine){.top-cc:hover{background:var(--blue);color:#fff}}
+@media(max-width:400px){.top-cc{padding:0 12px}.top-cc .lbl-l{display:none}.top-cart{padding:0 13px}}
+.top-cc[hidden]{display:none}
 
-/* ---------- HERO: la escalera 1 · 2 · 3 ---------- */
+/* ---------- CREW CARD ---------- */
+.ccard{background:var(--blue);color:#fff;padding:20px 18px 18px;position:relative;overflow:hidden}
+.ccard::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.07)}
+.ccard-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:16px}
+.ccard-h b{font-family:var(--font-display);font-size:26px;letter-spacing:.02em;line-height:1}
+.ccard-h small{font-family:var(--font-mono);font-size:11px;color:var(--on-blue)}
+.ccard-dots{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.ccard-dots i{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-style:normal;font-family:var(--font-display);font-weight:700;font-size:13px;color:rgba(255,255,255,.75);transition:background-color 300ms ease,border-color 300ms ease,color 300ms ease}
+.ccard-dots i.on{background:#fff;border:2px solid #fff;color:var(--blue);animation:pop 420ms var(--ease-out) both}
+.ccard-dots i.next{border-style:solid;border-color:#fff;color:#fff}
+.ccard-msg{margin-top:16px;font-size:14px;line-height:1.5;color:#fff;min-height:42px}
+.ccard-msg b{font-family:var(--font-display);font-size:22px;text-transform:uppercase;display:block;line-height:1.1;margin-bottom:4px}
+.cc-rules{display:grid;gap:8px;margin:16px 0 4px;font-size:13px;color:var(--ink-2)}
+.cc-rules div{display:flex;gap:10px;align-items:baseline}
+.cc-rules b{flex:none;min-width:64px;font-family:var(--font-display);font-size:16px;text-transform:uppercase;color:var(--blue)}
+.cc-small{font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+.cc-err{color:var(--ink);font-size:13px;margin-top:8px;min-height:18px}
+.cc-err b{color:var(--blue)}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.12)}100%{transform:none}}
+
+/* ---------- POP-UP ---------- */
+.pop-k{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.pop-t{font-size:46px;line-height:.98;margin-bottom:12px}
+.pop-p{color:var(--muted);font-size:14px;line-height:1.5;margin-bottom:6px}
+.pop-img{float:right;width:110px;height:110px;object-fit:contain;margin:0 0 6px 10px}
+.pop-no{display:block;width:100%;font-size:13px;color:var(--muted);padding:12px;text-decoration:underline;text-underline-offset:4px}
+@media(min-width:600px){#pop-sheet,#cc-sheet{left:50%;right:auto;top:50%;bottom:auto;width:440px;max-height:88vh;border-radius:26px;transform:translate(-50%,-44%);opacity:0;pointer-events:none;transition:transform 440ms var(--ease-drawer),opacity 300ms ease}#pop-sheet.on,#cc-sheet.on{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}#pop-sheet .grab,#cc-sheet .grab{display:none}}
+
+/* ---------- HERO: un precio por modelo ---------- */
 .hero{position:relative;background:var(--blue);color:#fff;overflow:hidden;padding:30px 0 0}
 .hero-grid{display:grid;gap:22px;position:relative;z-index:2}
 .hero h1{font-size:clamp(40px,calc((100vw - 2 * var(--gut)) / 6.1),118px);line-height:.9}
@@ -137,6 +171,10 @@ p{text-wrap:pretty}
 .seg button{height:44px;min-width:56px;padding:0 16px;border-radius:999px;font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:.03em;color:#fff;transition:background-color 220ms ease,color 220ms ease,transform 160ms var(--ease-out)}
 .seg button:active{transform:scale(.95)}
 .seg button[aria-pressed="true"]{background:#fff;color:var(--blue)}
+.ladder-pick{grid-column:1/-1}
+.seg-m{max-width:100%}
+.seg-m button{font-size:16px;padding:0 14px;min-width:0;white-space:nowrap}
+@media(max-width:359px){.seg-m button{font-size:14px;padding:0 10px}}
 .price{position:relative;display:block;margin-top:14px}
 .price .pre{display:block;font-size:13px;color:var(--on-blue);min-height:20px}
 .price .circled{position:relative;display:inline-block;padding:2px 8px 0 0}
@@ -178,7 +216,8 @@ p{text-wrap:pretty}
   .hero-copy{grid-column:1}
   .ladder{display:contents}
   .ladder-ctl{grid-column:1}
-  .fan{grid-column:2;grid-row:1 / span 4;align-self:center;height:clamp(440px,44vw,620px)}
+  .ladder-pick{grid-column:1}
+  .fan{grid-column:2;grid-row:1 / span 5;align-self:center;height:clamp(440px,44vw,620px)}
   .fan[data-n="2"] img.v1{transform:translate(-34%,0) rotate(8deg)}
   .fan[data-n="2"] img.v2{transform:translate(-68%,3%) rotate(-9deg)}
   .fan[data-n="3"] img.v2{transform:translate(-86%,5%) rotate(-14deg) scale(.94)}
@@ -475,6 +514,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M12 15.4 5.3 8.7 6.7 7.3 12 12.6l5.3-5.3 1.4 1.4Z"/></symbol>
   <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></symbol>
   <symbol id="i-checks" viewBox="0 0 24 24"><path d="M1.6 12.6 3 11.2l4.3 4.3 9.1-9.1 1.4 1.4L7.3 18.3Zm9.2 2.9 1.4 1.4L22.4 6.6 21 5.2Z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v2h16V7H4Zm0 5v5h16v-5H4Zm2 2h5v2H6v-2Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.2 5.3 19.9 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.1l-4.3-4.3 1.4-1.4Z"/></symbol>
 </svg>
 
@@ -482,13 +522,11 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
 <div class="age" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
   <div class="age-card">
     <div class="grab"></div>
-    <div class="age-promo">
-      <div><small>Promo combinable 3x</small><b>$26.000 c/u</b></div>
-    </div>
+    <div class="age-promo" style="display:none"></div>
     <h2 class="age-title" id="age-title">¿Sos <span class="hl">+18</span>?</h2>
     <p class="age-text">Vendemos productos con nicotina, solo para mayores de 18 años.</p>
     <div class="age-actions">
-      <button class="btn btn-blue btn-block" onclick="passAgeGate()">Sí, ver promos <svg class="icon i-go"><use href="#i-arrow"></use></svg></button>
+      <button class="btn btn-blue btn-block" onclick="passAgeGate()">Sí, entrar <svg class="icon i-go"><use href="#i-arrow"></use></svg></button>
       <button class="age-no" onclick="denyAgeGate()">Soy menor de 18</button>
     </div>
   </div>
@@ -501,41 +539,42 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   <div class="wrap top-inner">
     <a href="#top" class="logo-plate" aria-label="VAPE CREW, inicio"><img src="assets/logo-azul.webp" alt="VAPE CREW" width="360" height="163" fetchpriority="high"></a>
     <nav class="top-nav" aria-label="Secciones">
-      <a href="#promos">Promos</a>
+      <a href="#promos">Precios</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#noche">Envíos</a>
       <a href="#comprar">Cómo comprar</a>
     </nav>
-    <button class="top-cart" onclick="openCart()" aria-label="Ver pedido">
-      <svg class="icon"><use href="#i-cart"></use></svg>Pedido<span class="badge-n" id="top-n">0</span>
-    </button>
+    <div class="top-right">
+      <button class="top-cc" id="top-cc" onclick="openCC()" aria-label="Mi CREW CARD" hidden><svg class="icon"><use href="#i-card"></use></svg><span class="lbl-l">Crew card</span></button>
+      <button class="top-cart" onclick="openCart()" aria-label="Ver pedido">
+        <svg class="icon"><use href="#i-cart"></use></svg>Pedido<span class="badge-n" id="top-n">0</span>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- ============ HERO: la escalera 1 · 2 · 3 ============ -->
+<!-- ============ HERO: un precio por modelo (sin combos) ============ -->
 <section class="hero on-blue" id="promos" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1 id="hero-title"><span class="l" data-h style="--d:0">Más llevás,</span><span class="l" data-h style="--d:1"><span class="hl hl-w">menos pagás</span></span></h1>
-      <p class="hero-sub" data-h style="--d:2">Vapes originales con envío en el momento en Mendoza. Combiná <span id="h-models">ICEKING, TRIO y RABBEATS</span>: desde 2, cada uno te sale menos.</p>
+      <h1 id="hero-title"><span class="l" data-h style="--d:0">Un precio,</span><span class="l" data-h style="--d:1"><span class="hl hl-w">sin vueltas</span></span></h1>
+      <p class="hero-sub" data-h style="--d:2">Originales, con envío en el momento en Mendoza. Llevá uno o los que quieras: cada uno sale lo mismo.</p>
     </div>
     <div class="ladder" id="ladder">
+      <div class="ladder-pick" data-h style="--d:3">
+        <p class="ladder-q" id="ladder-q">¿Cuál querés?</p>
+        <div class="seg seg-m" id="h-seg" role="group" aria-labelledby="ladder-q"></div>
+      </div>
       <div class="ladder-ctl" data-h style="--d:3">
-        <p class="ladder-q" id="ladder-q">¿Cuántos llevás?</p>
-        <div class="seg" role="group" aria-labelledby="ladder-q">
-          <button type="button" data-n="1" aria-pressed="false" onclick="heroPick(1)">1</button>
-          <button type="button" data-n="2" aria-pressed="false" onclick="heroPick(2)">2</button>
-          <button type="button" data-n="3" aria-pressed="true" onclick="heroPick(3)" aria-label="3 o más">3+</button>
-        </div>
-        <div class="price" aria-live="polite">
+        <div class="price" aria-live="polite" style="visibility:hidden">
           <span class="pre" id="h-pre"></span>
           <span class="circled">
-            <span class="num" id="h-num">$26.000</span>
+            <span class="num" id="h-num">$0</span>
             <svg class="marker" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path id="h-mark" pathLength="1" d="M42 78 C24 46 92 12 176 10 C250 8 296 32 290 62 C284 96 210 114 132 112 C62 110 10 96 12 64 C14 40 58 22 112 18"/></svg>
           </span>
-          <span class="cu" id="h-cu">c/u llevando 3 o más</span>
+          <span class="cu" id="h-cu">por unidad</span>
         </div>
-        <p class="ladder-line" id="h-line">3 por <b>$78.000</b></p>
+        <p class="ladder-line" id="h-line"></p>
       </div>
       <div class="fan" id="h-fan" data-n="3" aria-hidden="true">
         <img class="v3" alt="" decoding="async">
@@ -550,7 +589,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
     <div class="pillars" data-h style="--d:5">
       <span><svg class="icon"><use href="#i-truck"></use></svg>Envío en el momento</span>
       <span><svg class="icon"><use href="#i-shield"></use></svg>Garantía 24hs</span>
-      <span><svg class="icon"><use href="#i-verified"></use></svg>Original o nada</span>
+      <span><svg class="icon"><use href="#i-verified"></use></svg>Solo originales</span>
     </div>
   </div>
   <div class="clouds" aria-hidden="true">
@@ -616,7 +655,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
     <div>
       <h2 class="sec-title" data-r id="como-title">Cómo <span class="hl">pedir</span></h2>
       <ol class="steps">
-        <li data-r style="--d:1"><h3>Elegí</h3><p>Los sabores que quieras, uno o varios. Si entrás en una promo, el precio baja solo.</p></li>
+        <li data-r style="--d:1"><h3>Elegí</h3><p>Los sabores que quieras, uno o varios. Cada uno sale lo mismo.</p></li>
         <li data-r style="--d:2"><h3>Mandá el pedido</h3><p>Se abre WhatsApp con todo escrito. Solo tocás enviar.</p></li>
         <li data-r style="--d:3"><h3>Recibí</h3><p>Confirmamos, pagás por transferencia o en efectivo y sale en el momento.</p></li>
       </ol>
@@ -625,7 +664,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
       <div class="chat-head"><svg class="icon"><use href="#i-wa"></use></svg><div>VAPE CREW<small>WhatsApp</small></div></div>
       <div class="bubble" id="chat-msg">Hola VAPE CREW. Quiero hacer este pedido:</div>
       <div class="bubble-meta">Lo escribe la página por vos <svg class="icon"><use href="#i-checks"></use></svg></div>
-      <figcaption class="chat-note" id="chat-note">Así llega tu pedido: sabores, promo, total y forma de pago.</figcaption>
+      <figcaption class="chat-note" id="chat-note">Así llega tu pedido: sabores, total y forma de pago.</figcaption>
     </figure>
   </div>
 </section>
@@ -635,8 +674,8 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   <div class="wrap faq-wrap">
     <h2 class="sec-title" id="faq-title" data-r>Preguntas</h2>
     <div class="faq" data-r style="--d:1">
-      <details><summary>¿Tengo que llevar 3?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>No. Podés llevar uno solo. ICEKING, TRIO y RABBEATS se combinan entre sí: 2 a $27.000 c/u y 3 o más a $26.000 c/u. BC 5K: $10.000 o 2 por $15.000. Los sabores se mezclan como quieras.</p></details>
-      <details><summary>¿Son originales?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Todos. Original o nada es una de nuestras tres promesas. Si tenés dudas, preguntanos por DM y te mostramos el producto.</p></details>
+      <details><summary>¿Hay mínimo de compra?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>No. Podés llevar uno solo. Cada modelo tiene un precio por unidad: lleves uno o varios, cada uno sale lo mismo. Única promo: BC 5K $10.000 o 2 por $16.500. Los sabores se mezclan como quieras.</p></details>
+      <details><summary>¿Son originales?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Todos. Solo originales es una de nuestras tres promesas. Si tenés dudas, preguntanos por DM y te mostramos el producto.</p></details>
       <details><summary>¿Cómo pago?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Transferencia al alias vvpecrew (banco o Mercado Pago) o efectivo al recibir. Lo elegís al mandar el pedido.</p></details>
       <details><summary>¿Y si me llega fallado?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Tenés garantía de 24 horas. Nos avisás por DM y te lo cambiamos.</p></details>
       <details><summary>¿Cuándo me llega?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Te lo mandamos en el momento en que pedís, de día o de noche, en Mendoza. Coordinamos el punto de entrega por DM.</p></details>
@@ -668,6 +707,21 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   <div class="sheet-foot" id="pk-foot"></div>
 </aside>
 
+<!-- ============ HOJA: CREW CARD ============ -->
+<div class="ov" id="cc-ov" onclick="closeCC()"></div>
+<aside class="sheet" id="cc-sheet" aria-label="Tu CREW CARD" role="dialog" aria-modal="true">
+  <div class="grab"></div>
+  <div class="sheet-head"><h3>Crew card</h3><button class="sheet-x" onclick="closeCC()" aria-label="Cerrar"><svg class="icon"><use href="#i-close"></use></svg></button></div>
+  <div class="sheet-body" id="cc-body"></div>
+</aside>
+
+<!-- ============ POP-UP (bienvenida / perfumes) ============ -->
+<div class="ov" id="pop-ov" onclick="closePop()"></div>
+<aside class="sheet" id="pop-sheet" aria-label="Novedades VAPE CREW" role="dialog" aria-modal="true">
+  <div class="grab"></div>
+  <div class="sheet-body" id="pop-body" style="padding-top:18px;padding-bottom:calc(18px + var(--safe-b))"></div>
+</aside>
+
 <!-- ============ HOJA: PEDIDO ============ -->
 <div class="ov" id="cart-ov" onclick="closeCart()"></div>
 <aside class="sheet" id="cart-sheet" aria-label="Tu pedido">
@@ -687,36 +741,28 @@ var ALIAS     = "vvpecrew";
 var STOCK_OUT = 0;
 var STOCK_LOW = 3;
 
-/* --- PROMOS POR CANTIDAD: cambiá acá precios y mínimos ---
-   match: lista de modelos que entran en la promo. Cada modelo es una lista de
-   palabras que tiene que tener el PRODUCTO (sin espacios ni tildes).
-   Todos los modelos de una misma promo se combinan entre sí.
-   tiers: llevando "min" o más unidades del grupo, cada una queda a "cu".
-   pack:  cada "n" unidades del grupo cuestan "total" (las que sobran, precio suelto).
-   unit:  precio suelto si la planilla no tiene precio cargado. */
+/* --- CREW CARD + POP-UP ---
+   URL_ADMIN: la URL del script ADMIN del panel (Ajustes → Conexión, termina en /exec).
+   Si queda vacía, la CREW CARD y el pop-up de bienvenida no se muestran. */
+var URL_ADMIN  = "https://script.google.com/macros/s/AKfycbxWdToTIEmNhFzV4iKgUu8hKm3vNo-RwHzoV_eK1im0-jByr9Iaq9r_gBwTXTBMyTiJfA/exec";
+var BIENVENIDA = 2000;      // $ off en el primer pedido (tiene que coincidir con el script)
+
+/* --- SIN COMBOS de ICEKING/TRIO/RABBEATS (08/11/2026). Solo queda el pack del BC 5K.
+   pack: cada "n" unidades cuestan "total" (las que sobran, precio suelto).
+   tiers (por si vuelven): llevando "min" o más, cada una queda a "cu".
+   match: palabras que tiene que tener el PRODUCTO. unit: precio suelto si la planilla no lo tiene. */
 var PROMOS = [
-  { key:"KING", nombre:"ICEKING · TRIO · RABBEATS", corto:"ICEKING, TRIO o RABBEATS",
-    match:[["ICEKING"],["TRIO"],["RABBEATS"]], unit:29000,
-    tiers:[{min:2, cu:27000},{min:3, cu:26000}],
-    hot:true, tag:"Combinables entre los 3", deal:"2x $27.000 · 3x $26.000 c/u",
-    info:"Combiná ICEKING, TRIO y RABBEATS como quieras. Llevando 2: <b>$27.000</b> c/u. Llevando 3 o más: <b>$26.000</b> c/u." },
   { key:"BC5K", nombre:"ELFBAR BC 5K", corto:"BC 5K",
     match:[["BC","5K"]], unit:10000,
-    pack:{n:2, total:15000},
-    hot:false, tag:"Para arrancar", deal:"2 por $15.000",
-    info:"Uno a <b>$10.000</b> o <b>2 por $15.000</b>. Mezclá los sabores que quieras." }
+    pack:{n:2, total:16500},
+    hot:false, tag:"Para arrancar", deal:"2 por $16.500",
+    info:"Uno a <b>$10.000</b> o <b>2 por $16.500</b>. Mezclá los sabores que quieras." }
 ];
+var CARDS  = [ { promo:"BC5K" } ];
 
-/* --- PROMO PRINCIPAL: se juega arriba de todo con la escalera 1 · 2 · 3 --- */
-var HERO = "KING";
-/* --- CARTELES DE "MÁS PROMOS", en este orden ---
-   promo: key de la promo de arriba. n: qué escalón mostrar (vacío = el mejor).
-   Si la lista queda vacía, la sección se oculta sola. */
-var CARDS = [
-  { promo:"BC5K" }
-];
-/* Las tarjetas sin stock van al final, y los nombres de las promos muestran
-   solo los modelos que hoy hay (ej: si no hay ICEKING, dice "TRIO · RABBEATS"). */
+/* --- ARRIBA DE TODO: modelos para elegir (máximo 3). Van primero estos, en este
+   orden, si tienen stock; si faltan, se completa con los que más stock tienen. */
+var DESTACADOS = [["ICEKING"], ["TRIO"], ["RABBEATS"]];
 
 var productos = [];
 var filtrados = [];
@@ -815,6 +861,7 @@ function passAgeGate(){
   try { localStorage.setItem('vc_age18', '1'); } catch(e){}
   $('age-gate').classList.add('hidden');
   document.body.style.overflow = '';
+  popArmar();
 }
 function denyAgeGate(){
   $('age-gate').querySelector('.age-card').innerHTML =
@@ -950,14 +997,13 @@ function renderPromos(){
       '</article>';
   }).join('');
 }
-/* promos del cartel +18: solo las que hoy tienen stock */
+/* cartel +18: precio de los modelos de arriba que hoy tienen stock */
 function renderGatePromos(){
   var el = document.querySelector('#age-gate .age-promo');
   if (!el || !productos.length) return;
-  var h = PROMOS.filter(function(pr){ return stockPromo(pr).length; }).slice(0, 2).map(function(pr){
-    var b = mejor(pr);
-    return '<div><small>' + esc(nombrePromo(pr)) + (pr.pack ? '' : ' ' + b.n + 'x') + '</small><b>' +
-      (pr.pack ? b.n + ' x ' + money(b.total) : money(b.cu) + ' c/u') + '</b></div>';
+  var h = heroModelos().slice(0, 2).map(function(m){
+    var b = prodsModelo(m, true).map(precioBase).filter(function(x){ return x > 0; });
+    return b.length ? '<div><small>' + esc(sinMarca(m)) + '</small><b>' + money(Math.min.apply(null, b)) + '</b></div>' : '';
   }).join('');
   el.innerHTML = h;
   el.style.display = h ? '' : 'none';
@@ -975,6 +1021,7 @@ function openPicker(i){
 }
 function closePicker(){ $('pk-ov').classList.remove('on'); $('pk-sheet').classList.remove('on'); document.body.style.overflow = ''; }
 function renderPicker(){
+  if (typeof pkActual === 'string') return renderPickerModelo();
   var pr = pkActual; if (!pr) return;
   var items = stockPromo(pr).slice().sort(function(a, b){ return cleanName(a.producto) < cleanName(b.producto) ? -1 : cleanName(a.producto) > cleanName(b.producto) ? 1 : 0; });
   var r = calcular(), q = r.grupos[pr.key] || 0, meta = mejor(pr).n;
@@ -1010,11 +1057,43 @@ function pkQty(id, d){
   renderPicker();
 }
 function addComboToCart(){
+  if (typeof pkActual === 'string'){ closePicker(); openCart(); return; }
   var pr = pkActual; if (!pr) return;
   var r = calcular();
   var sabores = r.lineas.filter(function(l){ return l.pr === pr; }).map(function(l){ return titleCase(l.p.sabor) + ' x' + l.c.qty; }).join(' + ');
   if (r.activas.indexOf(pr) !== -1){ var subG = 0; r.lineas.forEach(function(l){ if (l.pr === pr) subG += l.sub; }); track('combo_armado', pr.nombre, sabores, subG); }
   closePicker(); openCart();
+}
+
+function openPickerModelo(m){
+  pkActual = m; if (!m) return;
+  $('pk-title').innerHTML = 'Elegí tus <span class="hl">sabores</span>';
+  renderPickerModelo();
+  $('pk-ov').classList.add('on'); $('pk-sheet').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  track('abrio_sabores', m, '', '', 'hero');
+}
+function renderPickerModelo(){
+  var m = pkActual; if (typeof m !== 'string') return;
+  var items = prodsModelo(m, true).slice().sort(function(a, b){ var x = norm(a.sabor), y = norm(b.sabor); return x < y ? -1 : x > y ? 1 : 0; });
+  var bases = items.map(precioBase).filter(function(x){ return x > 0; });
+  var r = calcular(), q = 0, subG = 0;
+  r.lineas.forEach(function(l){ if (cleanName(l.p.producto) === m){ q += l.c.qty; subG += l.sub; } });
+  $('pk-body').innerHTML =
+    '<div class="pk-info"><b>' + esc(sinMarca(m)) + '</b>' + (bases.length ? ' · ' + (Math.min.apply(null, bases) !== Math.max.apply(null, bases) ? 'desde ' : '') + '<b>' + money(Math.min.apply(null, bases)) + '</b> c/u, lleves uno o varios.' : '') + '</div>' +
+    '<div class="pk-list">' + items.map(function(p){
+      var n = qtyEnCarrito(p.id), s = stockDe(p), id = esc(p.id);
+      var est = (s < 99 && s <= STOCK_LOW ? 'Últimas ' + s : 'Disponible');
+      return '<div class="pk' + (n ? ' on' : '') + '">' +
+        '<img src="' + esc(imgUrl(p.imagen_url, 120)) + '" data-src="' + esc(p.imagen_url) + '" alt="" width="54" height="54" loading="lazy" decoding="async" onerror="imgFail(this)">' +
+        '<div class="pk-t"><b>' + esc(titleCase(p.sabor)) + '</b><small>' + est + '</small></div>' +
+        '<div class="stepper"><button onclick="pkQty(\'' + id + '\',-1)" aria-label="Restar"' + (n ? '' : ' disabled style="opacity:.3"') + '>' + icon('i-minus') + '</button><b>' + n + '</b>' +
+        '<button onclick="pkQty(\'' + id + '\',1)" aria-label="Sumar"' + (n >= s ? ' disabled style="opacity:.3"' : '') + '>' + icon('i-plus') + '</button></div></div>';
+    }).join('') + '</div>';
+  $('pk-foot').innerHTML =
+    '<div class="pk-total"><span>' + (q ? q + ' elegido' + (q === 1 ? '' : 's') : 'Todavía no elegiste') + '</span><b>' + money(subG) + '</b></div>' +
+    (!q ? '<button class="btn btn-blue btn-block" disabled>Elegí tus sabores</button>'
+        : '<button class="btn btn-blue btn-block" onclick="addComboToCart()">' + icon('i-check') + 'Listo, ver pedido</button>');
 }
 
 /* =============================================================
@@ -1135,6 +1214,7 @@ function mensajePedido(r){
   return 'Hola VAPE CREW. Quiero hacer este pedido:\n\n' + lineas.join('\n') +
     (promos.length ? '\n\n' + promos.join('\n') : '') +
     '\n\nTotal: ' + money(r.total) + (r.ahorro > 0 ? ' (ahorro ' + money(r.ahorro) + ')' : '') +
+    (bienv() && r.total > 0 ? '\nBienvenida primer pedido: -' + money(Math.min(bienv().monto, r.total)) + ' → ' + money(Math.max(0, r.total - bienv().monto)) : '') +
     '\nPago: ' + (pago === 'transferencia' ? 'transferencia al alias ' + ALIAS : 'efectivo al recibir') +
     (zona ? '\nZona: ' + zona : '') +
     '\n\n¿Me confirman y coordinamos el envío?';
@@ -1180,7 +1260,9 @@ function renderCart(){
   $('cart-foot').innerHTML =
     '<div class="totals">' +
       (r.ahorro > 0 ? '<div><span>Precio suelto</span><s>' + money(r.lista) + '</s></div><div class="save"><span>Ahorro promo</span><span>-' + money(r.ahorro) + '</span></div>' : '') +
-      '<div class="grand"><span>Total</span><span>' + money(r.total) + '</span></div></div>' +
+      (bienv() ? '<div class="save"><span>Bienvenida (primer pedido)</span><span>-' + money(Math.min(bienv().monto, r.total)) + '</span></div>' : '') +
+      '<div class="grand"><span>Total</span><span>' + money(bienv() ? Math.max(0, r.total - bienv().monto) : r.total) + '</span></div></div>' +
+      (bienv() ? '<p class="cc-small" style="margin-top:2px">Mandá el pedido desde el WhatsApp ' + esc(telF(bienv().tel)) + ' para que te lo descontemos.</p>' : '') +
     '<a id="cart-wa-btn" class="btn btn-wa btn-block" style="margin-top:10px" data-ctx="carrito" target="_blank" rel="noopener" href="#">' + icon('i-wa') + 'Enviar pedido por WhatsApp</a>';
   updWA();
 }
@@ -1216,7 +1298,178 @@ function renderBar(){
   }
 }
 function refrescar(){ renderBar(); render(); renderPromos(); renderGatePromos(); renderHero(); renderChat(); }
-document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeCart(); closePicker(); } });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeCart(); closePicker(); closeCC(); closePop(); } });
+
+/* =============================================================
+   CREW CARD: 3ª compra 10% · 5ª compra 20% · 6ª compra vape de regalo.
+   Si usás un premio, la tarjeta arranca de nuevo. Se consulta con el
+   WhatsApp; los datos viven en la planilla privada del script ADMIN.
+   ============================================================= */
+function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function lsSet(k, v){ try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch(e){} }
+function telN(s){
+  var d = String(s == null ? '' : s).replace(/\D/g, '').replace(/^00/, '');
+  if (d.indexOf('54') === 0 && d.length >= 12) d = d.slice(2);
+  if (d.charAt(0) === '9' && d.length === 11) d = d.slice(1);
+  if (d.charAt(0) === '0') d = d.slice(1);
+  if (d.length === 12) for (var a = 2; a <= 4; a++) if (d.substr(a, 2) === '15'){ d = d.slice(0, a) + d.slice(a + 2); break; }
+  if (d.length === 9 && d.indexOf('15') === 0) d = '261' + d.slice(2);
+  if (d.length === 7) d = '261' + d;
+  return d.length === 10 ? d : '';
+}
+function telF(w){ return w ? w.slice(0, 3) + ' ' + w.slice(3, 6) + ' ' + w.slice(6) : ''; }
+function bienv(){ try { var b = JSON.parse(lsGet('vc_bienv') || 'null'); return b && b.monto > 0 && b.tel ? b : null; } catch(e){ return null; } }
+function adminPost(datos){
+  return fetch(URL_ADMIN, { method:'POST', body:JSON.stringify(datos) })
+    .then(function(r){ return r.text(); })
+    .then(function(t){ var j = JSON.parse(t); if (!j.ok) throw new Error(j.error || 'error'); return j; });
+}
+var ccEstado = null;
+function ccMensaje(j){
+  var t = j.tarjeta || { compras:0, disponibles:[] }, d = t.disponibles || [];
+  if (d.indexOf('VAPE') >= 0) return '<b>Completaste la tarjeta</b>En tu próximo pedido te llevás un vape de regalo. Elegís de lo que haya.';
+  if (d.indexOf('20') >= 0) return '<b>20% off en tu próximo pedido</b>O guardalo: en la 6ª compra te llevás un vape de regalo.';
+  if (d.indexOf('10') >= 0) return '<b>10% off en tu próximo pedido</b>O seguí juntando: en la 5ª compra es 20%.';
+  if (!j.existe) return j.bienvenida ? '<b>' + money(j.bienvenida) + ' off en tu primer pedido</b>Y con esa compra arrancás la tarjeta.' : '<b>Arrancás con tu próximo pedido</b>Pedí por WhatsApp desde este número y se suma solo.';
+  var pr = t.proximo || { faltan:1, premio:'10' };
+  if (!t.compras) return '<b>Tarjeta nueva</b>Ya usaste tu último premio. Te faltan ' + pr.faltan + ' compras para el 10% off.';
+  return '<b>Llevás ' + t.compras + ' ' + (t.compras === 1 ? 'compra' : 'compras') + '</b>Te ' + (pr.faltan === 1 ? 'falta 1' : 'faltan ' + pr.faltan) + ' para ' + (pr.premio === 'VAPE' ? 'el vape de regalo.' : 'el ' + pr.premio + '% off.');
+}
+function ccRender(){
+  var j = ccEstado, n = j && j.tarjeta ? Math.min(6, j.tarjeta.compras) : 0, sig = j && j.tarjeta ? Math.min(6, j.tarjeta.esta) : 0, tel = lsGet('vc_tel') || '';
+  var dots = '';
+  for (var i = 1; i <= 6; i++) dots += '<i class="' + (i <= n ? 'on' : i === sig && j ? 'next' : '') + '" style="animation-delay:' + (i * 70) + 'ms">' + (i === 3 ? '10%' : i === 5 ? '20%' : i === 6 ? 'Free' : i) + '</i>';
+  $('cc-body').innerHTML =
+    '<div class="ccard"><div class="ccard-h"><b>VAPE CREW®</b><small>' + (j ? esc(telF(tel)) : 'Tarjeta de la crew') + '</small></div>' +
+      '<div class="ccard-dots" aria-label="' + n + ' de 6 compras">' + dots + '</div>' +
+      '<div class="ccard-msg" id="cc-msg">' + (j ? ccMensaje(j) : '<b>Comprá, juntá, llevate</b>Poné tu WhatsApp y mirá cuánto te falta.') + '</div></div>' +
+    '<div class="cc-rules"><div><b>3ª compra</b><span>10% off</span></div><div><b>5ª compra</b><span>20% off</span></div><div><b>6ª compra</b><span>Un vape de regalo, de 1K a 15K pitadas. Elegís de lo que haya.</span></div></div>' +
+    '<div class="field"><label for="cc-tel">Tu WhatsApp</label><input id="cc-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" value="' + esc(telF(tel)) + '" onkeydown="if(event.key===\'Enter\')ccConsultar()"></div>' +
+    '<div class="cc-err" id="cc-err" role="status" aria-live="polite"></div>' +
+    '<button class="btn btn-blue btn-block" id="cc-go" onclick="ccConsultar()">' + (j ? 'Actualizar' : 'Ver mi tarjeta') + '</button>' +
+    (j ? '<button class="btn btn-line btn-block" style="margin-top:8px" onclick="closeCC();document.getElementById(\'catalogo\').scrollIntoView({behavior:\'smooth\'})">Pedir ahora</button>' : '') +
+    '<p class="cc-small">Se suma una compra por pedido, cuando pedís por WhatsApp desde tu número. Si usás un premio, la tarjeta arranca de nuevo. Solo mayores de 18.</p>';
+}
+function openCC(){
+  ccRender();
+  $('cc-ov').classList.add('on'); $('cc-sheet').classList.add('on'); document.body.style.overflow = 'hidden';
+  track('abrio_crew_card');
+  if (lsGet('vc_tel') && !ccEstado) ccConsultar(true);
+}
+function closeCC(){ if (!$('cc-sheet').classList.contains('on')) return; $('cc-ov').classList.remove('on'); $('cc-sheet').classList.remove('on'); document.body.style.overflow = ''; }
+function ccConsultar(auto){
+  var inp = $('cc-tel'), w = telN(inp ? inp.value : lsGet('vc_tel'));
+  if (!w){ $('cc-err').innerHTML = 'Poné tus 10 números con característica, sin el 0 ni el 15. Ej: <b>261 512 3456</b>'; return; }
+  var b = $('cc-go'); b.disabled = true; b.textContent = 'Buscando…'; $('cc-err').textContent = '';
+  adminPost({ accion:'tarjeta', tel:w }).then(function(j){
+    lsSet('vc_tel', w); ccEstado = j;
+    if (j.existe || !j.bienvenida) lsSet('vc_bienv', null); else lsSet('vc_bienv', JSON.stringify({ tel:w, monto:j.bienvenida }));
+    if (!auto) track('consulto_crew_card', '', '', j.tarjeta ? j.tarjeta.compras : 0, j.existe ? 'cliente' : 'nuevo');
+    ccRender(); renderBar();
+  }).catch(function(){
+    b.disabled = false; b.textContent = 'Ver mi tarjeta';
+    $('cc-err').textContent = 'No pudimos revisar tu tarjeta ahora. Probá en un rato o preguntanos por DM.';
+  });
+}
+
+/* ---------- POP-UP: bienvenida para visitas nuevas, perfumes para las que vuelven ---------- */
+var POP_DIA = 86400000, popT = null, popListo = false;
+function popEstado(){ try { return JSON.parse(lsGet('vc_pop') || '{}') || {}; } catch(e){ return {}; } }
+function popGuardar(st){ lsSet('vc_pop', JSON.stringify(st)); }
+(function(){
+  var st = popEstado();
+  try { if (!sessionStorage.getItem('vc_vis')){ sessionStorage.setItem('vc_vis', '1'); st.visitas = (st.visitas || 0) + 1; popGuardar(st); } } catch(e){}
+})();
+function perfumes(){ return productos.filter(function(p){ return disponible(p) && /PERFUM/.test(norm((p.categoria || '') + ' ' + p.producto)); }); }
+function popElegir(){
+  var st = popEstado(), now = Date.now(), lead = lsGet('vc_lead') || lsGet('vc_tel');
+  var puedeB = !!URL_ADMIN && !lead && (st.nB || 0) < 3 && now - (st.tB || 0) > 3 * POP_DIA;
+  var puedeP = perfumes().length > 0 && now - (st.tP || 0) > 5 * POP_DIA;
+  if ((st.visitas || 1) <= 1) return puedeB ? 'bienvenida' : (puedeP ? 'perfumes' : null);
+  return puedeP ? 'perfumes' : (puedeB ? 'bienvenida' : null);
+}
+function hojaAbierta(){ return ['cart-sheet', 'pk-sheet', 'cc-sheet', 'pop-sheet'].some(function(id){ var e = $(id); return e && e.classList.contains('on'); }) || !$('age-gate').classList.contains('hidden'); }
+function popArmar(){
+  if (popListo) return;
+  try { if (sessionStorage.getItem('vc_pop_ses')) return; } catch(e){}
+  if (!$('age-gate').classList.contains('hidden')) return;
+  popListo = true;
+  var disparar = function(){
+    window.removeEventListener('scroll', alScroll);
+    clearTimeout(popT);
+    (function intentar(){
+      if (hojaAbierta()){ popT = setTimeout(intentar, 5000); return; }
+      var tipo = popElegir(); if (tipo) abrirPop(tipo);
+    })();
+  };
+  var alScroll = function(){ if (window.scrollY > document.documentElement.scrollHeight * 0.35) disparar(); };
+  window.addEventListener('scroll', alScroll, { passive:true });
+  popT = setTimeout(disparar, 9000);
+}
+function abrirPop(tipo){
+  var st = popEstado(), h;
+  try { sessionStorage.setItem('vc_pop_ses', tipo); } catch(e){}
+  if (tipo === 'bienvenida'){
+    st.nB = (st.nB || 0) + 1; st.tB = Date.now();
+    h = '<div class="pop-k">Primer pedido</div><h2 class="pop-t"><span class="hl">' + money(BIENVENIDA) + ' off</span><br>en tu primer pedido</h2>' +
+      '<p class="pop-p">Dejá tu WhatsApp, te avisamos de los drops y el descuento queda anotado a tu número.</p>' +
+      '<div class="field"><label for="pop-tel">Tu WhatsApp</label><input id="pop-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" onkeydown="if(event.key===\'Enter\')popEnviar()"></div>' +
+      '<div class="cc-err" id="pop-err" role="status" aria-live="polite"></div>' +
+      '<button class="btn btn-blue btn-block" id="pop-go" onclick="popEnviar()">Quiero mi descuento</button>' +
+      '<button class="pop-no" onclick="closePop()">Ahora no</button>' +
+      '<p class="cc-small" style="text-align:center;margin-top:0">Un descuento por número. Solo mayores de 18.</p>';
+  } else {
+    st.tP = Date.now();
+    var pf = perfumes(), img = pf[0] && pf[0].imagen_url ? '<img class="pop-img" src="' + esc(imgUrl(pf[0].imagen_url, 220)) + '" data-src="' + esc(pf[0].imagen_url) + '" alt="" onerror="imgFail(this)">' : '';
+    h = img + '<div class="pop-k">Nuevo en VAPE CREW</div><h2 class="pop-t">Perfumes<br><span class="hl">árabes</span></h2>' +
+      '<p class="pop-p" style="clear:both">Originales. Te los llevamos en el momento, igual que tu vape.</p>' +
+      '<button class="btn btn-blue btn-block" style="margin-top:12px" onclick="verPerfumes()">Ver perfumes</button>' +
+      '<button class="pop-no" onclick="closePop()">Ahora no</button>';
+  }
+  popGuardar(st);
+  $('pop-body').innerHTML = h; $('pop-sheet').setAttribute('data-tipo', tipo);
+  $('pop-ov').classList.add('on'); $('pop-sheet').classList.add('on'); document.body.style.overflow = 'hidden';
+  track('popup_visto', '', '', '', tipo);
+}
+function closePop(){
+  var s = $('pop-sheet'); if (!s.classList.contains('on')) return;
+  if (!s.getAttribute('data-ok')) track('popup_cerro', '', '', '', s.getAttribute('data-tipo'));
+  $('pop-ov').classList.remove('on'); s.classList.remove('on'); document.body.style.overflow = '';
+}
+function verPerfumes(){
+  $('pop-sheet').setAttribute('data-ok', '1'); track('popup_click', '', '', '', 'perfumes'); closePop();
+  var q = $('search-input'); q.value = 'perfume'; var x = $('search-x'); if (x) x.classList.add('on');
+  render(); $('catalogo').scrollIntoView({ behavior:'smooth' });
+}
+function popEnviar(){
+  var w = telN($('pop-tel').value);
+  if (!w){ $('pop-err').innerHTML = 'Poné tus 10 números con característica, sin el 0 ni el 15. Ej: <b>261 512 3456</b>'; return; }
+  var b = $('pop-go'); b.disabled = true; b.textContent = 'Anotando…'; $('pop-err').textContent = '';
+  adminPost({ accion:'lead', tel:w, origen:'pop-up' }).then(function(j){
+    lsSet('vc_lead', w); lsSet('vc_tel', w); ccEstado = null;
+    if (j.bienvenida) lsSet('vc_bienv', JSON.stringify({ tel:w, monto:j.bienvenida }));
+    $('pop-sheet').setAttribute('data-ok', '1');
+    track('popup_whatsapp', '', '', j.bienvenida || 0, j.bienvenida ? 'nuevo' : 'ya_cliente');
+    $('pop-body').innerHTML = j.bienvenida
+      ? '<div class="pop-k">Listo</div><h2 class="pop-t">Ya estás<br>en la <span class="hl">crew</span></h2><p class="pop-p">Tus <b>' + money(j.bienvenida) + ' off</b> quedaron anotados al ' + esc(telF(w)) + '. Pedí por WhatsApp desde ese número y te lo descontamos.</p>' +
+        '<button class="btn btn-blue btn-block" style="margin-top:12px" onclick="closePop();document.getElementById(\'catalogo\').scrollIntoView({behavior:\'smooth\'})">Ver sabores</button>'
+      : '<div class="pop-k">Ya sos de la crew</div><h2 class="pop-t">Mirá tu<br><span class="hl">crew card</span></h2><p class="pop-p">El descuento de bienvenida es para el primer pedido. Pero con tus compras vas sumando premios: 10%, 20% y un vape de regalo.</p>' +
+        '<button class="btn btn-blue btn-block" style="margin-top:12px" onclick="closePop();openCC()">Ver mi tarjeta</button>';
+    renderBar();
+  }).catch(function(){
+    b.disabled = false; b.textContent = 'Quiero mi descuento';
+    $('pop-err').textContent = 'No se pudo anotar ahora. Probá de nuevo o escribinos por DM.';
+  });
+}
+popArmar();
+(function(){
+  if (!URL_ADMIN) return;
+  $('top-cc').hidden = false;
+  // refresca la bienvenida una vez por día (si ya compró, se saca del carrito)
+  var b = bienv(), st = popEstado();
+  if (b && Date.now() - (st.tR || 0) > POP_DIA){ st.tR = Date.now(); popGuardar(st);
+    adminPost({ accion:'tarjeta', tel:b.tel }).then(function(j){ if (j.existe || !j.bienvenida){ lsSet('vc_bienv', null); renderBar(); } }).catch(function(){}); }
+})();
 
 /* =============================================================
    CARGA
@@ -1253,11 +1506,28 @@ async function cargar(){
   }
 }
 /* =============================================================
-   HERO: la escalera 1 · 2 · 3 (la promo principal se juega arriba)
+   HERO: elegí modelo, un precio por unidad (sin combos)
    ============================================================= */
-var heroN = 3, heroImgs = '', cuentaAnterior = 0, primerRender = true;
-function heroPromo(){ return PROMOS.filter(function(x){ return x.key === HERO; })[0] || PROMOS[0]; }
-/* hasta 3 vapes para el abanico: primero modelos distintos, después lo que más stock tiene */
+var heroM = '', heroImgs = '', cuentaAnterior = 0, primerRender = true;
+function sinMarca(m){ return String(m || '').replace(/^ELFBAR\s+/i, ''); }
+function nombreCorto(m){ return sinMarca(m).replace(/\s+\d+K$/i, ''); }
+function prodsModelo(m, soloStock){ return productos.filter(function(p){ return cleanName(p.producto) === m && (!soloStock || disponible(p)); }); }
+/* modelos de arriba: primero DESTACADOS con stock, después los que más stock tienen */
+function heroModelos(){
+  var out = [];
+  DESTACADOS.forEach(function(g){
+    productos.forEach(function(p){
+      var n = norm(p.producto), m = cleanName(p.producto);
+      if (disponible(p) && precioBase(p) > 0 && out.indexOf(m) === -1 && g.every(function(w){ return n.indexOf(norm(w)) !== -1; })) out.push(m);
+    });
+  });
+  var tot = {};
+  productos.forEach(function(p){ if (disponible(p) && precioBase(p) > 0){ var m = cleanName(p.producto); tot[m] = (tot[m] || 0) + Math.min(stockDe(p), 99); } });
+  Object.keys(tot).sort(function(a, b){ return tot[b] - tot[a]; }).forEach(function(m){ if (out.indexOf(m) === -1) out.push(m); });
+  return out.slice(0, 3);
+}
+function fanN(){ return Math.max(1, Math.min(prodsModelo(heroM, true).length, 3)); }
+/* hasta 3 vapes para el abanico: los sabores con más stock del modelo elegido */
 function elegirFan(items){
   var vistos = {}, out = [];
   var orden = items.slice().sort(function(a, b){ return Math.min(stockDe(b), 99) - Math.min(stockDe(a), 99); });
@@ -1269,33 +1539,28 @@ function abrirFan(){
   var f = $('h-fan'); if (!f || f.classList.contains('ready')) return;
   f.setAttribute('data-n', '1');
   f.classList.add('ready');
-  setTimeout(function(){ f.setAttribute('data-n', String(heroN)); }, 260);
+  setTimeout(function(){ f.setAttribute('data-n', String(fanN())); }, 260);
 }
 function renderHero(animar){
-  var pr = heroPromo(); if (!pr || !pr.tiers || !$('h-num')) return;
-  var items = stockPromo(pr), todos = productos.filter(function(p){ return promoDe(p) === pr; });
-  var cargando = !productos.length, hay = items.length > 0;
-  var bases = (items.length ? items : todos).map(precioBase).filter(function(x){ return x > 0; });
-  var sMax = bases.length ? Math.max.apply(null, bases) : pr.unit, sMin = bases.length ? Math.min.apply(null, bases) : pr.unit;
-  var cu = null; (pr.tiers || []).forEach(function(t){ if (heroN >= t.min) cu = t.cu; });
-  var tope = pr.tiers[pr.tiers.length - 1].min;
+  if (!$('h-num')) return;
+  var cargando = !productos.length, mods = heroModelos();
+  if (mods.indexOf(heroM) === -1) heroM = mods[0] || '';
+  var seg = $('h-seg');
+  seg.innerHTML = mods.map(function(m, i){ return '<button type="button" aria-pressed="' + (m === heroM) + '" onclick="heroPick(' + i + ')">' + esc(nombreCorto(m)) + '</button>'; }).join('');
+  seg.style.display = mods.length > 1 ? '' : 'none';
+  $('ladder-q').textContent = mods.length > 1 ? '¿Cuál querés?' : (heroM ? sinMarca(heroM) : '');
 
-  $('h-models').textContent = listaY(modelosConStock(pr), 'y');
-  [].forEach.call(document.querySelectorAll('.seg button'), function(b){ b.setAttribute('aria-pressed', String(Number(b.getAttribute('data-n')) === heroN)); });
-
-  var num, pre = '', cuTxt, line;
-  if (cu === null){
-    num = money(sMin); pre = sMin !== sMax ? 'Desde' : ''; cuTxt = 'Suelto, uno solo';
-    var nx = proximo(pr, 1);
-    line = nx ? 'Sumá ' + nx.falta + ' y cada uno queda a <b>' + money(nx.cu) + '</b>.' : '';
-  } else {
-    var ahorro = (sMax - cu) * heroN;
-    num = money(cu); cuTxt = 'c/u llevando ' + heroN + (heroN >= tope ? ' o más' : '');
-    line = heroN + ' por <b>' + money(cu * heroN) + '</b>' + (ahorro > 0 ? ' · ahorrás ' + (sMin !== sMax ? 'hasta ' : '') + '<b>' + money(ahorro) + '</b>' : '');
-  }
-  if (!cargando && !hay) line = 'Estamos reponiendo sabores. Reservá por DM y te avisamos apenas entran.';
-  var numEl = $('h-num'), cambio = numEl.textContent !== num;
-  numEl.textContent = num; $('h-pre').textContent = pre; $('h-cu').textContent = cuTxt; $('h-line').innerHTML = line;
+  var items = heroM ? prodsModelo(heroM, true) : [], hay = items.length > 0;
+  var bases = items.map(precioBase).filter(function(x){ return x > 0; });
+  var sMin = bases.length ? Math.min.apply(null, bases) : 0, sMax = bases.length ? Math.max.apply(null, bases) : 0;
+  var num = money(sMin), numEl = $('h-num'), cambio = numEl.textContent !== num;
+  document.querySelector('#ladder .price').style.visibility = hay ? '' : 'hidden';
+  numEl.textContent = num;
+  $('h-pre').textContent = sMin !== sMax ? 'Desde' : '';
+  $('h-cu').textContent = 'por unidad';
+  $('h-line').innerHTML = cargando ? '' : hay
+    ? '<b>' + items.length + ' sabor' + (items.length === 1 ? '' : 'es') + '</b> de ' + esc(sinMarca(heroM)) + (mods.length > 1 ? '' : ', lleves uno o varios.')
+    : 'Estamos reponiendo sabores. Reservá por DM y te avisamos apenas entran.';
   $('h-btn').innerHTML = (!cargando && !hay) ? icon('i-wa') + 'Reservá por DM' : 'Elegir sabores <svg class="icon i-go"><use href="#i-arrow"></use></svg>';
 
   var fan = $('h-fan');
@@ -1317,7 +1582,7 @@ function renderHero(animar){
     });
     setTimeout(abrirFan, 2600);
   }
-  if (fan.classList.contains('ready')) fan.setAttribute('data-n', String(Math.min(heroN, 3)));
+  if (fan.classList.contains('ready')) fan.setAttribute('data-n', String(fanN()));
   if (animar && cambio) animarPrecio();
 }
 function animarPrecio(){
@@ -1330,20 +1595,19 @@ function animarPrecio(){
   mark.style.animation = 'none';
   mark.animate([{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 760, delay: 140, easing: 'cubic-bezier(.23,1,.32,1)', fill: 'backwards' });
 }
-function heroPick(n){
-  if (n === heroN) return;
-  heroN = n; renderHero(true);
-  track('escalera', '', '', n, 'hero');
+function heroPick(i){
+  var m = heroModelos()[i]; if (!m || m === heroM) return;
+  heroM = m; renderHero(true);
+  track('hero_modelo', m, '', '', 'hero');
 }
 function heroGo(){
-  var pr = heroPromo();
   if (!productos.length){ $('catalogo').scrollIntoView({ behavior: 'smooth' }); return; }
-  if (!stockPromo(pr).length){
+  if (!heroM || !prodsModelo(heroM, true).length){
     track('click_dm', '', '', '', 'hero_reserva');
-    window.open(waLink('Hola VAPE CREW. Quiero la promo de ' + nombrePromo(pr) + '. ¿Cuándo vuelven a tener sabores?'), '_blank', 'noopener');
+    window.open(waLink('Hola VAPE CREW. ¿Cuándo vuelven a tener sabores?'), '_blank', 'noopener');
     return;
   }
-  openPicker(PROMOS.indexOf(pr));
+  openPickerModelo(heroM);
 }
 
 /* ---------- el mensaje de WhatsApp de "Cómo pedir": el real, armado por la página ---------- */
@@ -1351,7 +1615,7 @@ function renderChat(){
   var el = $('chat-msg'); if (!el || !productos.length) return;
   var r = calcular(), propio = r.lineas.length > 0;
   if (!propio){
-    var ej = elegirFan(stockPromo(heroPromo())).slice(0, 2);
+    var ej = elegirFan(heroM ? prodsModelo(heroM, true) : []).slice(0, 2);
     if (!ej.length) ej = productos.filter(disponible).slice(0, 2);
     if (!ej.length) return;
     var real = carrito;
@@ -1359,7 +1623,7 @@ function renderChat(){
     r = calcular(); carrito = real;
   }
   el.textContent = mensajePedido(r);
-  $('chat-note').textContent = propio ? 'Este es tu pedido de ahora: así nos llega cuando tocás enviar.' : 'Así llega tu pedido: sabores, promo, total y forma de pago.';
+  $('chat-note').textContent = propio ? 'Este es tu pedido de ahora: así nos llega cuando tocás enviar.' : 'Así llega tu pedido: sabores, total y forma de pago.';
 }
 
 /* ---------- entradas al scrollear (si el script falla, todo queda visible) ---------- */
