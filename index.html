@@ -1526,13 +1526,13 @@ function heroModelos(){
   Object.keys(tot).sort(function(a, b){ return tot[b] - tot[a]; }).forEach(function(m){ if (out.indexOf(m) === -1) out.push(m); });
   return out.slice(0, 3);
 }
-function fanN(){ return Math.max(1, Math.min(prodsModelo(heroM, true).length, 3)); }
-/* hasta 3 vapes para el abanico: los sabores con más stock del modelo elegido */
+function fanN(){ return Math.max(1, Math.min(elegirFan(heroM ? prodsModelo(heroM, true) : []).length, 3)); }
+/* hasta 3 vapes para el abanico: sabores con más stock, sin repetir la misma foto */
 function elegirFan(items){
   var vistos = {}, out = [];
   var orden = items.slice().sort(function(a, b){ return Math.min(stockDe(b), 99) - Math.min(stockDe(a), 99); });
-  orden.forEach(function(p){ var m = cleanName(p.producto); if (!vistos[m] && out.length < 3){ vistos[m] = 1; out.push(p); } });
-  orden.forEach(function(p){ if (out.length < 3 && out.indexOf(p) === -1) out.push(p); });
+  orden.forEach(function(p){ var u = String(p.imagen_url || '').trim(); if (u && !vistos[u] && out.length < 3){ vistos[u] = 1; out.push(p); } });
+  if (!out.length && orden.length) out.push(orden[0]);
   return out;
 }
 function abrirFan(){
