@@ -453,6 +453,9 @@ footer p.legal{font-size:12.5px;color:var(--on-blue);max-width:62ch}
 .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
 .field input{width:100%;height:50px;border-radius:999px;border:0;padding:0 18px;font:inherit;font-size:16px;outline:none;background:var(--bg-2);transition:box-shadow 200ms ease,background-color 200ms ease}
 .field input:focus{background:#fff;box-shadow:inset 0 0 0 2px var(--blue)}
+.field input.bad{background:#fff;box-shadow:inset 0 0 0 2px var(--blue);animation:nudgeX 360ms ease}
+@keyframes nudgeX{20%{transform:translateX(-5px)}45%{transform:translateX(4px)}70%{transform:translateX(-2px)}}
+@media (prefers-reduced-motion:reduce){.field input.bad{animation:none}}
 .field-2{display:grid;grid-template-columns:.9fr 1.1fr;gap:10px}
 .field-2 .field{min-width:0}
 .field-2 .field input{padding:0 16px}
@@ -1256,9 +1259,10 @@ function renderCart(){
   }
   if (r.ahorro > 0) h += '<div class="deal-ok">' + icon('i-check') + 'Promo aplicada: ahorrás ' + money(r.ahorro) + '</div>';
   h += '<div class="field-2">' +
-      '<div class="field"><label for="cli-nom">Tu nombre</label><input id="cli-nom" autocomplete="given-name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo" value="' + esc(cliNombre) + '" oninput="cliNombre=this.value;updWA()"></div>' +
+      '<div class="field"><label for="cli-nom">Nombre y apellido</label><input id="cli-nom" autocomplete="name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo López" value="' + esc(cliNombre) + '" oninput="cliNombre=this.value;updWA();nomOk(this,\'cli-err\')"></div>' +
       '<div class="field"><label for="cli-tel">Tu WhatsApp</label><input id="cli-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" value="' + esc(cliTel) + '" oninput="cliTel=this.value;updWA()"></div></div>' +
-    '<p class="cc-small" style="margin-top:6px">Con tu nombre y número te anotamos en la CREW CARD: cada pedido suma.</p>';
+    '<div class="cc-err" id="cli-err" role="status" aria-live="polite"></div>' +
+    '<p class="cc-small" style="margin-top:2px">Con tu nombre, apellido y número te anotamos en la CREW CARD: cada pedido suma.</p>';
   h += '<div class="field"><label for="zona">¿Dónde te lo llevamos? (opcional)</label><input id="zona" placeholder="Barrio o zona" autocomplete="address-level2" value="' + esc(zonaVal) + '" oninput="zonaVal=this.value;updWA()"></div>' +
     '<div class="pay-opt">' +
       '<label><input type="radio" name="pago" value="transferencia"' + (pago === 'transferencia' ? ' checked' : '') + ' onchange="setPago(this.value)"><b>Transferencia</b><small>Alias ' + ALIAS + '</small></label>' +
@@ -1273,7 +1277,7 @@ function renderCart(){
       (bienv() ? '<div class="save"><span>Bienvenida (primer pedido)</span><span>-' + money(Math.min(bienv().monto, r.total)) + '</span></div>' : '') +
       '<div class="grand"><span>Total</span><span>' + money(bienv() ? Math.max(0, r.total - bienv().monto) : r.total) + '</span></div></div>' +
       (bienv() ? '<p class="cc-small" style="margin-top:2px">Poné el WhatsApp ' + esc(telF(bienv().tel)) + ' en tus datos para que te lo descontemos.</p>' : '') +
-    '<a id="cart-wa-btn" class="btn btn-wa btn-block" style="margin-top:10px" data-ctx="carrito" target="_blank" rel="noopener" href="#" onclick="cartRegistrar()">' + icon('i-wa') + 'Enviar pedido por WhatsApp</a>';
+    '<a id="cart-wa-btn" class="btn btn-wa btn-block" style="margin-top:10px" data-ctx="carrito" target="_blank" rel="noopener" href="#" onclick="return cartRegistrar(event)">' + icon('i-wa') + 'Enviar pedido por WhatsApp</a>';
   updWA();
 }
 function updWA(){ var b = $('cart-wa-btn'); if (b) b.href = waLink(mensajePedido(calcular())); }
@@ -1329,6 +1333,32 @@ function telN(s){
 }
 function telF(w){ return w ? w.slice(0, 3) + ' ' + w.slice(3, 6) + ' ' + w.slice(6) : ''; }
 function nombreLimpio(s){ return String(s == null ? '' : s).replace(/\s+/g, ' ').trim().slice(0, 40); }
+/* Nombre y apellido: 2 palabras de 2+ letras como mínimo, así no se mezclan los que se llaman igual */
+function nombreCompleto(s){
+  return nombreLimpio(s).split(' ').filter(function(p){ return (p.match(/[a-zà-öø-ÿ]/gi) || []).length >= 2; }).length >= 2;
+}
+/* "lolo LÓPEZ" → "Lolo López" (si alguien escribió con mayúsculas a propósito, como McGregor, se respeta) */
+function nombreFormato(s){
+  var chicas = { de:1, del:1, la:1, las:1, los:1, y:1, da:1, di:1, van:1, von:1 };
+  return nombreLimpio(s).split(' ').map(function(p, i){
+    if (p !== p.toLowerCase() && p !== p.toUpperCase()) return p;
+    p = p.toLowerCase();
+    if (i > 0 && chicas[p]) return p;
+    return p.replace(/(^|[-'’])(\S)/g, function(m, a, c){ return a + c.toUpperCase(); });
+  }).join(' ');
+}
+function errNombre(s){
+  return nombreLimpio(s) ? 'Sumá tu apellido, así tu tarjeta no se mezcla con la de otro que se llame igual. Ej: <b>Lolo López</b>' : 'Poné tu nombre y apellido. Ej: <b>Lolo López</b>';
+}
+function nomMal(inp, errId){
+  var er = $(errId);
+  if (er) er.innerHTML = errNombre(inp ? inp.value : '');
+  if (inp){ inp.classList.add('bad'); inp.focus(); }
+}
+function nomOk(inp, errId){
+  if (!inp.classList.contains('bad') || !nombreCompleto(inp.value)) return;
+  inp.classList.remove('bad'); var er = $(errId); if (er) er.textContent = '';
+}
 /* Recuerda nombre y número en este celu (para el carrito, la tarjeta y el pop-up) */
 function guardarCliente(w, nom){
   if (w){ lsSet('vc_tel', w); cliTel = telF(w); }
@@ -1336,7 +1366,7 @@ function guardarCliente(w, nom){
 }
 /* Línea "Cliente" del pedido: Lolo la usa para buscar la tarjeta al cargar la venta */
 function clienteLinea(){
-  var nom = nombreLimpio(cliNombre), raw = String(cliTel || '').trim(), w = telN(raw), num = w ? telF(w) : raw;
+  var nom = nombreFormato(cliNombre), raw = String(cliTel || '').trim(), w = telN(raw), num = w ? telF(w) : raw;
   if (!nom && !num) return '';
   return '\nCliente: ' + (nom || 'sin nombre') + (num ? ' · ' + num : '');
 }
@@ -1344,11 +1374,22 @@ function clienteLinea(){
 function adminSilencioso(datos){
   try { fetch(URL_ADMIN, { method:'POST', body:JSON.stringify(datos), keepalive:true }).catch(function(){}); } catch(e){}
 }
+/* Sin nombre y apellido el pedido no sale (el contador de clics de WhatsApp también lo mira) */
+function pedidoBloqueado(){ return !nombreCompleto(cliNombre); }
 /* Al tocar "Enviar pedido": anota nombre + número en la CREW CARD, sin frenar el WhatsApp */
-function cartRegistrar(){
-  var nom = nombreLimpio(cliNombre), w = telN(cliTel);
+function cartRegistrar(e){
+  if (pedidoBloqueado()){
+    if (e) e.preventDefault();
+    var inp = $('cli-nom');
+    nomMal(inp, 'cli-err');
+    if (inp && inp.scrollIntoView) inp.scrollIntoView({ block:'center', behavior:'smooth' });
+    track('pedido_sin_apellido', '', '', calcular().total, nombreLimpio(cliNombre) ? 'solo_nombre' : 'vacio');
+    return false;
+  }
+  var nom = nombreFormato(cliNombre), w = telN(cliTel);
   guardarCliente(w, nom);
   if (w && URL_ADMIN) adminSilencioso({ accion:'registro', tel:w, nombre:nom, origen:'Tienda' });
+  return true;
 }
 function bienv(){ try { var b = JSON.parse(lsGet('vc_bienv') || 'null'); return b && b.monto > 0 && b.tel ? b : null; } catch(e){ return null; } }
 function adminPost(datos){
@@ -1362,7 +1403,7 @@ function ccMensaje(j){
   if (d.indexOf('VAPE') >= 0) return '<b>Completaste la tarjeta</b>En tu próximo pedido te llevás un vape de regalo. Elegís de lo que haya.';
   if (d.indexOf('20') >= 0) return '<b>20% off en tu próximo pedido</b>O guardalo: en la 6ª compra te llevás un vape de regalo.';
   if (d.indexOf('10') >= 0) return '<b>10% off en tu próximo pedido</b>O seguí juntando: en la 5ª compra es 20%.';
-  if (!j.existe) return j.bienvenida ? '<b>' + money(j.bienvenida) + ' off en tu primer pedido</b>Y con esa compra arrancás la tarjeta.' : '<b>Arrancás con tu próximo pedido</b>Pedí con tu nombre y este número y se suma solo.';
+  if (!j.existe) return j.bienvenida ? '<b>' + money(j.bienvenida) + ' off en tu primer pedido</b>Y con esa compra arrancás la tarjeta.' : '<b>Arrancás con tu próximo pedido</b>Pedí con tu nombre, apellido y este número y se suma solo.';
   var pr = t.proximo || { faltan:1, premio:'10' };
   if (!t.compras) return '<b>Tarjeta nueva</b>Ya usaste tu último premio. Te faltan ' + pr.faltan + ' compras para el 10% off.';
   return '<b>Llevás ' + t.compras + ' ' + (t.compras === 1 ? 'compra' : 'compras') + '</b>Te ' + (pr.faltan === 1 ? 'falta 1' : 'faltan ' + pr.faltan) + ' para ' + (pr.premio === 'VAPE' ? 'el vape de regalo.' : 'el ' + pr.premio + '% off.');
@@ -1376,12 +1417,12 @@ function ccRender(){
       '<div class="ccard-dots" aria-label="' + n + ' de 6 compras">' + dots + '</div>' +
       '<div class="ccard-msg" id="cc-msg">' + (j ? ccMensaje(j) : '<b>Comprá, juntá, llevate</b>Poné tu WhatsApp y mirá cuánto te falta.') + '</div></div>' +
     '<div class="cc-rules"><div><b>3ª compra</b><span>10% off</span></div><div><b>5ª compra</b><span>20% off</span></div><div><b>6ª compra</b><span>Un vape de regalo, de 1K a 15K pitadas. Elegís de lo que haya.</span></div></div>' +
-    '<div class="field"><label for="cc-nom">Tu nombre</label><input id="cc-nom" autocomplete="given-name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo" value="' + esc(nom) + '" onkeydown="if(event.key===\'Enter\')document.getElementById(\'cc-tel\').focus()"></div>' +
+    '<div class="field"><label for="cc-nom">Nombre y apellido</label><input id="cc-nom" autocomplete="name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo López" value="' + esc(nom) + '" oninput="nomOk(this,\'cc-err\')" onkeydown="if(event.key===\'Enter\')document.getElementById(\'cc-tel\').focus()"></div>' +
     '<div class="field"><label for="cc-tel">Tu WhatsApp</label><input id="cc-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" value="' + esc(telF(tel)) + '" onkeydown="if(event.key===\'Enter\')ccConsultar()"></div>' +
     '<div class="cc-err" id="cc-err" role="status" aria-live="polite"></div>' +
     '<button class="btn btn-blue btn-block" id="cc-go" onclick="ccConsultar()">' + (j ? 'Actualizar' : 'Ver mi tarjeta') + '</button>' +
     (j ? '<button class="btn btn-line btn-block" style="margin-top:8px" onclick="closeCC();document.getElementById(\'catalogo\').scrollIntoView({behavior:\'smooth\'})">Pedir ahora</button>' : '') +
-    '<p class="cc-small">Se suma una compra por pedido: anotá tu nombre y WhatsApp en el carrito y se suma solo. Si usás un premio, la tarjeta arranca de nuevo. Solo mayores de 18.</p>';
+    '<p class="cc-small">Se suma una compra por pedido: anotá tu nombre, apellido y WhatsApp en el carrito y se suma solo. Si usás un premio, la tarjeta arranca de nuevo. Solo mayores de 18.</p>';
 }
 function openCC(){
   ccRender();
@@ -1391,7 +1432,8 @@ function openCC(){
 }
 function closeCC(){ if (!$('cc-sheet').classList.contains('on')) return; $('cc-ov').classList.remove('on'); $('cc-sheet').classList.remove('on'); document.body.style.overflow = ''; }
 function ccConsultar(auto){
-  var inp = $('cc-tel'), w = telN(inp ? inp.value : lsGet('vc_tel')), nomEl = $('cc-nom'), nom = nombreLimpio(nomEl ? nomEl.value : lsGet('vc_nombre'));
+  var inp = $('cc-tel'), w = telN(inp ? inp.value : lsGet('vc_tel')), nomEl = $('cc-nom'), nom = nombreFormato(nomEl ? nomEl.value : lsGet('vc_nombre'));
+  if (!auto && !nombreCompleto(nom)){ nomMal(nomEl, 'cc-err'); return; }
   if (!w){ $('cc-err').innerHTML = 'Poné tus 10 números con característica, sin el 0 ni el 15. Ej: <b>261 512 3456</b>'; return; }
   var b = $('cc-go'); b.disabled = true; b.textContent = 'Buscando…'; $('cc-err').textContent = '';
   /* con nombre: lo anota en la tarjeta (si el script es viejo, cae a solo mirar) */
@@ -1449,8 +1491,8 @@ function abrirPop(tipo){
   if (tipo === 'bienvenida'){
     st.nB = (st.nB || 0) + 1; st.tB = Date.now();
     h = '<div class="pop-k">Primer pedido</div><h2 class="pop-t"><span class="hl">' + money(BIENVENIDA) + ' off</span><br>en tu primer pedido</h2>' +
-      '<p class="pop-p">Dejá tu nombre y WhatsApp, te avisamos de los drops y el descuento queda anotado a tu número.</p>' +
-      '<div class="field"><label for="pop-nom">Tu nombre</label><input id="pop-nom" autocomplete="given-name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo" value="' + esc(lsGet('vc_nombre') || '') + '" onkeydown="if(event.key===\'Enter\')document.getElementById(\'pop-tel\').focus()"></div>' +
+      '<p class="pop-p">Dejá tu nombre completo y tu WhatsApp: te avisamos de los drops y el descuento queda anotado a tu número.</p>' +
+      '<div class="field"><label for="pop-nom">Nombre y apellido</label><input id="pop-nom" autocomplete="name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo López" value="' + esc(lsGet('vc_nombre') || '') + '" oninput="nomOk(this,\'pop-err\')" onkeydown="if(event.key===\'Enter\')document.getElementById(\'pop-tel\').focus()"></div>' +
       '<div class="field"><label for="pop-tel">Tu WhatsApp</label><input id="pop-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" onkeydown="if(event.key===\'Enter\')popEnviar()"></div>' +
       '<div class="cc-err" id="pop-err" role="status" aria-live="polite"></div>' +
       '<button class="btn btn-blue btn-block" id="pop-go" onclick="popEnviar()">Quiero mi descuento</button>' +
@@ -1480,8 +1522,8 @@ function verPerfumes(){
   render(); $('catalogo').scrollIntoView({ behavior:'smooth' });
 }
 function popEnviar(){
-  var w = telN($('pop-tel').value), nom = nombreLimpio($('pop-nom') ? $('pop-nom').value : '');
-  if (!nom){ $('pop-err').textContent = 'Poné tu nombre para anotarte.'; return; }
+  var w = telN($('pop-tel').value), nom = nombreFormato($('pop-nom') ? $('pop-nom').value : '');
+  if (!nombreCompleto(nom)){ nomMal($('pop-nom'), 'pop-err'); return; }
   if (!w){ $('pop-err').innerHTML = 'Poné tus 10 números con característica, sin el 0 ni el 15. Ej: <b>261 512 3456</b>'; return; }
   var b = $('pop-go'); b.disabled = true; b.textContent = 'Anotando…'; $('pop-err').textContent = '';
   adminPost({ accion:'lead', tel:w, nombre:nom, origen:'pop-up' }).then(function(j){
@@ -1490,7 +1532,7 @@ function popEnviar(){
     $('pop-sheet').setAttribute('data-ok', '1');
     track('popup_whatsapp', '', '', j.bienvenida || 0, j.bienvenida ? 'nuevo' : 'ya_cliente');
     $('pop-body').innerHTML = j.bienvenida
-      ? '<div class="pop-k">Listo</div><h2 class="pop-t">Ya estás<br>en la <span class="hl">crew</span></h2><p class="pop-p">' + esc(nom) + ', tus <b>' + money(j.bienvenida) + ' off</b> quedaron anotados al ' + esc(telF(w)) + '. Armá tu pedido en la tienda con ese número y te lo descontamos.</p>' +
+      ? '<div class="pop-k">Listo</div><h2 class="pop-t">Ya estás<br>en la <span class="hl">crew</span></h2><p class="pop-p">' + esc(nom.split(' ')[0]) + ', tus <b>' + money(j.bienvenida) + ' off</b> quedaron anotados al ' + esc(telF(w)) + '. Armá tu pedido en la tienda con ese número y te lo descontamos.</p>' +
         '<button class="btn btn-blue btn-block" style="margin-top:12px" onclick="closePop();document.getElementById(\'catalogo\').scrollIntoView({behavior:\'smooth\'})">Ver sabores</button>'
       : '<div class="pop-k">Ya sos de la crew</div><h2 class="pop-t">Mirá tu<br><span class="hl">crew card</span></h2><p class="pop-p">El descuento de bienvenida es para el primer pedido. Pero con tus compras vas sumando premios: 10%, 20% y un vape de regalo.</p>' +
         '<button class="btn btn-blue btn-block" style="margin-top:12px" onclick="closePop();openCC()">Ver mi tarjeta</button>';
@@ -1778,6 +1820,7 @@ setTimeout(cargar, 0);
     try {
       var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], #cart-wa-btn') : null;
       if (!a) return;
+      if (a.id === 'cart-wa-btn' && window.pedidoBloqueado && window.pedidoBloqueado()) return;
       var ctx = a.getAttribute('data-ctx') || 'otro';
       var producto = '', sabor = '', valor = '';
       var card = a.closest('.card');
