@@ -93,21 +93,6 @@ p{text-wrap:pretty}
 .link-wa{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:500;font-size:17px;letter-spacing:.04em;text-transform:uppercase;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;transition:opacity 200ms ease}
 @media(hover:hover) and (pointer:fine){.link-wa:hover{opacity:.75}}
 
-/* ---------- +18 (hoja que sube; la página se ve detrás) ---------- */
-.age{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(10,10,12,.62);animation:fade 300ms ease both}
-.age.hidden{display:none}
-.age-card{width:100%;max-width:480px;background:#fff;border-radius:26px 26px 0 0;padding:10px 22px calc(22px + var(--safe-b));animation:sheetUp 480ms var(--ease-drawer) both}
-@media(min-width:600px){.age{align-items:center}.age-card{border-radius:26px;padding-bottom:26px}}
-.age-card .grab{margin-bottom:16px}
-.age-promo{display:flex;gap:8px;margin-bottom:22px}
-.age-promo div{flex:1;background:var(--blue);color:#fff;padding:14px 16px;animation:up 520ms var(--ease-out) both;animation-delay:140ms}
-.age-promo div+div{animation-delay:200ms}
-.age-promo small{display:block;font-size:12px;line-height:1.35;color:var(--on-blue)}
-.age-promo b{display:block;font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.05;margin-top:4px}
-.age-title{font-size:52px;margin-bottom:10px}
-.age-text{color:var(--muted);font-size:14px;margin-bottom:22px}
-.age-actions{display:flex;flex-direction:column;gap:6px}
-.age-no{font-size:13px;color:var(--muted);padding:12px;text-decoration:underline;text-underline-offset:4px}
 
 /* ---------- HEADER ---------- */
 .top{position:sticky;top:0;z-index:40;background:#fff;transition:box-shadow 240ms ease}
@@ -451,6 +436,8 @@ footer p.legal{font-size:12.5px;color:var(--on-blue);max-width:62ch}
 .totals .save{color:var(--ok);font-weight:700}
 .field{margin:14px 0 4px}
 .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.cart-trust{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;font-size:12.5px;color:var(--muted)}
+.cart-trust .icon{width:16px;height:16px;flex:none}
 .field input{width:100%;height:50px;border-radius:999px;border:0;padding:0 18px;font:inherit;font-size:16px;outline:none;background:var(--bg-2);transition:box-shadow 200ms ease,background-color 200ms ease}
 .field input:focus{background:#fff;box-shadow:inset 0 0 0 2px var(--blue)}
 .field input.bad{background:#fff;box-shadow:inset 0 0 0 2px var(--blue);animation:nudgeX 360ms ease}
@@ -524,20 +511,6 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   <symbol id="i-card" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v2h16V7H4Zm0 5v5h16v-5H4Zm2 2h5v2H6v-2Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.2 5.3 19.9 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.1l-4.3-4.3 1.4-1.4Z"/></symbol>
 </svg>
-
-<!-- ============ +18 (hoja que sube, la página se ve detrás) ============ -->
-<div class="age" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title">
-  <div class="age-card">
-    <div class="grab"></div>
-    <div class="age-promo" style="display:none"></div>
-    <h2 class="age-title" id="age-title">¿Sos <span class="hl">+18</span>?</h2>
-    <p class="age-text">Vendemos productos con nicotina, solo para mayores de 18 años.</p>
-    <div class="age-actions">
-      <button class="btn btn-blue btn-block" onclick="passAgeGate()">Sí, entrar <svg class="icon i-go"><use href="#i-arrow"></use></svg></button>
-      <button class="age-no" onclick="denyAgeGate()">Soy menor de 18</button>
-    </div>
-  </div>
-</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"><svg class="icon" id="toast-icon"><use href="#i-check"></use></svg><span id="toast-msg"></span></div>
 
@@ -864,23 +837,6 @@ function quedan(pr){
 function prodById(id){ for (var i = 0; i < productos.length; i++) if (String(productos[i].id) === String(id)) return productos[i]; return null; }
 function precioBase(p){ var v = Number(p && p.precio_num || 0); if (v > 0) return v; var pr = promoDe(p); return pr ? pr.unit : 0; }
 
-/* ---------- +18 ---------- */
-function passAgeGate(){
-  try { localStorage.setItem('vc_age18', '1'); } catch(e){}
-  $('age-gate').classList.add('hidden');
-  document.body.style.overflow = '';
-  popArmar();
-}
-function denyAgeGate(){
-  $('age-gate').querySelector('.age-card').innerHTML =
-    '<h2 class="age-title">Solo <span class="hl">+18</span></h2><p class="age-text">Este sitio vende productos con nicotina y no está disponible para menores de 18 años.</p>';
-}
-(function(){
-  var ok = false;
-  try { ok = localStorage.getItem('vc_age18') === '1'; } catch(e){}
-  if (ok) $('age-gate').classList.add('hidden'); else document.body.style.overflow = 'hidden';
-})();
-
 /* ---------- TOAST ---------- */
 var toastT;
 function showToast(msg, ic){
@@ -1005,18 +961,6 @@ function renderPromos(){
       '</article>';
   }).join('');
 }
-/* cartel +18: precio de los modelos de arriba que hoy tienen stock */
-function renderGatePromos(){
-  var el = document.querySelector('#age-gate .age-promo');
-  if (!el || !productos.length) return;
-  var h = heroModelos().slice(0, 2).map(function(m){
-    var b = prodsModelo(m, true).map(precioBase).filter(function(x){ return x > 0; });
-    return b.length ? '<div><small>' + esc(sinMarca(m)) + '</small><b>' + money(Math.min.apply(null, b)) + '</b></div>' : '';
-  }).join('');
-  el.innerHTML = h;
-  el.style.display = h ? '' : 'none';
-}
-
 /* ---------- HOJA "ARMAR 3x" ---------- */
 var pkActual = null;
 function openPicker(i){
@@ -1262,7 +1206,7 @@ function renderCart(){
       '<div class="field"><label for="cli-nom">Nombre y apellido</label><input id="cli-nom" autocomplete="name" autocapitalize="words" maxlength="40" placeholder="Ej: Lolo López" value="' + esc(cliNombre) + '" oninput="cliNombre=this.value;updWA();nomOk(this,\'cli-err\')"></div>' +
       '<div class="field"><label for="cli-tel">Tu WhatsApp</label><input id="cli-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" value="' + esc(cliTel) + '" oninput="cliTel=this.value;updWA()"></div></div>' +
     '<div class="cc-err" id="cli-err" role="status" aria-live="polite"></div>' +
-    '<p class="cc-small" style="margin-top:2px">Con tu nombre, apellido y número te anotamos en la CREW CARD: cada pedido suma.</p>';
+    '<p class="cc-small" style="margin-top:2px">Opcional. Con nombre, apellido y WhatsApp se te suma la compra a la CREW CARD.</p>';
   h += '<div class="field"><label for="zona">¿Dónde te lo llevamos? (opcional)</label><input id="zona" placeholder="Barrio o zona" autocomplete="address-level2" value="' + esc(zonaVal) + '" oninput="zonaVal=this.value;updWA()"></div>' +
     '<div class="pay-opt">' +
       '<label><input type="radio" name="pago" value="transferencia"' + (pago === 'transferencia' ? ' checked' : '') + ' onchange="setPago(this.value)"><b>Transferencia</b><small>Alias ' + ALIAS + '</small></label>' +
@@ -1277,7 +1221,8 @@ function renderCart(){
       (bienv() ? '<div class="save"><span>Bienvenida (primer pedido)</span><span>-' + money(Math.min(bienv().monto, r.total)) + '</span></div>' : '') +
       '<div class="grand"><span>Total</span><span>' + money(bienv() ? Math.max(0, r.total - bienv().monto) : r.total) + '</span></div></div>' +
       (bienv() ? '<p class="cc-small" style="margin-top:2px">Poné el WhatsApp ' + esc(telF(bienv().tel)) + ' en tus datos para que te lo descontemos.</p>' : '') +
-    '<a id="cart-wa-btn" class="btn btn-wa btn-block" style="margin-top:10px" data-ctx="carrito" target="_blank" rel="noopener" href="#" onclick="return cartRegistrar(event)">' + icon('i-wa') + 'Enviar pedido por WhatsApp</a>';
+    '<p class="cart-trust">' + icon('i-truck') + 'Sale en el momento · Solo originales</p>' +
+    '<a id="cart-wa-btn" class="btn btn-wa btn-block" style="margin-top:8px" data-ctx="carrito" target="_blank" rel="noopener" href="#" onclick="return cartRegistrar(event)">' + icon('i-wa') + 'Enviar pedido por WhatsApp</a>';
   updWA();
 }
 function updWA(){ var b = $('cart-wa-btn'); if (b) b.href = waLink(mensajePedido(calcular())); }
@@ -1311,7 +1256,7 @@ function renderBar(){
     if (subio){ latido(document.querySelector('.bar-n')); latido($('top-n')); }
   }
 }
-function refrescar(){ renderBar(); render(); renderPromos(); renderGatePromos(); renderHero(); renderChat(); }
+function refrescar(){ renderBar(); render(); renderPromos(); renderHero(); renderChat(); }
 document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeCart(); closePicker(); closeCC(); closePop(); } });
 
 /* =============================================================
@@ -1374,21 +1319,16 @@ function clienteLinea(){
 function adminSilencioso(datos){
   try { fetch(URL_ADMIN, { method:'POST', body:JSON.stringify(datos), keepalive:true }).catch(function(){}); } catch(e){}
 }
-/* Sin nombre y apellido el pedido no sale (el contador de clics de WhatsApp también lo mira) */
-function pedidoBloqueado(){ return !nombreCompleto(cliNombre); }
-/* Al tocar "Enviar pedido": anota nombre + número en la CREW CARD, sin frenar el WhatsApp */
+/* El pedido NUNCA se frena (12/11/2026): los datos son opcionales.
+   Se queda por compatibilidad con el contador de clics de WhatsApp. */
+function pedidoBloqueado(){ return false; }
+/* Al tocar "Enviar pedido": sale el WhatsApp siempre. A la CREW CARD solo se anota
+   con nombre y apellido + WhatsApp (así no se mezclan los que se llaman igual). */
 function cartRegistrar(e){
-  if (pedidoBloqueado()){
-    if (e) e.preventDefault();
-    var inp = $('cli-nom');
-    nomMal(inp, 'cli-err');
-    if (inp && inp.scrollIntoView) inp.scrollIntoView({ block:'center', behavior:'smooth' });
-    track('pedido_sin_apellido', '', '', calcular().total, nombreLimpio(cliNombre) ? 'solo_nombre' : 'vacio');
-    return false;
-  }
-  var nom = nombreFormato(cliNombre), w = telN(cliTel);
+  var nom = nombreFormato(cliNombre), w = telN(cliTel), completo = nombreCompleto(cliNombre);
+  if (!completo) track('pedido_sin_apellido', '', '', calcular().total, nombreLimpio(cliNombre) ? 'solo_nombre' : 'vacio');
   guardarCliente(w, nom);
-  if (w && URL_ADMIN) adminSilencioso({ accion:'registro', tel:w, nombre:nom, origen:'Tienda' });
+  if (completo && w && URL_ADMIN) adminSilencioso({ accion:'registro', tel:w, nombre:nom, origen:'Tienda' });
   return true;
 }
 function bienv(){ try { var b = JSON.parse(lsGet('vc_bienv') || 'null'); return b && b.monto > 0 && b.tel ? b : null; } catch(e){ return null; } }
@@ -1467,11 +1407,10 @@ function popElegir(){
   if ((st.visitas || 1) <= 1) return puedeB ? 'bienvenida' : (puedeP ? 'perfumes' : null);
   return puedeP ? 'perfumes' : (puedeB ? 'bienvenida' : null);
 }
-function hojaAbierta(){ return ['cart-sheet', 'pk-sheet', 'cc-sheet', 'pop-sheet'].some(function(id){ var e = $(id); return e && e.classList.contains('on'); }) || !$('age-gate').classList.contains('hidden'); }
+function hojaAbierta(){ return ['cart-sheet', 'pk-sheet', 'cc-sheet', 'pop-sheet'].some(function(id){ var e = $(id); return e && e.classList.contains('on'); }) ; }
 function popArmar(){
   if (popListo) return;
   try { if (sessionStorage.getItem('vc_pop_ses')) return; } catch(e){}
-  if (!$('age-gate').classList.contains('hidden')) return;
   popListo = true;
   var disparar = function(){
     window.removeEventListener('scroll', alScroll);
@@ -1800,10 +1739,6 @@ setTimeout(cargar, 0);
   }
 
   if (sesionNueva) track('sesion', '', '', '', ref);
-  envolver('passAgeGate', function () { track('paso_edad'); });
-  // +18: cuántos lo VEN (no solo cuántos lo pasan) y cuántos dicen ser menores
-  try { var vcGate = document.getElementById('age-gate'); if (vcGate && !vcGate.classList.contains('hidden')) track('vio_edad'); } catch (e) {}
-  envolver('denyAgeGate', function () { track('menor_edad'); });
   envolver('addToCart', function (id) {
     var p = buscarProducto(id);
     if (p) track('agrego_carrito', p.producto, p.sabor, p.precio_num, 'catalogo');
