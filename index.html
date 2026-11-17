@@ -454,6 +454,8 @@ footer p.legal{font-size:12.5px;color:var(--on-blue);max-width:62ch}
 .pay-opt small{font-size:11.5px;color:var(--muted)}
 .pay-opt label:has(input:checked){background:var(--blue-soft);box-shadow:inset 0 0 0 2px var(--blue)}
 .pay-opt label:has(input:focus-visible){outline:2.5px solid var(--blue);outline-offset:3px}
+.pay-opt label.off{opacity:.4;cursor:not-allowed}
+.pay-note{font-size:12px;color:var(--muted);margin:-4px 0 10px}
 .alias{display:none;align-items:center;justify-content:space-between;gap:10px;background:var(--ink);color:#fff;padding:14px 16px;margin-bottom:12px}
 .alias.on{display:flex;animation:up 320ms var(--ease-out) both}
 .alias small{display:block;font-size:12px;color:var(--on-ink)}
@@ -637,7 +639,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
       <ol class="steps">
         <li data-r style="--d:1"><h3>Elegí</h3><p>Los sabores que quieras, uno o varios. Cada uno sale lo mismo.</p></li>
         <li data-r style="--d:2"><h3>Mandá el pedido</h3><p>Se abre WhatsApp con todo escrito. Solo tocás enviar.</p></li>
-        <li data-r style="--d:3"><h3>Recibí</h3><p>Confirmamos, pagás por transferencia o en efectivo y sale en el momento.</p></li>
+        <li data-r style="--d:3"><h3>Recibí</h3><p>Confirmamos, pagás por transferencia (o en efectivo si retirás por domicilio) y sale en el momento.</p></li>
       </ol>
     </div>
     <figure class="chat" data-r style="--d:2">
@@ -656,7 +658,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
     <div class="faq" data-r style="--d:1">
       <details><summary>¿Hay mínimo de compra?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>No. Podés llevar uno solo. Cada modelo tiene un precio por unidad: lleves uno o varios, cada uno sale lo mismo. Única promo: BC 5K $10.000 o 2 por $16.500. Los sabores se mezclan como quieras.</p></details>
       <details><summary>¿Son originales?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Todos. Solo originales es una de nuestras tres promesas. Si tenés dudas, preguntanos por DM y te mostramos el producto.</p></details>
-      <details><summary>¿Cómo pago?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Transferencia al alias vvpecrew (banco o Mercado Pago) o efectivo al recibir. Lo elegís al mandar el pedido.</p></details>
+      <details><summary>¿Cómo pago?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Transferencia al alias vvpecrew (banco o Mercado Pago). El efectivo es solo si retirás por domicilio (Barrio Olivos del Torreón / Barrio Paraíso 1, Maipú). Lo elegís al mandar el pedido.</p></details>
       <details><summary>¿Y si me llega fallado?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Tenés garantía de 24 horas. Nos avisás por DM y te lo cambiamos.</p></details>
       <details><summary>¿Cuándo me llega?<svg class="icon"><use href="#i-chevron"></use></svg></summary><p>Te lo mandamos en el momento en que pedís, de día o de noche, en Mendoza. Coordinamos el punto de entrega por DM.</p></details>
     </div>
@@ -752,6 +754,8 @@ try { favoritos = JSON.parse(localStorage.getItem('vc_favs') || '[]') || []; } c
 try { carrito = JSON.parse(localStorage.getItem('vc_cart') || '[]') || []; } catch(e){ carrito = []; }
 var filtro = 'TODOS';
 var pago = 'transferencia';
+var RETIRO = 'Barrio Olivos del Torreón / Barrio Paraíso 1, Maipú';
+var entrega = 'envio';   // 'envio' | 'retiro' (efectivo solo con retiro)
 var zonaVal = '';
 var cliNombre = lsGet('vc_nombre') || '', cliTel = telF(lsGet('vc_tel') || '');
 
@@ -1167,10 +1171,11 @@ function mensajePedido(r){
     (promos.length ? '\n\n' + promos.join('\n') : '') +
     '\n\nTotal: ' + money(r.total) + (r.ahorro > 0 ? ' (ahorro ' + money(r.ahorro) + ')' : '') +
     (bienv() && r.total > 0 ? '\nBienvenida primer pedido: -' + money(Math.min(bienv().monto, r.total)) + ' → ' + money(Math.max(0, r.total - bienv().monto)) : '') +
-    '\nPago: ' + (pago === 'transferencia' ? 'transferencia al alias ' + ALIAS : 'efectivo al recibir') +
-    (zona ? '\nZona: ' + zona : '') +
+    '\nEntrega: ' + (entrega === 'retiro' ? 'retiro por domicilio (' + RETIRO + ')' : 'envío') +
+    '\nPago: ' + (pago === 'transferencia' ? 'transferencia al alias ' + ALIAS : 'efectivo al retirar') +
+    (zona && entrega !== 'retiro' ? '\nZona: ' + zona : '') +
     clienteLinea() +
-    '\n\n¿Me confirman y coordinamos el envío?';
+    '\n\n' + (entrega === 'retiro' ? '¿Me confirman y coordinamos el retiro?' : '¿Me confirman y coordinamos el envío?');
 }
 function renderCart(){
   var r = calcular();
@@ -1207,11 +1212,18 @@ function renderCart(){
       '<div class="field"><label for="cli-tel">Tu WhatsApp</label><input id="cli-tel" inputmode="tel" autocomplete="tel-national" placeholder="261 512 3456" value="' + esc(cliTel) + '" oninput="cliTel=this.value;updWA()"></div></div>' +
     '<div class="cc-err" id="cli-err" role="status" aria-live="polite"></div>' +
     '<p class="cc-small" style="margin-top:2px">Opcional. Con nombre, apellido y WhatsApp se te suma la compra a la CREW CARD.</p>';
-  h += '<div class="field"><label for="zona">¿Dónde te lo llevamos? (opcional)</label><input id="zona" placeholder="Barrio o zona" autocomplete="address-level2" value="' + esc(zonaVal) + '" oninput="zonaVal=this.value;updWA()"></div>' +
+  if (entrega !== 'retiro' && pago === 'efectivo') pago = 'transferencia';
+  h += '<div class="pay-opt">' +
+      '<label><input type="radio" name="entrega" value="envio"' + (entrega === 'envio' ? ' checked' : '') + ' onchange="setEntrega(this.value)"><b>Envío</b><small>Te lo llevamos</small></label>' +
+      '<label><input type="radio" name="entrega" value="retiro"' + (entrega === 'retiro' ? ' checked' : '') + ' onchange="setEntrega(this.value)"><b>Retiro</b><small>Por domicilio</small></label>' +
+    '</div>' +
+    (entrega === 'retiro' ? '<p class="pay-note">Retiro en ' + RETIRO + '. Te confirmamos la dirección exacta por WhatsApp.</p>' : '');
+  h += '<div class="field"' + (entrega === 'retiro' ? ' hidden' : '') + '><label for="zona">¿Dónde te lo llevamos? (opcional)</label><input id="zona" placeholder="Barrio o zona" autocomplete="address-level2" value="' + esc(zonaVal) + '" oninput="zonaVal=this.value;updWA()"></div>' +
     '<div class="pay-opt">' +
       '<label><input type="radio" name="pago" value="transferencia"' + (pago === 'transferencia' ? ' checked' : '') + ' onchange="setPago(this.value)"><b>Transferencia</b><small>Alias ' + ALIAS + '</small></label>' +
-      '<label><input type="radio" name="pago" value="efectivo"' + (pago === 'efectivo' ? ' checked' : '') + ' onchange="setPago(this.value)"><b>Efectivo</b><small>Al recibir</small></label>' +
+      '<label' + (entrega === 'retiro' ? '' : ' class="off"') + '><input type="radio" name="pago" value="efectivo"' + (pago === 'efectivo' ? ' checked' : '') + (entrega === 'retiro' ? '' : ' disabled') + ' onchange="setPago(this.value)"><b>Efectivo</b><small>Al retirar</small></label>' +
     '</div>' +
+    (entrega === 'retiro' ? '' : '<p class="pay-note">El efectivo es solo si retirás por domicilio.</p>') +
     '<div class="alias' + (pago === 'transferencia' ? ' on' : '') + '" id="alias-box"><div><small>Alias Mercado Pago</small><b>' + ALIAS + '</b></div><button onclick="copyAlias()">' + icon('i-copy') + 'Copiar</button></div>' +
     '<button class="link-btn" onclick="clearCart()">Vaciar pedido</button>';
   $('cart-body').innerHTML = h;
@@ -1235,7 +1247,8 @@ function nudgeAdd(id){
   var r = calcular();
   showToast(r.faltan ? 'Sumá ' + r.faltan.falta + ' más y cada uno queda a ' + money(r.faltan.cu) : (r.ahorro > 0 ? 'Promo aplicada · ahorrás ' + money(r.ahorro) : titleCase(p.sabor) + ' agregado'), 'i-bolt');
 }
-function setPago(v){ pago = v; var a = $('alias-box'); if (a) a.classList.toggle('on', v === 'transferencia'); updWA(); if (v === 'transferencia') track('abrio_pago', '', '', calcular().total, 'transferencia'); }
+function setEntrega(v){ entrega = v === 'retiro' ? 'retiro' : 'envio'; if (entrega !== 'retiro' && pago === 'efectivo') pago = 'transferencia'; renderCart(); }
+function setPago(v){ if (v === 'efectivo' && entrega !== 'retiro') return; pago = v; var a = $('alias-box'); if (a) a.classList.toggle('on', v === 'transferencia'); updWA(); if (v === 'transferencia') track('abrio_pago', '', '', calcular().total, 'transferencia'); }
 function clearCart(){ carrito = []; guardarCarrito(); refrescar(); renderCart(); }
 function copyAlias(){
   var ok = function(){ showToast('Alias copiado: ' + ALIAS, 'i-copy'); };
