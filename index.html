@@ -1345,10 +1345,22 @@ function cartRegistrar(e){
   return true;
 }
 function bienv(){ try { var b = JSON.parse(lsGet('vc_bienv') || 'null'); return b && b.monto > 0 && b.tel ? b : null; } catch(e){ return null; } }
+/* Google a veces deja colgado el pedido sin que llegue al script (18/11/2026): tope de 12 s por
+   intento y hasta 3 intentos. tarjeta/registro/lead se pueden repetir sin duplicar nada. */
 function adminPost(datos){
-  return fetch(URL_ADMIN, { method:'POST', body:JSON.stringify(datos) })
-    .then(function(r){ return r.text(); })
-    .then(function(t){ var j = JSON.parse(t); if (!j.ok) throw new Error(j.error || 'error'); return j; });
+  var body = JSON.stringify(datos);
+  function intento(n){
+    var ctl = window.AbortController ? new AbortController() : null;
+    var t = setTimeout(function(){ if (ctl) ctl.abort(); }, 12000);
+    return fetch(URL_ADMIN, { method:'POST', body:body, signal: ctl ? ctl.signal : undefined })
+      .then(function(r){ return r.text(); })
+      .then(function(x){ clearTimeout(t); return x; }, function(e){
+        clearTimeout(t);
+        if (n < 3) return new Promise(function(ok){ setTimeout(ok, 500 * n); }).then(function(){ return intento(n + 1); });
+        throw e;
+      });
+  }
+  return intento(1).then(function(t){ var j = JSON.parse(t); if (!j.ok) throw new Error(j.error || 'error'); return j; });
 }
 var ccEstado = null;
 function ccMensaje(j){
