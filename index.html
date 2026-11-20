@@ -552,6 +552,19 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
 .pf-cross{position:relative;z-index:1;text-align:center;margin-top:34px;color:var(--on-ink);font-size:14px}
 .pf-cross a{color:#8B90FF;font-weight:600;border-bottom:1px solid rgba(139,144,255,.4);padding-bottom:2px;cursor:pointer}
 
+/* perfumes con carrito */
+.pf-out{color:#8A8A93!important}
+.pf-incart{position:absolute;top:11px;right:11px;z-index:3;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:999px;color:#fff;background:var(--blue);box-shadow:0 4px 14px -4px rgba(28,35,255,.8)}
+.pf-step{display:inline-flex;align-items:center;gap:4px;height:54px;padding:0 6px;border-radius:999px;background:var(--ink-2);border:1px solid rgba(255,255,255,.14)}
+.pf-step button{width:42px;height:42px;border-radius:50%;color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background-color .2s,transform .16s var(--ease-out)}
+.pf-step button:active{transform:scale(.88)}
+.pf-step button[disabled]{opacity:.3;pointer-events:none}
+.pf-step b{min-width:28px;text-align:center;font-family:var(--font-display);font-size:20px;color:#fff}
+@media(hover:hover) and (pointer:fine){.pf-step button:hover{background:var(--blue)}}
+.pf-dm{flex-basis:100%;font-size:13px;color:#8B90FF;text-decoration:underline;text-underline-offset:4px;margin-top:2px}
+#pf-m-pyr[hidden]{display:none}
+.pf-cta .btn .icon{width:18px;height:18px}
+
 /* ---------- ACCESOS Vapes / Perfumes (hub) ---------- */
 .vc-hub{padding:24px 0 0}
 .vc-hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -749,14 +762,13 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
       <h3 id="pf-m-name"></h3>
       <div class="pf-isub" id="pf-m-sub"></div>
       <div class="pf-desc" id="pf-m-desc"></div>
+      <div id="pf-m-pyr">
       <div class="pf-pyrt">Pirámide olfativa</div>
       <div class="pf-lvl"><div class="pf-llbl">Salida</div><div class="pf-notes" id="pf-m-top"></div></div>
       <div class="pf-lvl"><div class="pf-llbl">Corazón</div><div class="pf-notes" id="pf-m-heart"></div></div>
       <div class="pf-lvl"><div class="pf-llbl">Fondo</div><div class="pf-notes" id="pf-m-base"></div></div>
-      <div class="pf-cta">
-        <a class="btn btn-blue" id="pf-m-wa" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"></use></svg>Lo quiero · DM</a>
-        <div class="pf-iprice" id="pf-m-price"></div>
       </div>
+      <div class="pf-cta" id="pf-m-cta"></div>
     </div>
   </div>
 </div>
@@ -898,7 +910,8 @@ var CARDS  = [ { promo:"BC5K" } ];
    orden, si tienen stock; si faltan, se completa con los que más stock tienen. */
 var DESTACADOS = [["ICEKING"], ["TRIO"], ["RABBEATS"]];
 
-var productos = [];
+var productos = [];          // vapes (todo lo que no es perfume)
+var perfProd  = [];          // perfumes de STOCK: van en su sección, comparten el carrito
 var filtrados = [];
 var carrito   = [];          // [{id, qty}]
 var favoritos = [];
@@ -990,7 +1003,13 @@ function infoPromo(pr){
 function quedan(pr){
   return stockPromo(pr).reduce(function(a, p){ return a + Math.max(0, Math.min(stockDe(p), 99) - qtyEnCarrito(p.id)); }, 0);
 }
-function prodById(id){ for (var i = 0; i < productos.length; i++) if (String(productos[i].id) === String(id)) return productos[i]; return null; }
+function prodById(id){
+  for (var i = 0; i < productos.length; i++) if (String(productos[i].id) === String(id)) return productos[i];
+  for (var j = 0; j < perfProd.length; j++) if (String(perfProd[j].id) === String(id)) return perfProd[j];
+  return null;
+}
+/* perfume = categoría PERFUME, modelo "PERFUME …" o foto de la sección perfumes */
+function esPerf(p){ return !!p && (/PERFUM/.test(norm((p.categoria || p['categoría'] || p.CATEGORIA || '') + ' ' + p.producto)) || /\/assets\/perfumes\//.test(p.imagen_url || '')); }
 function precioBase(p){ var v = Number(p && p.precio_num || 0); if (v > 0) return v; var pr = promoDe(p); return pr ? pr.unit : 0; }
 
 /* ---------- TOAST ---------- */
@@ -1060,7 +1079,7 @@ function addToCart(id, btnEl){
   if (nx && quedan(pr) < nx.falta) nx = null;
   if (nx) showToast('Sumá ' + nx.falta + ' más y cada uno queda a ' + money(nx.cu), 'i-bolt');
   else if (pr && r.activas.indexOf(pr) !== -1) showToast('Promo aplicada · ahorrás ' + money(r.ahorro), 'i-bolt');
-  else showToast(cleanName(p.producto) + ' agregado', 'i-cart');
+  else showToast((esPerf(p) ? titleCase(p.sabor) : cleanName(p.producto)) + ' agregado', 'i-cart');
 }
 function changeQty(id, d){ setQty(id, qtyEnCarrito(id) + d); }
 
@@ -1421,7 +1440,7 @@ function renderBar(){
     if (subio){ latido(document.querySelector('.bar-n')); latido($('top-n')); }
   }
 }
-function refrescar(){ renderBar(); render(); renderPromos(); renderHero(); renderChat(); }
+function refrescar(){ renderBar(); render(); renderPromos(); renderHero(); renderChat(); if (window.pfRefresh) pfRefresh(); }
 document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeCart(); closePicker(); closeCC(); closePop(); } });
 
 /* =============================================================
@@ -1576,7 +1595,7 @@ function popGuardar(st){ lsSet('vc_pop', JSON.stringify(st)); }
   var st = popEstado();
   try { if (!sessionStorage.getItem('vc_vis')){ sessionStorage.setItem('vc_vis', '1'); st.visitas = (st.visitas || 0) + 1; popGuardar(st); } } catch(e){}
 })();
-function perfumes(){ return productos.filter(function(p){ return disponible(p) && /PERFUM/.test(norm((p.categoria || '') + ' ' + p.producto)); }); }
+function perfumes(){ return perfProd.filter(function(p){ return disponible(p); }); }
 function popElegir(){
   var st = popEstado(), now = Date.now(), lead = lsGet('vc_lead') || lsGet('vc_tel');
   var puedeB = !!URL_ADMIN && !lead && (st.nB || 0) < 3 && now - (st.tB || 0) > 3 * POP_DIA;
@@ -1677,7 +1696,9 @@ $('search-input').addEventListener('input', function(){ clearTimeout(buscT); bus
    y en paralelo se trae el stock fresco de la planilla. */
 var CAT_KEY = 'vc_cat';
 function aplicarCatalogo(data){
-  productos = data.filter(function(p){ return p && p.producto; });
+  var todos = data.filter(function(p){ return p && p.producto; });
+  productos = todos.filter(function(p){ return !esPerf(p); });
+  perfProd  = todos.filter(esPerf);
   carrito = carrito.filter(function(c){ var p = prodById(c.id); return p && disponible(p); });
   renderChips(); refrescar();
   if (window.pfSync) pfSync();
@@ -1910,6 +1931,7 @@ setTimeout(cargar, 0);
     };
   }
   function buscarProducto(pid) {
+    if (typeof window.prodById === 'function') return window.prodById(pid);
     var arr = window.productos || [];
     for (var i = 0; i < arr.length; i++) if (String(arr[i].id) === String(pid)) return arr[i];
     return null;
@@ -2038,115 +2060,160 @@ setTimeout(cargar, 0);
   PF.forEach(function(d){ d.precio=PRICES[d.id]; });
   var CAT = {unisex:"Unisex", mujer:"Mujer", hombre:"Hombre"};
   var IMG = "assets/perfumes/";
-  var filtro = "todos";
+  var filtro = "todos", abierto = null, visto = false;
   var grid = document.getElementById('pf-grid');
   if (!grid) return;
 
-  // Busca el producto en la planilla por coincidencia de nombre (si ya está cargado)
+  function stockP(){ return window.perfProd || []; }
+  // el perfume de STOCK que corresponde a cada uno de la sección: por la foto, si no por el nombre
   function match(d){
-    if (!window.productos || !productos.length || typeof norm !== 'function') return null;
-    for (var i=0;i<productos.length;i++){
-      var n = norm(productos[i].producto);
-      var ok = d.keys.every(function(k){ return n.indexOf(norm(k)) !== -1; });
-      if (ok) return productos[i];
+    var L = stockP(); if (!L.length) return null;
+    for (var i = 0; i < L.length; i++) if ((L[i].imagen_url || '').indexOf(d.id) !== -1) return L[i];
+    for (var j = 0; j < L.length; j++){
+      var n = norm(L[j].producto + ' ' + (L[j].sabor || ''));
+      if (d.keys.every(function(k){ return n.indexOf(norm(k)) !== -1; })) return L[j];
     }
     return null;
   }
-  // Devuelve {txt, avail} para precio/stock
-  function precioDe(d){
-    var p = match(d);
-    if (p){
-      var hayStock = (typeof disponible === 'function') ? disponible(p) : true;
-      if (!hayStock) return { txt:"", avail:false, sin:true };
-      var v = (typeof precioBase === 'function') ? precioBase(p) : 0;
-      if (v>0) return { txt: money(v), avail:true, sin:false };
-    }
-    if (d.precio) return { txt: money(d.precio), avail:true, sin:false };
-    return { txt:"", avail:true, sin:false };
+  // perfumes cargados en STOCK que no son de los 12: aparecen igual, con su foto y precio
+  function extras(){
+    var usados = {}; PF.forEach(function(d){ var p = match(d); if (p) usados[p.id] = 1; });
+    return stockP().filter(function(p){ return !usados[p.id]; }).map(function(p){
+      var c = norm((p.categoria || p['categoría'] || '') + ' ' + p.producto);
+      return { id:'x' + p.id, extra:true, prod:p, cat:/MUJER|FEM/.test(c) ? 'mujer' : /HOMBRE|MASC/.test(c) ? 'hombre' : 'unisex',
+        brand:titleCase(cleanName(p.producto).replace(/^PERFUMES?\s+/i, '')), name:titleCase(p.sabor || ''), vol:'',
+        acc:'rgba(28,35,255,.4)', img:p.imagen_url ? imgUrl(p.imagen_url, 700) : '', src:p.imagen_url || '',
+        desc:'Original, con factura. Si querés saber cómo huele o compararlo con otro, escribinos por DM.', top:[], heart:[], base:[] };
+    });
+  }
+  function lista(){ return PF.concat(extras()); }
+  function byId(id){ var L = lista(); for (var i = 0; i < L.length; i++) if (L[i].id === id) return L[i]; return null; }
+  function prodDe(d){ return d.extra ? d.prod : match(d); }
+  function imgDe(d){ return d.extra ? d.img : IMG + d.id + '.png'; }
+  /* cart = hay stock: se agrega al pedido · out = cargado sin stock · dm = todavía no está en el stock */
+  function estado(d){
+    var p = prodDe(d);
+    if (!p) return { modo:'dm', txt:d.precio ? money(d.precio) : '' };
+    if (!disponible(p)) return { modo:'out', p:p, txt:'' };
+    var v = precioBase(p) || d.precio || 0;
+    return { modo:'cart', p:p, v:v, txt:v ? money(v) : '', stock:stockDe(p), q:qtyEnCarrito(p.id) };
   }
 
-  function cardHTML(d){
-    var pr = precioDe(d);
-    var precioBloque = pr.sin
-      ? '<div class="pf-price" style="color:#8A8A93">Sin stock</div>'
-      : (pr.txt ? '<div class="pf-price">'+pr.txt+'</div>'
-                : '<div class="pf-price"><small>Consultá por DM</small></div>');
-    return '<div class="pf-card" style="--acc:'+d.acc+'" data-id="'+d.id+'">'+
-      '<div class="pf-glow"></div>'+
-      '<div class="pf-tag">'+CAT[d.cat]+'</div>'+
-      '<div class="pf-imgwrap"><img src="'+IMG+d.id+'.png" alt="'+d.name+'" loading="lazy"></div>'+
-      '<div class="pf-meta"><div class="pf-brand">'+d.brand+'</div>'+
-      '<div class="pf-name">'+d.name+'</div><div class="pf-vol">'+d.vol+'</div>'+
-      precioBloque+'</div>'+
+  function cardHTML(d, anim){
+    var e = estado(d);
+    var precio = e.modo === 'out' ? '<div class="pf-price pf-out">Sin stock</div>'
+      : e.txt ? '<div class="pf-price">' + e.txt + (e.modo === 'cart' && e.stock <= STOCK_LOW ? '<small>Últimas ' + e.stock + '</small>' : '') + '</div>'
+      : '<div class="pf-price"><small>Consultá por DM</small></div>';
+    var img = imgDe(d);
+    return '<div class="pf-card' + (anim ? '' : ' in') + '" style="--acc:' + d.acc + '" data-id="' + esc(d.id) + '">' +
+      '<div class="pf-glow"></div>' +
+      '<div class="pf-tag">' + CAT[d.cat] + '</div>' +
+      (e.modo === 'cart' && e.q ? '<div class="pf-incart">' + e.q + ' en tu pedido</div>' : '') +
+      '<div class="pf-imgwrap">' + (img ? '<img src="' + esc(img) + '"' + (d.src ? ' data-src="' + esc(d.src) + '" onerror="imgFail(this)"' : '') + ' alt="' + esc(d.name) + '" loading="lazy">' : '') + '</div>' +
+      '<div class="pf-meta"><div class="pf-brand">' + esc(d.brand) + '</div>' +
+      '<div class="pf-name">' + esc(d.name) + '</div>' + (d.vol ? '<div class="pf-vol">' + esc(d.vol) + '</div>' : '') +
+      precio + '</div>' +
       '<div class="pf-ver">Ver →</div></div>';
   }
 
   var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); visto = true; } });
   }, { threshold:.12 }) : null;
 
-  function render(){
-    var list = PF.filter(function(d){ return filtro==="todos" || d.cat===filtro; });
-    grid.innerHTML = list.map(cardHTML).join('');
-    var cards = grid.querySelectorAll('.pf-card');
-    cards.forEach(function(c, i){
+  function render(anim){
+    var list = lista().filter(function(d){ return filtro === "todos" || d.cat === filtro; });
+    grid.innerHTML = list.map(function(d){ return cardHTML(d, anim && !!io); }).join('');
+    grid.querySelectorAll('.pf-card').forEach(function(c){
       c.addEventListener('click', function(){ open(c.getAttribute('data-id')); });
-      if (io) io.observe(c); else c.classList.add('in');
+      if (anim && io) io.observe(c);
     });
+    hubPerf();
+  }
+  function hubPerf(){
+    var pp = document.getElementById('hub-perf-price'); if (!pp) return;
+    var v = lista().map(function(d){ var e = estado(d); return e.modo === 'out' ? 0 : (e.v || d.precio || 0); }).filter(function(x){ return x > 0; });
+    if (v.length) pp.textContent = 'desde ' + money(Math.min.apply(null, v));
   }
   function updateHub(){
     var img=document.getElementById('hub-vape-img'), pr=document.getElementById('hub-vape-price');
     if(!img||!window.productos||!productos.length) return;
-    var disp=productos.filter(function(p){return (typeof disponible==='function')?disponible(p):true;});
+    var disp=productos.filter(function(p){return disponible(p);});
     var withImg=disp.filter(function(p){return p.imagen_url;});
     var pick=withImg[0]||disp[0];
-    if(pick&&pick.imagen_url&&typeof imgUrl==='function'){ img.src=imgUrl(pick.imagen_url,400); img.style.visibility='visible'; }
-    var prices=disp.map(function(p){return (typeof precioBase==='function')?precioBase(p):0;}).filter(function(v){return v>0;});
+    if(pick&&pick.imagen_url){ img.src=imgUrl(pick.imagen_url,400); img.style.visibility='visible'; }
+    var prices=disp.map(function(p){return precioBase(p);}).filter(function(v){return v>0;});
     if(pr&&prices.length){ pr.textContent='desde '+money(Math.min.apply(null,prices)); }
   }
-  // refresco cuando carga la planilla
-  window.pfSync = function(){ render(); updateHub(); };
+  // cuando carga la planilla y cuando cambia el pedido
+  window.pfSync = function(){ render(!visto); updateHub(); if (abierto) ctaDraw(); };
+  window.pfRefresh = function(){ render(false); if (abierto) ctaDraw(); };
 
   // filtros
   document.getElementById('pf-filters').addEventListener('click', function(e){
     var b = e.target.closest('.pf-chip'); if(!b) return;
     this.querySelectorAll('.pf-chip').forEach(function(c){ c.classList.remove('on'); });
-    b.classList.add('on'); filtro = b.getAttribute('data-f'); render();
+    b.classList.add('on'); filtro = b.getAttribute('data-f'); render(true);
   });
 
-  // modal
-  var ovl = document.getElementById('pf-ovl');
+  // ficha
+  var ovl = document.getElementById('pf-ovl'), cta = document.getElementById('pf-m-cta');
   function chips(elId, arr){
     var el = document.getElementById(elId); el.innerHTML = "";
     arr.forEach(function(n,i){ var s=document.createElement('span'); s.className="pf-note"; s.textContent=n; s.style.animationDelay=(i*60+150)+"ms"; el.appendChild(s); });
   }
-  function byId(id){ for (var i=0;i<PF.length;i++) if (PF[i].id===id) return PF[i]; return null; }
+  function nombre(d){ return d.name + (d.vol ? ' (' + d.vol.replace(/ · /g, ' ') + ')' : ''); }
+  function ctaDraw(){
+    var d = byId(abierto); if (!d){ close(); return; }
+    var e = estado(d), h;
+    if (e.modo === 'cart'){
+      h = (e.q
+          ? '<div class="pf-step"><button type="button" data-pf="minus" aria-label="Sacar uno">−</button><b>' + e.q + '</b><button type="button" data-pf="plus" aria-label="Sumar uno"' + (e.q >= e.stock ? ' disabled' : '') + '>+</button></div>' +
+            '<button class="btn btn-blue" type="button" data-pf="ver">' + icon('i-cart') + 'Ver mi pedido</button>'
+          : '<button class="btn btn-blue" type="button" data-pf="add">' + icon('i-cart') + 'Agregar al pedido</button>') +
+        '<div class="pf-iprice">' + e.txt + '<small>' + (e.stock <= STOCK_LOW ? 'quedan ' + e.stock : 'por unidad') + '</small></div>' +
+        '<a class="pf-dm" href="' + esc(waLink('Hola! Tengo una consulta sobre el ' + nombre(d) + '.')) + '" target="_blank" rel="noopener" data-pf="dm">¿Dudas? Consultanos por DM</a>';
+    } else if (e.modo === 'out'){
+      h = '<a class="btn btn-blue" href="' + esc(waLink('Hola! Avisame cuando entre el ' + nombre(d) + '.')) + '" target="_blank" rel="noopener" data-pf="dm">' + icon('i-wa') + 'Avisame cuando entre</a>' +
+        '<div class="pf-iprice"><small>Sin stock por ahora</small></div>';
+    } else {
+      h = '<a class="btn btn-blue" href="' + esc(waLink('Hola! Me interesa el ' + nombre(d) + '. ' + (e.txt ? '¿Lo tienen?' : 'Me pasás precio?'))) + '" target="_blank" rel="noopener" data-pf="dm">' + icon('i-wa') + 'Lo quiero · DM</a>' +
+        '<div class="pf-iprice">' + (e.txt ? e.txt + '<small>por unidad</small>' : '<small>Consultá precio por DM</small>') + '</div>';
+    }
+    cta.innerHTML = h;
+  }
+  cta.addEventListener('click', function(ev){
+    var b = ev.target.closest('[data-pf]'); if (!b) return;
+    var d = byId(abierto); if (!d) return;
+    var a = b.getAttribute('data-pf'), p = prodDe(d);
+    if (a === 'dm'){ try { track('click_dm', 'PERFUME', d.name); } catch(x){} return; }
+    if (!p) return;
+    if (a === 'add') addToCart(p.id);
+    if (a === 'plus') changeQty(p.id, 1);
+    if (a === 'minus') changeQty(p.id, -1);
+    if (a === 'ver'){ close(); openCart(); }
+  });
   function open(id){
     var d = byId(id); if(!d) return;
+    abierto = d.id;
     document.getElementById('pf-sht').style.setProperty('--acc', d.acc);
-    var im = document.getElementById('pf-m-img'); im.src = IMG+d.id+'.png'; im.alt = d.name;
+    var im = document.getElementById('pf-m-img'); im.src = imgDe(d) || ''; im.alt = d.name; im.style.visibility = imgDe(d) ? '' : 'hidden';
     document.getElementById('pf-m-brand').textContent = d.brand;
     document.getElementById('pf-m-name').textContent = d.name;
-    document.getElementById('pf-m-sub').textContent = CAT[d.cat]+' · '+d.vol;
+    document.getElementById('pf-m-sub').textContent = CAT[d.cat] + (d.vol ? ' · ' + d.vol : '');
     document.getElementById('pf-m-desc').textContent = d.desc;
+    var pyr = document.getElementById('pf-m-pyr'); pyr.hidden = !d.top.length;
     chips('pf-m-top', d.top); chips('pf-m-heart', d.heart); chips('pf-m-base', d.base);
-    var pr = precioDe(d);
-    var ip = document.getElementById('pf-m-price');
-    ip.innerHTML = pr.sin ? '<small>Sin stock por ahora</small>' : (pr.txt ? pr.txt+'<small>por unidad</small>' : '<small>Consultá precio por DM</small>');
-    var msg = "Hola! Me interesa el "+d.name+" ("+d.vol.replace(/ · /g,' ')+"). Me pasás precio?";
-    var wa = (typeof waLink==='function') ? waLink(msg) : 'https://wa.me/5492612152270?text='+encodeURIComponent(msg);
-    document.getElementById('pf-m-wa').href = wa;
+    ctaDraw();
     ovl.classList.add('on'); document.body.style.overflow = "hidden";
-    try { if (window.track) track('vista_producto', 'PERFUME', d.name); } catch(e){}
+    var p = prodDe(d);
+    try { track('vista_producto', p ? p.producto : 'PERFUME', p ? p.sabor : d.name, p ? p.precio_num : (d.precio || '')); } catch(e){}
   }
-  function close(){ ovl.classList.remove('on'); document.body.style.overflow = ""; }
+  function close(){ abierto = null; ovl.classList.remove('on'); document.body.style.overflow = ""; }
   document.getElementById('pf-close').addEventListener('click', close);
   ovl.addEventListener('click', function(e){ if(e.target===ovl) close(); });
-  document.addEventListener('keydown', function(e){ if(e.key==="Escape") close(); });
-  document.getElementById('pf-m-wa').addEventListener('click', function(){ try{ if(window.track){ var n=document.getElementById('pf-m-name').textContent; track('click_dm','PERFUME',n);} }catch(e){} });
+  document.addEventListener('keydown', function(e){ if(e.key==="Escape" && abierto) close(); });
 
-  render(); updateHub();
-  (function(){ var pp=document.getElementById('hub-perf-price'); if(pp){ var mn=Math.min.apply(null,PF.map(function(d){return d.precio||1e9;})); if(isFinite(mn)) pp.textContent='desde '+money(mn); } })();
+  render(true); updateHub();
 })();
 </script>
 </body>
