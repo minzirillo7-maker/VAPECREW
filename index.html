@@ -683,7 +683,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
         <div class="vc-hub-body">
           <span class="vc-hub-k">Nuevo</span>
           <b class="vc-hub-n">Perfumes</b>
-          <span class="vc-hub-p">12 originales</span>
+          <span class="vc-hub-p" id="hub-perf-price">desde $27.000</span>
           <span class="vc-hub-go">Ver →</span>
         </div>
       </button>
@@ -2034,6 +2034,8 @@ setTimeout(cargar, 0);
      desc:"Cítrico jugoso y veraniego, con energía de día. Fresco y alegre sin dejar de ser prolijo. Edición de diseño llamativo.",
      top:["Mandarina","Bergamota"], heart:["Frutas","Flores"], base:["Ámbar","Almizcle","Maderas"]}
   ];
+  var PRICES={"p01-azzaro-most-wanted":139500,"p02-odyssey-mandarin-sky":45500,"p03-hawas-ice":61500,"p04-club-de-nuit-intense":57500,"p05-philos-pura":31000,"p06-khamrah-qahwa":49000,"p07-amber-oud-aqua-dubai":83500,"p08-9pm-night-out":84500,"p09-jean-lowe-summer-vibes":41500,"p10-vs-amber-romance":27000,"p11-vs-velvet-petals":27000,"p12-vs-bare-vanilla":27000};
+  PF.forEach(function(d){ d.precio=PRICES[d.id]; });
   var CAT = {unisex:"Unisex", mujer:"Mujer", hombre:"Hombre"};
   var IMG = "assets/perfumes/";
   var filtro = "todos";
@@ -2053,11 +2055,14 @@ setTimeout(cargar, 0);
   // Devuelve {txt, avail} para precio/stock
   function precioDe(d){
     var p = match(d);
-    if (!p) return { txt:"", avail:true, sin:false };
-    var hayStock = (typeof disponible === 'function') ? disponible(p) : true;
-    if (!hayStock) return { txt:"", avail:false, sin:true };
-    var v = (typeof precioBase === 'function') ? precioBase(p) : 0;
-    return { txt: v>0 ? money(v) : "", avail:true, sin:false };
+    if (p){
+      var hayStock = (typeof disponible === 'function') ? disponible(p) : true;
+      if (!hayStock) return { txt:"", avail:false, sin:true };
+      var v = (typeof precioBase === 'function') ? precioBase(p) : 0;
+      if (v>0) return { txt: money(v), avail:true, sin:false };
+    }
+    if (d.precio) return { txt: money(d.precio), avail:true, sin:false };
+    return { txt:"", avail:true, sin:false };
   }
 
   function cardHTML(d){
@@ -2141,6 +2146,7 @@ setTimeout(cargar, 0);
   document.getElementById('pf-m-wa').addEventListener('click', function(){ try{ if(window.track){ var n=document.getElementById('pf-m-name').textContent; track('click_dm','PERFUME',n);} }catch(e){} });
 
   render(); updateHub();
+  (function(){ var pp=document.getElementById('hub-perf-price'); if(pp){ var mn=Math.min.apply(null,PF.map(function(d){return d.precio||1e9;})); if(isFinite(mn)) pp.textContent='desde '+money(mn); } })();
 })();
 </script>
 </body>
