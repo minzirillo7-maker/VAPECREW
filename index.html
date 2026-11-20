@@ -10,7 +10,7 @@
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VAPE CREW">
-<meta property="og:title" content="VAPE CREW — Un precio, sin vueltas">
+<meta property="og:title" content="VAPE CREW — Para los de siempre.">
 <meta property="og:description" content="Originales, un precio por unidad. BC 5K 2 por $16.500. Envío en el momento en Mendoza. Pedí por DM.">
 <meta property="og:image" content="https://i.ibb.co/3mL1r5vm/Whats-App-Image-2026-05-24-at-1-37-01-PM-removebg-preview.png">
 <link rel="icon" href="assets/logo-azul.webp" type="image/webp">
@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/logo-azul.webp">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
 /* ============================================================
    VAPE CREW — póster callejero sobre azul plano
@@ -45,7 +45,7 @@
   --ok:#0B8A4B;
   --wa:#1FAF55;
   --font-display:'Oswald','Arial Narrow',sans-serif;
-  --font-mono:'Space Mono',ui-monospace,monospace;
+  --font-mono:'Instrument Sans',system-ui,sans-serif;
   --logo-w:url('assets/logo-blanco.webp');
   --ease-out:cubic-bezier(.23,1,.32,1);
   --ease-io:cubic-bezier(.77,0,.175,1);
@@ -488,6 +488,90 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   html.js [data-r]{transform:none}
   html.js .night-photos figure img{transform:none}
 }
+/* ============================================================
+   PERFUMES — sección oscura premium (namespaced .pf-)
+   ============================================================ */
+.pf-sec{background:var(--ink);color:#F5F5F7;padding:76px 0 84px;position:relative;overflow:hidden}
+@media(min-width:900px){.pf-sec{padding:120px 0}}
+.pf-sec::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:680px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(28,35,255,.22),transparent 62%);pointer-events:none}
+.pf-head{position:relative;z-index:1;margin-bottom:26px}
+.pf-eyebrow{font-family:var(--font-mono);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:#8B90FF}
+.pf-title{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(44px,11vw,92px);line-height:.92;margin:8px 0 0;color:#fff}
+.pf-intro{color:var(--on-ink);font-size:15px;max-width:40ch;margin-top:14px}
+.pf-filters{position:relative;z-index:1;display:flex;gap:9px;flex-wrap:wrap;margin-bottom:28px}
+.pf-chip{flex:none;height:40px;padding:0 18px;border-radius:999px;background:var(--ink-2);border:1px solid rgba(255,255,255,.1);color:var(--on-ink);font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:14px;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s,transform .16s var(--ease-out)}
+.pf-chip:active{transform:scale(.96)}
+.pf-chip.on{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 6px 22px -6px rgba(28,35,255,.7)}
+.pf-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px}
+@media(min-width:700px){.pf-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media(min-width:1040px){.pf-grid{grid-template-columns:repeat(4,1fr)}}
+.pf-card{position:relative;background:linear-gradient(160deg,var(--ink-2),#0c0c10);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;aspect-ratio:3/4.1;opacity:0;transform:translateY(24px);transition:transform .45s var(--ease-out),border-color .3s,box-shadow .4s,opacity .5s}
+.pf-card.in{opacity:1;transform:none}
+.pf-card:active{transform:scale(.98)}
+.pf-glow{position:absolute;inset:0;opacity:.45;transition:opacity .4s;background:radial-gradient(62% 48% at 50% 40%,var(--acc,rgba(28,35,255,.4)),transparent 70%)}
+.pf-imgwrap{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:12px}
+.pf-imgwrap img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(0,0,0,.55));transition:transform .45s var(--ease-out)}
+.pf-tag{position:absolute;top:11px;left:11px;z-index:3;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:999px;color:#fff;background:rgba(10,10,12,.55);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(6px)}
+.pf-meta{position:relative;z-index:2;padding:12px 14px 15px;background:linear-gradient(transparent,rgba(0,0,0,.4) 42%)}
+.pf-brand{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A8A93;font-weight:600}
+.pf-name{font-family:var(--font-display);font-weight:600;text-transform:uppercase;font-size:15px;line-height:1.08;margin-top:3px;color:#fff}
+.pf-vol{font-size:12px;color:var(--on-ink);margin-top:4px}
+.pf-price{font-family:var(--font-display);font-weight:700;font-size:17px;color:#fff;margin-top:7px}
+.pf-price small{font-family:var(--font-mono);font-weight:400;font-size:11px;color:#8B90FF;display:block;letter-spacing:.02em}
+.pf-ver{position:absolute;bottom:13px;right:13px;z-index:3;opacity:0;font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8B90FF;transform:translateY(6px);transition:.35s}
+@media(hover:hover) and (pointer:fine){.pf-card:hover{transform:translateY(-8px);border-color:rgba(28,35,255,.5);box-shadow:0 24px 50px -18px rgba(0,0,0,.85)}.pf-card:hover .pf-glow{opacity:.9}.pf-card:hover .pf-imgwrap img{transform:scale(1.07) translateY(-4px)}.pf-card:hover .pf-ver{opacity:1;transform:none}}
+/* modal */
+.pf-ovl{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(5,5,7,.8);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .35s}
+.pf-ovl.on{opacity:1;pointer-events:auto}
+.pf-sht{position:relative;width:100%;max-width:900px;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(165deg,#15151b,#0a0a0d);border:1px solid rgba(255,255,255,.1);border-radius:24px;display:grid;grid-template-columns:1fr 1.08fr;transform:scale(.94) translateY(14px);opacity:0;transition:.4s var(--ease-out)}
+.pf-ovl.on .pf-sht{transform:none;opacity:1}
+@media(max-width:760px){.pf-sht{grid-template-columns:1fr;max-height:94vh}}
+.pf-visual{position:relative;display:flex;align-items:center;justify-content:center;padding:28px;min-height:260px;overflow:hidden}
+.pf-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 44% at 50% 44%,var(--acc,rgba(28,35,255,.45)),transparent 70%)}
+.pf-visual img{position:relative;max-width:80%;max-height:400px;object-fit:contain;filter:drop-shadow(0 24px 38px rgba(0,0,0,.6));animation:pfFloat 5s ease-in-out infinite}
+@keyframes pfFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.pf-info{padding:32px 32px 28px}
+.pf-info .pf-ibrand{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8B90FF;font-weight:600}
+.pf-info h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(26px,4vw,36px);line-height:.98;margin:6px 0 2px;color:#fff}
+.pf-isub{color:var(--on-ink);font-size:13px;margin-bottom:16px}
+.pf-desc{color:#d6d6db;font-size:15px;line-height:1.6;margin-bottom:22px}
+.pf-pyrt{font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.07em;font-size:13px;color:#8A8A93;margin-bottom:12px}
+.pf-lvl{margin-bottom:13px}
+.pf-llbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8B90FF;font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.pf-llbl::before{content:"";width:14px;height:1px;background:var(--blue)}
+.pf-notes{display:flex;flex-wrap:wrap;gap:7px}
+.pf-note{font-size:13px;color:#fff;background:var(--ink-2);border:1px solid rgba(255,255,255,.1);padding:6px 13px;border-radius:999px;opacity:0;transform:translateY(8px)}
+.pf-ovl.on .pf-note{animation:pfPop .45s forwards}
+@keyframes pfPop{to{opacity:1;transform:none}}
+.pf-cta{display:flex;align-items:center;gap:14px;margin-top:26px;flex-wrap:wrap}
+.pf-iprice{font-family:var(--font-display);font-weight:700;font-size:22px;color:#fff}
+.pf-iprice small{display:block;font-family:var(--font-mono);font-weight:400;font-size:11px;color:var(--on-ink);letter-spacing:.02em}
+.pf-close{position:absolute;top:13px;right:15px;z-index:5;width:40px;height:40px;border-radius:50%;background:rgba(10,10,12,.6);border:1px solid rgba(255,255,255,.12);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s}
+.pf-close:active{transform:scale(.9)}
+@media(hover:hover) and (pointer:fine){.pf-close:hover{background:var(--blue);border-color:var(--blue)}}
+.pf-cross{position:relative;z-index:1;text-align:center;margin-top:34px;color:var(--on-ink);font-size:14px}
+.pf-cross a{color:#8B90FF;font-weight:600;border-bottom:1px solid rgba(139,144,255,.4);padding-bottom:2px;cursor:pointer}
+
+/* ---------- ACCESOS Vapes / Perfumes (hub) ---------- */
+.vc-hub{padding:24px 0 0}
+.vc-hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:760px){.vc-hub-grid{gap:18px}}
+.vc-hub-card{position:relative;overflow:hidden;border-radius:18px;min-height:172px;display:flex;align-items:flex-end;padding:18px;text-align:left;cursor:pointer;width:100%;transition:transform .22s var(--ease-out),box-shadow .3s}
+@media(min-width:760px){.vc-hub-card{min-height:240px;padding:28px;border-radius:22px}}
+.vc-hub-card:active{transform:scale(.98)}
+@media(hover:hover) and (pointer:fine){.vc-hub-card:hover{transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(10,10,12,.6)}.vc-hub-card:hover .vc-hub-media img{transform:rotate(3deg) translateY(-5px) scale(1.06)}}
+.vc-hub-card.vapes{background:var(--blue);color:#fff}
+.vc-hub-card.perf{background:var(--ink);color:#fff}
+.vc-hub-media{position:absolute;right:-4px;top:0;bottom:0;width:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.vc-hub-media img{max-height:85%;max-width:100%;object-fit:contain;transform:rotate(7deg);filter:drop-shadow(0 16px 20px rgba(0,0,0,.45));transition:transform .5s var(--ease-out)}
+.vc-hub-card.perf .vc-hub-media img{max-height:92%}
+.vc-hub-body{position:relative;z-index:2;max-width:62%}
+.vc-hub-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.82}
+.vc-hub-n{display:block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(28px,7.5vw,50px);line-height:.95;margin:4px 0 6px}
+.vc-hub-p{display:block;font-family:var(--font-display);font-weight:600;font-size:16px}
+.vc-hub-go{display:inline-block;margin-top:10px;font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;opacity:.92}
+@media(max-width:460px){.vc-hub-n{font-size:23px;margin:3px 0 5px}.vc-hub-media{width:42%;right:-8px}.vc-hub-body{max-width:66%}.vc-hub-card{min-height:160px;padding:15px}}
+
 </style>
 </head>
 <body id="top">
@@ -523,6 +607,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
     <nav class="top-nav" aria-label="Secciones">
       <a href="#promos">Precios</a>
       <a href="#catalogo">Catálogo</a>
+      <a href="#perfumes">Perfumes</a>
       <a href="#noche">Envíos</a>
       <a href="#comprar">Cómo comprar</a>
     </nav>
@@ -539,7 +624,7 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
 <section class="hero on-blue" id="promos" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1 id="hero-title"><span class="l" data-h style="--d:0">Un precio,</span><span class="l" data-h style="--d:1"><span class="hl hl-w">sin vueltas</span></span></h1>
+      <h1 id="hero-title"><span class="l" data-h style="--d:0">Para los</span><span class="l" data-h style="--d:1"><span class="hl hl-w">de siempre.</span></span></h1>
       <p class="hero-sub" data-h style="--d:2">Originales, con envío en el momento en Mendoza. Llevá uno o los que quieras: cada uno sale lo mismo.</p>
     </div>
     <div class="ladder" id="ladder">
@@ -580,6 +665,32 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
   </div>
 </section>
 
+<!-- ============ ACCESOS: Vapes / Perfumes ============ -->
+<section class="vc-hub" id="hub" aria-label="Elegí qué buscás">
+  <div class="wrap">
+    <div class="vc-hub-grid">
+      <button class="vc-hub-card vapes" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        <div class="vc-hub-media"><img id="hub-vape-img" alt="" onerror="this.style.visibility='hidden'" style="visibility:hidden"></div>
+        <div class="vc-hub-body">
+          <span class="vc-hub-k">Descartables</span>
+          <b class="vc-hub-n">V4pes</b>
+          <span class="vc-hub-p" id="hub-vape-price">Ver sabores</span>
+          <span class="vc-hub-go">Elegir →</span>
+        </div>
+      </button>
+      <button class="vc-hub-card perf" onclick="document.getElementById('perfumes').scrollIntoView({behavior:'smooth'})">
+        <div class="vc-hub-media"><img src="assets/perfumes/p01-azzaro-most-wanted.png" alt=""></div>
+        <div class="vc-hub-body">
+          <span class="vc-hub-k">Nuevo</span>
+          <b class="vc-hub-n">Perfumes</b>
+          <span class="vc-hub-p">12 originales</span>
+          <span class="vc-hub-go">Ver →</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- ============ MÁS PROMOS (carteles) ============ -->
 <section class="section" id="mas-promos" aria-labelledby="mp-title" style="padding-bottom:0">
   <div class="wrap">
@@ -608,6 +719,47 @@ html.js .night-photos figure.in img{transform:none;transition:transform 1600ms v
     </div>
   </div>
 </section>
+
+<!-- ============ PERFUMES ============ -->
+<section class="pf-sec" id="perfumes" aria-labelledby="pf-title">
+  <div class="wrap">
+    <div class="pf-head">
+      <span class="pf-eyebrow">Nuevo en VAPE CREW</span>
+      <h2 class="pf-title" id="pf-title">Perfumes</h2>
+      <p class="pf-intro">Originales, elegidos uno por uno. Entrá, mirá a qué huele cada uno y pedí el tuyo.</p>
+    </div>
+    <div class="pf-filters" id="pf-filters">
+      <button class="pf-chip on" data-f="todos">Todos</button>
+      <button class="pf-chip" data-f="unisex">Unisex</button>
+      <button class="pf-chip" data-f="mujer">Mujer</button>
+      <button class="pf-chip" data-f="hombre">Hombre</button>
+    </div>
+    <div class="pf-grid" id="pf-grid"></div>
+    <p class="pf-cross">¿Buscás v4pes? <a onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver el catálogo</a></p>
+  </div>
+</section>
+
+<!-- ficha de perfume -->
+<div class="pf-ovl" id="pf-ovl">
+  <div class="pf-sht" id="pf-sht" role="dialog" aria-modal="true" aria-label="Detalle del perfume">
+    <button class="pf-close" id="pf-close" aria-label="Cerrar"><svg class="icon"><use href="#i-close"></use></svg></button>
+    <div class="pf-visual"><img id="pf-m-img" src="" alt=""></div>
+    <div class="pf-info">
+      <div class="pf-ibrand" id="pf-m-brand"></div>
+      <h3 id="pf-m-name"></h3>
+      <div class="pf-isub" id="pf-m-sub"></div>
+      <div class="pf-desc" id="pf-m-desc"></div>
+      <div class="pf-pyrt">Pirámide olfativa</div>
+      <div class="pf-lvl"><div class="pf-llbl">Salida</div><div class="pf-notes" id="pf-m-top"></div></div>
+      <div class="pf-lvl"><div class="pf-llbl">Corazón</div><div class="pf-notes" id="pf-m-heart"></div></div>
+      <div class="pf-lvl"><div class="pf-llbl">Fondo</div><div class="pf-notes" id="pf-m-base"></div></div>
+      <div class="pf-cta">
+        <a class="btn btn-blue" id="pf-m-wa" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"></use></svg>Lo quiero · DM</a>
+        <div class="pf-iprice" id="pf-m-price"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ NOCHE ============ -->
 <section class="night" id="noche" aria-labelledby="noche-title">
@@ -1482,8 +1634,7 @@ function closePop(){
 }
 function verPerfumes(){
   $('pop-sheet').setAttribute('data-ok', '1'); track('popup_click', '', '', '', 'perfumes'); closePop();
-  var q = $('search-input'); q.value = 'perfume'; var x = $('search-x'); if (x) x.classList.add('on');
-  render(); $('catalogo').scrollIntoView({ behavior:'smooth' });
+  var s = document.getElementById('perfumes'); if (s) s.scrollIntoView({ behavior:'smooth' });
 }
 function popEnviar(){
   var w = telN($('pop-tel').value), nom = nombreFormato($('pop-nom') ? $('pop-nom').value : '');
@@ -1529,6 +1680,7 @@ function aplicarCatalogo(data){
   productos = data.filter(function(p){ return p && p.producto; });
   carrito = carrito.filter(function(c){ var p = prodById(c.id); return p && disponible(p); });
   renderChips(); refrescar();
+  if (window.pfSync) pfSync();
 }
 async function cargar(){
   var cacheTxt = null;
@@ -1832,6 +1984,163 @@ setTimeout(cargar, 0);
       }, 1200);
     });
   })();
+})();
+</script>
+<script>
+/* =============================================================
+   PERFUMES — catálogo curado (fotos + notas) con precio/stock
+   leídos de la planilla por coincidencia de nombre.
+   No toca carrito, CREW CARD ni tracking del resto.
+   ============================================================= */
+(function(){
+  var PF = [
+    // ---- UNISEX ----
+    {id:"p06-khamrah-qahwa", keys:["KHAMRAH","QAHWA"], cat:"unisex", brand:"Lattafa", name:"Khamrah Qahwa", vol:"100ml · EDP", acc:"rgba(150,95,45,.55)",
+     desc:"Gourmand especiado para los que quieren dejar estela. Café dulce y especias cálidas que se sienten de lejos. Un golazo para la noche y el frío.",
+     top:["Café","Cardamomo","Nuez moscada"], heart:["Dátiles","Canela","Praliné"], base:["Vainilla","Haba tonka","Benjuí"]},
+    {id:"p08-9pm-night-out", keys:["9PM","NIGHT"], cat:"unisex", brand:"Afnan", name:"9PM Night Out", vol:"100ml · Extrait", acc:"rgba(130,135,150,.5)",
+     desc:"Dulce, cálido y elegante. Hecho para salir: arranca frutal y especiado y cierra en vainilla y ámbar. Rinde un montón.",
+     top:["Manzana","Canela","Bergamota"], heart:["Lavanda","Flores blancas"], base:["Vainilla","Ámbar","Haba tonka"]},
+    {id:"p07-amber-oud-aqua-dubai", keys:["AMBER","OUD","DUBAI"], cat:"unisex", brand:"Al Haramain", name:"Amber Oud Aqua Dubai", vol:"75ml · Extrait", acc:"rgba(40,150,220,.5)",
+     desc:"Fresco acuático con un fondo ámbar que lo hace serio. Limpio, moderno y con proyección de sobra. Para todos los días, sin cansar.",
+     top:["Cítricos","Notas marinas"], heart:["Frutas acuáticas","Menta"], base:["Ámbar","Almizcle","Maderas"]},
+    {id:"p05-philos-pura", keys:["PHILOS","PURA"], cat:"unisex", brand:"Maison Alhambra", name:"Philos Pura", vol:"100ml · EDP", acc:"rgba(110,70,180,.5)",
+     desc:"Dulce cremoso y envolvente. Suave pero presente, de esos que te preguntan qué tenés puesto. Versátil de día y de noche.",
+     top:["Frutas rojas","Bergamota"], heart:["Vainilla","Flores"], base:["Ámbar","Maderas","Tonka"]},
+    {id:"p09-jean-lowe-summer-vibes", keys:["JEAN","LOWE","SUMMER"], cat:"unisex", brand:"Maison Alhambra", name:"Jean Lowe Summer Vibes", vol:"100ml · EDP", acc:"rgba(230,170,40,.5)",
+     desc:"Verano embotellado. Cítrico jugoso y afrutado, fresco y alegre. Para el calor, la previa y el día.",
+     top:["Cítricos","Frutas tropicales"], heart:["Flores blancas"], base:["Ámbar","Almizcle"]},
+    // ---- MUJER ----
+    {id:"p10-vs-amber-romance", keys:["AMBER","ROMANCE"], cat:"mujer", brand:"Victoria's Secret", name:"Amber Romance", vol:"250ml · Body Splash", acc:"rgba(220,150,120,.5)",
+     desc:"Brume corporal cálida y sensual. Dulce, abrazadora y muy femenina. Ideal para llevar en la cartera y retocar en el día.",
+     top:["Ciruela negra","Mandarina"], heart:["Orquídea","Flores"], base:["Ámbar","Vainilla","Sándalo"]},
+    {id:"p11-vs-velvet-petals", keys:["VELVET","PETALS"], cat:"mujer", brand:"Victoria's Secret", name:"Velvet Petals", vol:"250ml · Body Splash", acc:"rgba(220,130,170,.5)",
+     desc:"Floral dulce y aterciopelado. Coqueto, fresco y fácil de amar. El clásico de VS que nunca falla.",
+     top:["Lichi","Mandarina"], heart:["Peonía","Flores"], base:["Almizcle","Maderas suaves"]},
+    {id:"p12-vs-bare-vanilla", keys:["BARE","VANILLA"], cat:"mujer", brand:"Victoria's Secret", name:"Bare Vanilla Shimmer", vol:"250ml · Body Splash", acc:"rgba(210,175,130,.5)",
+     desc:"Vainilla cremosa y reconfortante, con destellos shimmer en la piel. Suave, dulce y adictiva.",
+     top:["Vainilla","Frutas suaves"], heart:["Flor de vainilla"], base:["Madera de cachemira","Almizcle"]},
+    // ---- HOMBRE ----
+    {id:"p04-club-de-nuit-intense", keys:["CLUB","NUIT","INTENSE"], cat:"hombre", brand:"Armaf", name:"Club de Nuit Intense Man", vol:"105ml · EDT", acc:"rgba(90,110,140,.5)",
+     desc:"El frutal ahumado que todos reconocen. Piña brillante arriba, humo de abedul abajo. Potente, elegante y con una proyección enorme.",
+     top:["Piña","Limón","Grosella negra","Bergamota"], heart:["Abedul (ahumado)","Jazmín","Rosa"], base:["Almizcle","Vainilla","Ámbar","Maderas"]},
+    {id:"p01-azzaro-most-wanted", keys:["AZZARO","WANTED"], cat:"hombre", brand:"Azzaro", name:"The Most Wanted EDP Intense", vol:"100ml · EDP", acc:"rgba(70,90,120,.5)",
+     desc:"Seductor y nocturno. Cardamomo cremoso y caramelo tostado que arma un imán. Para la noche, el frío y jugártela.",
+     top:["Cardamomo","Bergamota"], heart:["Toffee","Lavanda"], base:["Ámbar","Maderas","Haba tonka"]},
+    {id:"p03-hawas-ice", keys:["HAWAS","ICE"], cat:"hombre", brand:"Rasasi", name:"Hawas Ice", vol:"100ml · EDP", acc:"rgba(120,160,210,.5)",
+     desc:"Fresco, limpio y versátil. Una versión más fría y aromática, perfecta para el calor y el uso diario. Agrada a todos.",
+     top:["Bergamota","Manzana","Jengibre"], heart:["Cardamomo","Notas marinas"], base:["Ámbar gris","Almizcle","Maderas"]},
+    {id:"p02-odyssey-mandarin-sky", keys:["ODYSSEY","MANDARIN"], cat:"hombre", brand:"Armaf", name:"Odyssey Mandarin Sky", vol:"100ml · EDP", acc:"rgba(240,150,60,.5)",
+     desc:"Cítrico jugoso y veraniego, con energía de día. Fresco y alegre sin dejar de ser prolijo. Edición de diseño llamativo.",
+     top:["Mandarina","Bergamota"], heart:["Frutas","Flores"], base:["Ámbar","Almizcle","Maderas"]}
+  ];
+  var CAT = {unisex:"Unisex", mujer:"Mujer", hombre:"Hombre"};
+  var IMG = "assets/perfumes/";
+  var filtro = "todos";
+  var grid = document.getElementById('pf-grid');
+  if (!grid) return;
+
+  // Busca el producto en la planilla por coincidencia de nombre (si ya está cargado)
+  function match(d){
+    if (!window.productos || !productos.length || typeof norm !== 'function') return null;
+    for (var i=0;i<productos.length;i++){
+      var n = norm(productos[i].producto);
+      var ok = d.keys.every(function(k){ return n.indexOf(norm(k)) !== -1; });
+      if (ok) return productos[i];
+    }
+    return null;
+  }
+  // Devuelve {txt, avail} para precio/stock
+  function precioDe(d){
+    var p = match(d);
+    if (!p) return { txt:"", avail:true, sin:false };
+    var hayStock = (typeof disponible === 'function') ? disponible(p) : true;
+    if (!hayStock) return { txt:"", avail:false, sin:true };
+    var v = (typeof precioBase === 'function') ? precioBase(p) : 0;
+    return { txt: v>0 ? money(v) : "", avail:true, sin:false };
+  }
+
+  function cardHTML(d){
+    var pr = precioDe(d);
+    var precioBloque = pr.sin
+      ? '<div class="pf-price" style="color:#8A8A93">Sin stock</div>'
+      : (pr.txt ? '<div class="pf-price">'+pr.txt+'</div>'
+                : '<div class="pf-price"><small>Consultá por DM</small></div>');
+    return '<div class="pf-card" style="--acc:'+d.acc+'" data-id="'+d.id+'">'+
+      '<div class="pf-glow"></div>'+
+      '<div class="pf-tag">'+CAT[d.cat]+'</div>'+
+      '<div class="pf-imgwrap"><img src="'+IMG+d.id+'.png" alt="'+d.name+'" loading="lazy"></div>'+
+      '<div class="pf-meta"><div class="pf-brand">'+d.brand+'</div>'+
+      '<div class="pf-name">'+d.name+'</div><div class="pf-vol">'+d.vol+'</div>'+
+      precioBloque+'</div>'+
+      '<div class="pf-ver">Ver →</div></div>';
+  }
+
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.12 }) : null;
+
+  function render(){
+    var list = PF.filter(function(d){ return filtro==="todos" || d.cat===filtro; });
+    grid.innerHTML = list.map(cardHTML).join('');
+    var cards = grid.querySelectorAll('.pf-card');
+    cards.forEach(function(c, i){
+      c.addEventListener('click', function(){ open(c.getAttribute('data-id')); });
+      if (io) io.observe(c); else c.classList.add('in');
+    });
+  }
+  function updateHub(){
+    var img=document.getElementById('hub-vape-img'), pr=document.getElementById('hub-vape-price');
+    if(!img||!window.productos||!productos.length) return;
+    var disp=productos.filter(function(p){return (typeof disponible==='function')?disponible(p):true;});
+    var withImg=disp.filter(function(p){return p.imagen_url;});
+    var pick=withImg[0]||disp[0];
+    if(pick&&pick.imagen_url&&typeof imgUrl==='function'){ img.src=imgUrl(pick.imagen_url,400); img.style.visibility='visible'; }
+    var prices=disp.map(function(p){return (typeof precioBase==='function')?precioBase(p):0;}).filter(function(v){return v>0;});
+    if(pr&&prices.length){ pr.textContent='desde '+money(Math.min.apply(null,prices)); }
+  }
+  // refresco cuando carga la planilla
+  window.pfSync = function(){ render(); updateHub(); };
+
+  // filtros
+  document.getElementById('pf-filters').addEventListener('click', function(e){
+    var b = e.target.closest('.pf-chip'); if(!b) return;
+    this.querySelectorAll('.pf-chip').forEach(function(c){ c.classList.remove('on'); });
+    b.classList.add('on'); filtro = b.getAttribute('data-f'); render();
+  });
+
+  // modal
+  var ovl = document.getElementById('pf-ovl');
+  function chips(elId, arr){
+    var el = document.getElementById(elId); el.innerHTML = "";
+    arr.forEach(function(n,i){ var s=document.createElement('span'); s.className="pf-note"; s.textContent=n; s.style.animationDelay=(i*60+150)+"ms"; el.appendChild(s); });
+  }
+  function byId(id){ for (var i=0;i<PF.length;i++) if (PF[i].id===id) return PF[i]; return null; }
+  function open(id){
+    var d = byId(id); if(!d) return;
+    document.getElementById('pf-sht').style.setProperty('--acc', d.acc);
+    var im = document.getElementById('pf-m-img'); im.src = IMG+d.id+'.png'; im.alt = d.name;
+    document.getElementById('pf-m-brand').textContent = d.brand;
+    document.getElementById('pf-m-name').textContent = d.name;
+    document.getElementById('pf-m-sub').textContent = CAT[d.cat]+' · '+d.vol;
+    document.getElementById('pf-m-desc').textContent = d.desc;
+    chips('pf-m-top', d.top); chips('pf-m-heart', d.heart); chips('pf-m-base', d.base);
+    var pr = precioDe(d);
+    var ip = document.getElementById('pf-m-price');
+    ip.innerHTML = pr.sin ? '<small>Sin stock por ahora</small>' : (pr.txt ? pr.txt+'<small>por unidad</small>' : '<small>Consultá precio por DM</small>');
+    var msg = "Hola! Me interesa el "+d.name+" ("+d.vol.replace(/ · /g,' ')+"). Me pasás precio?";
+    var wa = (typeof waLink==='function') ? waLink(msg) : 'https://wa.me/5492612152270?text='+encodeURIComponent(msg);
+    document.getElementById('pf-m-wa').href = wa;
+    ovl.classList.add('on'); document.body.style.overflow = "hidden";
+    try { if (window.track) track('vista_producto', 'PERFUME', d.name); } catch(e){}
+  }
+  function close(){ ovl.classList.remove('on'); document.body.style.overflow = ""; }
+  document.getElementById('pf-close').addEventListener('click', close);
+  ovl.addEventListener('click', function(e){ if(e.target===ovl) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==="Escape") close(); });
+  document.getElementById('pf-m-wa').addEventListener('click', function(){ try{ if(window.track){ var n=document.getElementById('pf-m-name').textContent; track('click_dm','PERFUME',n);} }catch(e){} });
+
+  render(); updateHub();
 })();
 </script>
 </body>
